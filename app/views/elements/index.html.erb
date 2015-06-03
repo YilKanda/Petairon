@@ -1,4 +1,16 @@
 <header>
+	<div id="property-options">
+		<label><input type="button" value="Atomic mass (g/mol)" name="characterist" id="mass" class="property-button"></label>
+		<label><input type="button" value="Melting point (K)" name="characterist" id="melting-point" class="property-button"></label>
+		<label><input type="button" value="Boiling point (K)" name="characterist" id="boiling-point" class="property-button"></label>
+		<label><input type="button" value="Abundance (%)" name="characterist" id="abundance" class="property-button"></label>
+		<label><input type="button" value="Radium (pm)" name="characterist" id="radium" class="property-button"></label>
+		<label><input type="button" value="Ionization energy (kJ/mol)" name="characterist" id="ionization-energy" class="property-button"></label>
+		<label><input type="button" value="Electronegativity" name="characterist" id="electronegativity" class="property-button"> </label>
+		<label><input type="button" value="Electron affinity (KJ/mol)" name="characterist" id="electron-affinity" class="property-button"></label>
+		<label><input type="button" value="Categories" name="characterist" id="categories" class="property-button"></label>
+	</div>
+
 
 </header>
 <!-- Tabla Periodica-elementos -->
@@ -18,9 +30,7 @@
 					<% end %>
 				</td>
 				<% period.each do |is_an_element|  %>
-					<% if is_an_element == 1 %>
-						<% i = i %>
-					<% elsif is_an_element == 2 %>
+					<% if is_an_element == 2 %>
 						<% i = i + 15 %>
 					<% elsif is_an_element == 3 %>
 						<% i = i - 62 %>
@@ -33,7 +43,7 @@
 							<table class="element-box">
 								<tr>
 									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
+									<td class="element-property" id="element<%= @elements[i].atomic_number %>-property" colspan="2"> <%= @elements[i].mass %> </td>
 								</tr>
 								<tr>
 									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
