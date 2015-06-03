@@ -1,4 +1,6 @@
-<header></header>
+<header>
+
+</header>
 <!-- Tabla Periodica-elementos -->
 	<table id="periodic-table">
 		<tr class="row-header">
@@ -17,66 +19,16 @@
 				</td>
 				<% period.each do |is_an_element|  %>
 					<% if is_an_element == 1 %>
-						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-							<table class="element-box">
-								<tr>
-									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-								</tr>
-								<tr>
-									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-								</tr>
-							</table>
-						</td>
-						<% i += 1 %>
+						<% i = i %>
 					<% elsif is_an_element == 2 %>
 						<% i = i + 15 %>
-						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-							<table class="element-box">
-								<tr>
-									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-								</tr>
-								<tr>
-									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-								</tr>
-							</table>
-						</td>
-						<% i += 1 %>
 					<% elsif is_an_element == 3 %>
 						<% i = i - 62 %>
-						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-							<table class="element-box">
-								<tr>
-									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-								</tr>
-								<tr>
-									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-								</tr>
-								<tr>
-									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-								</tr>
-							</table>
-						</td>
-						<% i += 1 %>
 					<% elsif is_an_element == 4 %>
 						<% i = i + 17 %>
+					<% end %>
+
+					<% if is_an_element > 0 && is_an_element < 5  %>
 						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
 							<table class="element-box">
 								<tr>

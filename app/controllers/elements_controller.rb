@@ -1,7 +1,8 @@
 class ElementsController < ApplicationController
 	def index
 		@elements = Element.all	
-		@matrix_elements = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		@matrix_elements = [
+			[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
 			[1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
 			[1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
 			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
