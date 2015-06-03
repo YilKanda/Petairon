@@ -1,0 +1,202 @@
+<header></header>
+<!-- Tabla Periodica-elementos -->
+	<table id="periodic-table">
+		<tr class="row-header">
+			<td> </td>
+			<% (1..18).each do |i| %>
+				<td> <%= i %> </td>
+			<% end %>
+		</tr>
+		<% @elements.each_with_index do |element, i| %>
+			<tr class="row">
+				<% if i == 0 %>
+					<td class="column-periods"> 1 </td>
+					<td id="element<%= element.atomic_number %>" class="border-element"> 
+						<table class="element-box">
+							<tr>
+								<td class="atomic-number"> <%= element.atomic_number %> </td>
+								<td class="element-property" colspan="2"> <%= element.mass %> </td>
+							</tr>
+							<tr>
+								<td class="atomic-short" colspan="3"> <%= element.short_name %></td>
+							</tr>
+							<tr>
+								<td colspan="3"> 1s<sup>1</sup> </td>
+							</tr>
+							<tr>
+								<td class="atomic-name" colspan="3">element.mass.long_name</td>
+							</tr>
+						</table>
+					</td>
+				<% end %>
+				<td class="no-border" colspan="16"> </td>
+				<% if i == 1 %>
+					<td id="element<%= element.atomic_number %>" class="border-element"> 
+						<table class="element-box">
+								<tr>
+									<td class="atomic-number"> <%= element.atomic_number %> </td>
+									<td class="element-property" colspan="2"> <%= element.mass %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> <%= element.short_name %></td>
+								</tr>
+								<tr>
+									<td colspan="3"> 1s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">element.mass.long_name</td>
+								</tr>
+							</table>
+					</td>
+				<% end %>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 2 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="no-border" colspan="10"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 3 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="no-border" colspan="10"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 4 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 5 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 6 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="column-periods"> 7 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="no-border" colspan="18"> </td>
+			</tr>
+			<tr class="row">
+				<td class="no-border" colspan="3"> </td>
+				<td class="column-periods"> 6 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+			<tr class="row">
+				<td class="no-border" colspan="3"> </td>
+				<td class="column-periods"> 7 </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+				<td class="border-element"> </td>
+			</tr>
+	</table>

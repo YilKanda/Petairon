@@ -1,0 +1,77 @@
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: calibri;
+}
+
+table {
+	padding: 0;
+	margin: auto;
+}
+
+
+header {
+	height: 100px;
+}
+
+td, tr {
+	margin: 0;
+	padding: 0;
+}
+
+.border-element {
+	border: 1px solid black;
+	width: 60px;
+	height: 60px;
+}
+
+.element-box{
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	font-size: 11px;
+}
+
+.atomic-number{
+	text-decoration: bold;
+	text-align: left;
+}
+
+.element-property {
+	text-decoration: bold;
+	text-align: right;	
+}
+
+.atomic-short{
+	margin: 0;
+	padding: 0;
+	font-size: 25px;
+	text-decoration: bold;
+	text-align: center;
+}
+
+.atomic-name{
+	text-decoration: bold;
+}
+
+.simbol-row{
+	width: 60%;
+	height: 40%;
+}
+
+.no-border {
+	width: 60px;
+	height: 60px;
+}
+
+.column-periods {
+	width: 25px;
+	height: 60px;
+	text-align: right;
+	padding-right: 10px;
+	margin: 0;
+}
+
+.row { padding: 0px; margin: 0px; }
+.row-header { height: 25px; text-align: center; }

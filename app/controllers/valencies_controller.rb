@@ -1,0 +1,2 @@
+class ValenciesController < ApplicationController
+end
