@@ -7,307 +7,100 @@
 				<td> <%= i %> </td>
 			<% end %>
 		</tr>
-		
-			<tr class="row">
-				<% i=0 %>
-					<td class="column-periods"> 1 </td>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-					<td class="no-border" colspan="16"> </td>
-					<td id="element<%= @elements[i+1].atomic_number %>" class="border-element"> 
-						<table class="element-box">
+		<% i = 0 %>
+		<% @matrix_elements.each_with_index do |period, index| %>
+			<tr class="row"> 
+				<td class="column-periods"> 
+					<% if index < 7 %>
+						<%= index + 1 %> 
+					<% end %>
+				</td>
+				<% period.each do |is_an_element|  %>
+					<% if is_an_element == 1 %>
+						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
+							<table class="element-box">
 								<tr>
-									<td class="atomic-number"> <%= @elements[i+1].atomic_number %> </td>
-									<td class="element-property" colspan="2"> <%= @elements[i+1].mass %> </td>
+									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
+									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
 								</tr>
 								<tr>
-									<td class="atomic-short" colspan="3"> <%= @elements[i+1].short_name %></td>
+									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
 								</tr>
 								<tr>
-									<td colspan="3"> <%= @elements[i+1].electron_configuration %> </td>
+									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
 								</tr>
 								<tr>
-									<td class="atomic-name" colspan="3"> <%= @elements[i+1].long_name %></td>
+									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
 								</tr>
 							</table>
-					</td>
-			</tr>
-
-			<tr class="row">
-				<td class="column-periods"> 2 </td>
-				<% for i in 2..3 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
+						</td>
+						<% i += 1 %>
+					<% elsif is_an_element == 2 %>
+						<% i = i + 15 %>
+						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
+							<table class="element-box">
+								<tr>
+									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
+									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
+								</tr>
+								<tr>
+									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
+								</tr>
+							</table>
+						</td>
+						<% i += 1 %>
+					<% elsif is_an_element == 3 %>
+						<% i = i - 62 %>
+						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
+							<table class="element-box">
+								<tr>
+									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
+									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
+								</tr>
+								<tr>
+									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
+								</tr>
+							</table>
+						</td>
+						<% i += 1 %>
+					<% elsif is_an_element == 4 %>
+						<% i = i + 17 %>
+						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
+							<table class="element-box">
+								<tr>
+									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
+									<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
+								</tr>
+								<tr>
+									<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
+								</tr>
+							</table>
+						</td>
+						<% i += 1 %>
+					<% elsif is_an_element == 5 %>
+						<td class="column-periods"> <%= index - 2 %> </td>
+					<% else %>
+						<td class="no-border"> </td>
+					<% end %>
 				<% end %>
-				<td class="no-border" colspan="10"> </td>
-				<% for i in 4..9  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-
-			<tr class="row">
-				<td class="column-periods"> 3 </td>
-				<% for i in 10..11  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-				<td class="no-border" colspan="10"> </td>
-				<% for i in 12..17 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="column-periods"> 4 </td>
-				<% for i in 18..35 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="column-periods"> 5 </td>
-				<% for i in 36..53 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="column-periods"> 6 </td>
-				<% for i in 54..55 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-				<td class="no-border"> </td>
-				<% for i in 71..85  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="column-periods"> 7 </td>
-				<% for i in 86..87 %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-				<td class="no-border"> </td>
-				<% for i in 103..117  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="no-border" colspan="18"> </td>
-			</tr>
-			<tr class="row">
-				<td class="no-border" colspan="3"> </td>
-				<td class="column-periods"> 6 </td>
-				<% for i in 56..70  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
-			<tr class="row">
-				<td class="no-border" colspan="3"> </td>
-				<td class="column-periods"> 7 </td>
-				<% for i in 88..102  %>
-					<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
-						<table class="element-box">
-							<tr>
-								<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-								<td class="element-property" colspan="2"> <%= @elements[i].mass %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[i].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-							</tr>
-						</table>
-					</td>
-				<% end %>
-			</tr>
+			<% end %>
+		</tr>
 	</table>
