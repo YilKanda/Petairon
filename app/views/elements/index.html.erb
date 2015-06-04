@@ -1,14 +1,15 @@
 <header>
 	<div id="property-options">
-		<label><input type="button" value="Atomic mass (g/mol)" name="characterist" id="mass" class="property-button"></label>
-		<label><input type="button" value="Melting point (K)" name="characterist" id="melting-point" class="property-button"></label>
-		<label><input type="button" value="Boiling point (K)" name="characterist" id="boiling-point" class="property-button"></label>
-		<label><input type="button" value="Abundance (%)" name="characterist" id="abundance" class="property-button"></label>
-		<label><input type="button" value="Radium (pm)" name="characterist" id="radium" class="property-button"></label>
-		<label><input type="button" value="Ionization energy (kJ/mol)" name="characterist" id="ionization-energy" class="property-button"></label>
-		<label><input type="button" value="Electronegativity" name="characterist" id="electronegativity" class="property-button"> </label>
-		<label><input type="button" value="Electron affinity (KJ/mol)" name="characterist" id="electron-affinity" class="property-button"></label>
-		<label><input type="button" value="Categories" name="characterist" id="categories" class="property-button"></label>
+			<label><button type="submit" value="mass" name="property" id="mass" class="property-button">Atomic mass (g/mol)</button></label>
+			<label><button type="submit" value="melting_point" name="property" id="melting-point" class="property-button">Melting point (K)</button></label>
+			<label><button type="submit" value="boiling_point" name="property" id="boiling-point" class="property-button">Boiling point (K)</button></label>
+			<label><button type="submit" value="abundance" name="property" id="abundance" class="property-button">Abundance (%)</button></label>
+			<label><button type="submit" value="radium" name="property" id="radium" class="property-button">Radium (pm)</button></label>
+			<label><button type="submit" value="ionization_energy" name="property" id="ionization-energy" class="property-button">Ionization energy (kJ/mol)</button></label>
+			<label><button type="submit" value="electronegativity" name="property" id="electronegativity" class="property-button"> Electronegativity </button></label>
+			<label><button type="submit" value="electron_affinity" name="property" id="electron-affinity"class="property-button">Electron affinity (KJ/mol)</button></label>
+			<label><button type="submit" value="categories" name="property" id="categories" class="property-button">Categories</button></label>
+			<label><button type="submit" value="state" name="property" id="state" class="property-button">State</button></label>
 	</div>
 
 
@@ -39,11 +40,11 @@
 					<% end %>
 
 					<% if is_an_element > 0 && is_an_element < 5  %>
-						<td id="element<%= @elements[i].atomic_number %>" class="border-element"> 
+						<td id="element<%= i %>" class="border-element"> 
 							<table class="element-box">
 								<tr>
 									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" id="element<%= @elements[i].atomic_number %>-property" colspan="2"> <%= @elements[i].mass %> </td>
+									<td class="element-property" id="element<%= i %>-property" colspan="2"> <%= @elements[i].mass %> </td>
 								</tr>
 								<tr>
 									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>

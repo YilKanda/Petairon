@@ -9,10 +9,10 @@ array_elements = []
 
 end
 
-  (1..118).each do |i|
+  (0..117).each do |i|
     elements << Element.create( short_name: array_elements[i][:short_name], 
-      long_name: gem_elements[i][:long],
-      mass: gem_elements[i][:mass],
+      long_name: gem_elements[i+1][:long],
+      mass: gem_elements[i+1][:mass],
       period: array_elements[i][:period], 
       group: array_elements[i][:group], 
       electron_affinity: array_elements[i][:electron_affinity],

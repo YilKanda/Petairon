@@ -10,7 +10,7 @@ table {
 	margin: auto;
 }
 
-input {
+label > button {
 	padding: 10px 18px 10px 18px;
 	margin: 5px;
 	border-radius: 25%;
