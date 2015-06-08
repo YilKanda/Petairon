@@ -23,7 +23,9 @@ end
       boiling_point: array_elements[i][:boiling_point], 
       melting_point: array_elements[i][:melting_point], 
       electronegativity: array_elements[i][:electronegativity],
-      atomic_number: array_elements[i][:atomic_number])
+      atomic_number: array_elements[i][:atomic_number],
+      category: ChemistryRails::ELEMENT_CATEGORIES[gem_elements[i+1][:category]]
+    ) 
   end
       
 # H-valencies

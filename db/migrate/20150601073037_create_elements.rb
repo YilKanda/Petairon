@@ -15,6 +15,7 @@ class CreateElements < ActiveRecord::Migration
     	t.float :radium
     	t.string :electron_configuration
         t.integer :atomic_number
+        t.string :category
 
       t.timestamps null: false
     end

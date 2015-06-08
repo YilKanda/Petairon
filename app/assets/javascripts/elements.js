@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var elements;
 	var color = {
 		melting_point: [[0,4000],[]],
-		boiling_point: [[0,6000],['#E6FFFF','#A6FFFF','#59FFFF','#00FFFF','#00CCFF','#0D9ECF']],
+		boiling_point: [[0,6000],['#FFFFFF','#E6F5FA','#BFE6F2','#A6DBED','#99D6EB','#80CCE6','#59BDDE','#33ADD6','#26A8D4','#0099CC','#0066CC','#0033CC']],
 		radium: [[],[]],
 		abundance: [[0,76],[]],
 		ionization_energy: [[300,2400],[]],
@@ -47,8 +47,18 @@ $(document).ready(function() {
 		} 	
 	}
 
-	function colorVariation(i, property) {
-		$("#element"+ i +"-property").text(elements[i][property]);
+	function colorVariation(index, property) {
+		$("#element"+ index +"-property").text(elements[index][property]);
+		var length = color[property][1].length;
+		var colors = color[property][1];
+		var init = color[property][0][0];
+		var ending = color[property][0][1];
+		for (var i=(length-1); i>=0; i--) {
+			var margen1 = init + ((ending - init)/length) * (i);
+			var margen2 = init + ((ending - init)/length) * (i+1);
+			if (elements[index][property] > margen1 && elements[index][property] < margen2)
+				$('#element'+index).css('background-color', colors[i]);
+		}
 
 	}
 
