@@ -7,7 +7,7 @@ body{
 
 table {
 	padding: 0;
-	margin: auto;
+	margin: 0 auto;
 }
 
 label > button {
@@ -39,6 +39,36 @@ td, tr {
 	width: 60px;
 	height: 60px;
 	background: #D8D8D8;
+}
+
+#box-legend {
+	border: 1px solid black;
+	padding: 5px;
+	width: 140px;
+	height: 180px;
+	background: #D8D8D8;
+	font-size: 20px;
+	position: absolute;
+	margin-top: 18px;
+	margin-left: 15px;	
+}
+
+.legend-atomic-short {
+	margin: 0;
+	padding: 0;
+	font-size: 45px;
+	text-decoration: bold;
+	text-align: center;
+}
+
+#legend {
+	position: absolute;
+	margin-top: 18px;
+	margin-left: 155px;
+	width: 655px;
+	height: 210px;
+	background: red;
+	display: inline-block;
 }
 
 .no-border {

@@ -15,9 +15,29 @@
 
 </header>
 <!-- Tabla Periodica-elementos -->
-	<table id="periodic-table">
+<div id="periodic-table">
+	<table>
 		<tr class="row-header">
-			<td> </td>
+			<td>
+				<div id='legend'>
+						<table id="box-legend">
+							<tr>
+								<td class="atomic-number"> <%= @elements[0].atomic_number %> </td>
+								<td class="element-property" id="legend-property" colspan="2"> <%= @elements[0].mass %> </td>
+							</tr>
+							<tr>
+								<td class="legend-atomic-short" colspan="3"> <%= @elements[0].short_name %></td>
+							</tr>
+							<tr>
+								<td colspan="3"> <%= @elements[0].electron_configuration %> </td>
+							</tr>
+							<tr>
+								<td class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
+							</tr>
+						</table>
+				</div> 
+			</td>
+
 			<% (1..18).each do |i| %>
 				<td> <%= i %> </td>
 			<% end %>
@@ -67,3 +87,4 @@
 			<% end %>
 		</tr>
 	</table>
+</div>
