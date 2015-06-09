@@ -55,7 +55,7 @@ td, tr {
 	visibility: hidden;
 	position: absolute;
 	margin-top: 18px;
-	margin-left: 815px;
+	margin-left: 812px;
 	width: 340px;
 	height: 80px;
 	background: lightgreen;
@@ -74,19 +74,10 @@ td, tr {
 	margin-left: 15px;	
 }
 
-#temperature-legend {
-	position: absolute;
-	width: 255px;
-	height: 80px;
-	background: green;
-	display: inline-block;
-	z-index: 5;
-}
-
 .slider{
    	height: 20px;
    	position: relative;
-   	width: 50%;
+   	width: 90%;
 	top: 20px;
 	left: 18px;
 }
@@ -112,7 +103,7 @@ td, tr {
    height: 40%;
    top: 25%;
    position: absolute;
-   width: 0%;
+   width: 4.9%;
    -webkit-box-shadow: 1px 1px 3px 0px #ccc;
    box-shadow: 1px 1px 3px 0px #ccc;
 }
@@ -123,16 +114,21 @@ td, tr {
    cursor: move;
    height: 100%;
    margin: 1px auto auto -10px;
-   left: 0%;
+   left: 4.9%;
    position: absolute;
    width: 27px;
    z-index: 7;
 }
 
 #slider-text {
-	margin-left: 150px;
+	margin-top: 5px;
+	text-align: center;
 	font-size: 14px;
-	display: inline-block;;
+	display: inline-block;
+}
+
+#temperature-val{
+	border: 10%;
 }
 
 #atomic-short {

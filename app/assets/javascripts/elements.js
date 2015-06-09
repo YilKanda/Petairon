@@ -33,6 +33,7 @@ $(document).ready(function() {
 				elementState(i, $property, 293);
 				$("#element"+ i +"-property").text('');
 			} else if ($property != 'state') {
+				$('#second-legend').css('visibility', 'hidden');
 				colorVariation(i, $property);
 			} else {
 				$("#element"+ i +"-property").text(' ');
@@ -42,10 +43,9 @@ $(document).ready(function() {
 
 	// Mostrar funcionalidad del slider para el cambio de la temperatura
 	$('.slider').on('mousedown', function(e){
-	    	moveSlider(e);
-	    	$(this).on('mousemove', function(e){
-	        	moveSlider(e);
-	    	});
+    	moveSlider(e);
+    	$(this).on('mousemove', function(e){
+        	moveSlider(e);
 	    });
 
 	}).on('mouseup', function(){
@@ -57,9 +57,7 @@ $(document).ready(function() {
 
 	    var pos = $(e.currentTarget).offset(), 
 	    	posX = e.pageX - pos.left,   
-	    	value = Math.round((posX)*6000/$(e.currentTarget).outerWidth());
-
-	    	console.log(value);
+	    	value = Math.round((posX)*6019/$(e.currentTarget).outerWidth())-10;
 	    if(posX >= 0 && posX <= $(e.currentTarget).outerWidth()){
 	        $('.slider > .progress').css('width', posX+'px');
 	        $('.slider > .indicator').css('left', posX+'px');
@@ -73,6 +71,7 @@ $(document).ready(function() {
 	    }
 	}
 
+	//rellenar la leyenda principal
 	function fillLegend(){
 		$('.border-element').on("click", function(){
 			var i = $(this).attr('id').replace('element','');
@@ -83,12 +82,11 @@ $(document).ready(function() {
 			$('#elect-configuration').text(elements[i].electron_configuration);
 			$('#atomic-name').text(elements[i].long_name);
 			var $color = $(this).css('background-color');
-			console.log($color)
 			$('#box-legend').css('background-color', $color);
 		});	
 	}
 
-
+	//Función para detectar el estado de agregación de los elementos
 	function elementState(i, property, temperature) {
 		$("#element"+ i +"-property").text(property);
 		$('#legend-property').text(' ');
@@ -98,13 +96,16 @@ $(document).ready(function() {
 			$('#element'+i).css('opacity', '0.5');
 		} else if (elements[i]['melting_point'] > temperature ){ //solid
 			$('#element'+i).css('background-color', '#FF3366');
-		} else if (elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > 293) { //liquid
+		} else if (elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > temperature) { //liquid
+			$('#element'+i).css('background-color', '#33FFFF');
+		} else if (elements[i]['boiling_point'] > temperature) { //liquid
 			$('#element'+i).css('background-color', '#33FFFF');
 		} else {
 			$('#element'+i).css('background-color', '#99FF33');
 		} 	
 	}
 
+	// Variation of color depends of the state
 	function colorVariation(index, property) {
 		var init = color[property][0];
 		var ending = color[property][1];
@@ -133,6 +134,7 @@ $(document).ready(function() {
 		}
 	}
 
+	// Colors used to the different properties
 	function propertyColors(property) {
 		var i;
 		var colors = [];
