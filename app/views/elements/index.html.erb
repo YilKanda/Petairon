@@ -20,22 +20,30 @@
 		<tr class="row-header">
 			<td>
 				<div id='legend'>
-						<table id="box-legend">
-							<tr>
-								<td class="atomic-number"> <%= @elements[0].atomic_number %> </td>
-								<td class="element-property" id="legend-property" colspan="2"> <%= @elements[0].mass %> </td>
-							</tr>
-							<tr>
-								<td class="legend-atomic-short" colspan="3"> <%= @elements[0].short_name %></td>
-							</tr>
-							<tr>
-								<td colspan="3"> <%= @elements[0].electron_configuration %> </td>
-							</tr>
-							<tr>
-								<td class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
-							</tr>
-						</table>
+					<table id="box-legend">
+						<tr>
+							<td id="atomic-number" class="atomic-number"> <%= @elements[0].atomic_number %> </td>
+							<td id="legend-property" class="element-property" colspan="2"> <%= @elements[0].mass %> </td>
+						</tr>
+						<tr>
+							<td id="atomic-short" class="atomic-number" colspan="3"> <%= @elements[0].short_name %></td>
+						</tr>
+						<tr>
+							<td id="elect-configuration" class="electron-configuration" colspan="3"> <%= @elements[0].electron_configuration %> </td>
+						</tr>
+						<tr>
+							<td id="atomic-name" class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
+						</tr>
+					</table>
 				</div> 
+				<div id='second-legend'>
+					<div class='slider'>
+					    <div class='emptyprogress'></div>
+			            <div class='progress'></div>
+			            <div class='indicator'></div>
+					</div>					
+			        <div id="slider-text">Current Tª: <span id="temperature-val">0</span> K</div>
+				</div>
 			</td>
 
 			<% (1..18).each do |i| %>
