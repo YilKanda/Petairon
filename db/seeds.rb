@@ -14,7 +14,8 @@ array_valencies = []
     array_valencies << array[0]
   end
 
-  (0..117).each do |i|
+amount_of_elements = array_elements.length - 1 
+  (0..amount_of_elements).each do |i|
     elements << Element.create( short_name: array_elements[i][:short_name], 
       long_name: gem_elements[i+1][:long],
       mass: gem_elements[i+1][:mass],
@@ -50,7 +51,7 @@ valencies = []
       valencies << [:v8, Valency.create(valence: 8)]
 
 valencies.each do |valency|
-  (0..117).each do |i|     
+  (0..amount_of_elements).each do |i|     
     if array_valencies[i][valency[0]] == 1
       elements[i].valencies << valency[1]
     end
@@ -58,7 +59,7 @@ valencies.each do |valency|
 end
 
 
-puts "Seed complete!"
 
+puts "Seed complete!"
 
 

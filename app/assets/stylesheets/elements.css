@@ -35,7 +35,7 @@ td, tr {
 }
 
 .border-element {
-	width: 65px;
+	width: 67px;
 	height: 60px;
 	background: #D8D8D8;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
@@ -226,8 +226,9 @@ td, tr {
 }
 
 .atomic-number{ text-decoration: bold; text-align: left; }
-.element-property { text-decoration: bold; text-align: right; }
-.atomic-name{ text-decoration: bold;}
+.element-property { text-decoration: bold; text-align: right; font-size: 90%;}
+.electron-configuration {font-size: 70%;}
+.atomic-name{ text-decoration: bold; font-size: 90%;}
 .simbol-row{ width: 60%; height: 40%; }
 
 .column-periods {

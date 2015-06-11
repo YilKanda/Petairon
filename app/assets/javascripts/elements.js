@@ -85,32 +85,34 @@ $(document).ready(function() {
 	//choose elements by category 
 
 	$(".button-category").on("click", function(){
-		var $category = $(this).attr('data-category');
-		console.log($category);
+		var $category = $(this).attr('data-category'),
+				metalsOrNot = [],
+				$generalCategory = $(this).attr('data-category'),
+				lengthCategories = $('td[data-metal-category="'+$generalCategory+'"]').length;
+
+		for (var i=0; i<lengthCategories; i++) {
+			metalsOrNot = metalsOrNot.concat($('td[data-metal-category="'+$generalCategory+'"]').eq(i).attr('data-category'));	
+		}
+		var length = metalsOrNot.length;
+
 		for(var k = 0; k < elements.length; k++ ) {
-			if ($category == elements[k]['category']){
-				$('#element'+k).css('opacity', '1');
+		$('#element'+k).css('opacity', '0.3');
+			if ($(this).attr('data-category') != "nonmetal" && $(this).attr('data-category') != "metal") {
+				checkCategory(k,$category);
 			} else {
-				//console.log(i, elements[k]['category'])
-				$('#element'+k).css('opacity', '0.3');
-			}	
+				for (var j=0; j<length; j++){
+					checkCategory(k, metalsOrNot[j]);
+				}
+			}
 		}
 	})
 
-	$(".metals").on("click", function(){
-		var $category = $(this).attr('data-category');
-		console.log($category);
-		for(var k = 0; k < elements.length; k++ ) {
-			if ($category == elements[k]['category']){
-				$('#element'+k).css('opacity', '0.3');
-			} else {
-				$('#element'+k).css('opacity', '1');
-				//console.log(i, elements[k]['category'])
-			}	
-		}
-	})
+	function checkCategory(k,category){
+		if (category == elements[k]['category']){
+			$('#element'+k).css('opacity', '1');
+		}	
+	}
 
-	metals
 
 
 	//rellenar el cuadro del atomo en la leyenda
@@ -121,7 +123,7 @@ $(document).ready(function() {
 			$('#atomic-number').text(elements[i].atomic_number);
 			$('#legend-property').text($property);
 			$('#atomic-short').text(elements[i].short_name);
-			$('#elect-configuration').text(elements[i].electron_configuration);
+			$('#elect-configuration').html(element_configuration(elements[i].electron_configuration));
 			$('#atomic-name').text(elements[i].long_name);
 			var $color = $(this).css('background-color');
 			$('#box-legend').css('background-color', $color);
@@ -229,6 +231,47 @@ $(document).ready(function() {
 			colors = colors.concat(color_rgb);
 		}
 		return colors;
+	}
+
+
+	//ecuacion para escribir la configuracion electronica		
+	function element_configuration(element_electron_configuration){
+		
+	  if (element_electron_configuration) {
+	    var elec_config_element = element_electron_configuration,
+	    		length = elec_config_element.length-1,
+	    		new_conf = elec_config_element.split(''),
+	    		if_need_sup = false,
+	    		new_conf_pos = 0;
+
+	    for (var k=0; k < length; k++) {
+	      
+	      if ( (elec_config_element[k] == 's' || elec_config_element[k] == 'p') && parseInt(elec_config_element[k+1]) < 10 ) {
+	        new_conf[new_conf_pos+1] = '<sup>'+elec_config_element[k+1]+'</sup>';
+
+	      } else if (elec_config_element[k] == 'd' && parseInt(elec_config_element[k+1]) < 10 && elec_config_element[k+2] == '0' ) {
+	        new_conf[new_conf_pos+1] = '<sup>'+ elec_config_element[k+1];
+	        new_conf[new_conf_pos+2] = elec_config_element[k+2] +'</sup>';
+
+	      } else if (elec_config_element[k] == 'd' && parseInt(elec_config_element[k+1]) < 10) {
+	        new_conf[new_conf_pos+1] = '<sup>'+elec_config_element[k+1] +'</sup>';
+
+	      } else if (elec_config_element[k] == 'f' && parseInt(elec_config_element[k+1]) < 10 && parseInt(elec_config_element[k+2]) < 5) {
+	        new_conf[new_conf_pos+1] = '<sup>'+elec_config_element[k+1];
+	        new_conf[new_conf_pos+2] = elec_config_element[k+2] +'</sup>';
+	     
+	      } else if (elec_config_element[k] == 'f' && parseInt(elec_config_element[k+1]) < 10) {
+	        new_conf[new_conf_pos+1] = '<sup>'+elec_config_element[k+1] +'</sup>';
+
+	      } else {
+	        '';
+	      } 
+	      new_conf_pos += 1;
+	    }
+	    return new_conf.join('');	  		
+	  }	else {
+	  	return '';
+	  }
 	}
 
 });
