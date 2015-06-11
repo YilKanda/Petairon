@@ -84,10 +84,10 @@ $(document).ready(function() {
 
 	//choose elements by category 
 
-	$(".button-category").on("click", function(){
+	$(".button-category").on("mouseover", function(){
 		var $category = $(this).attr('data-category'),
 				metalsOrNot = [],
-				$generalCategory = $(this).attr('data-category'),
+				$generalCategory = $(this).attr('data-metal-category'),
 				lengthCategories = $('td[data-metal-category="'+$generalCategory+'"]').length;
 
 		for (var i=0; i<lengthCategories; i++) {
@@ -96,20 +96,31 @@ $(document).ready(function() {
 		var length = metalsOrNot.length;
 
 		for(var k = 0; k < elements.length; k++ ) {
-		$('#element'+k).css('opacity', '0.3');
-			if ($(this).attr('data-category') != "nonmetal" && $(this).attr('data-category') != "metal") {
-				checkCategory(k,$category);
-			} else {
+			$('#element'+k).css('opacity', '0.3');
+			$('.button-category').css('opacity', '0.3');
+			console.log($(this).attr('data-general'));
+			if ($(this).attr('data-general')){
+				$('td[data-metal-category="'+$generalCategory+'"]').css('opacity', '1');
 				for (var j=0; j<length; j++){
-					checkCategory(k, metalsOrNot[j]);
+					checkCategory(k, metalsOrNot[j],$generalCategory);
 				}
+			} else {
+				$('td[data-category="'+$category+'"]').css('opacity', '1');
+				checkCategory(k,$category);
 			}
 		}
 	})
 
-	function checkCategory(k,category){
+	$(".button-category").on("mouseleave", function(){
+		$('.border-element').css('opacity', '1');
+		$('.button-category').css('opacity', '1');
+		$('.elementoids').css('opacity', '0.7');
+	});
+
+	function checkCategory(k,category,generalCategory){
 		if (category == elements[k]['category']){
 			$('#element'+k).css('opacity', '1');
+			$('.elementoids').css('opacity', '0.3');
 		}	
 	}
 

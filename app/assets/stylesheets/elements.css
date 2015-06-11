@@ -232,6 +232,8 @@ td, tr {
 .atomic-name{ text-decoration: bold; font-size: 90%;}
 .simbol-row{ width: 60%; height: 40%; }
 
+#electron-configuration {font-size: 120%;}
+
 .group {border-bottom: 8px solid white;}
 .period {
 	width: 15px;
