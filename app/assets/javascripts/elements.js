@@ -2,6 +2,7 @@
 $(document).ready(function() {
 
 	var elements;
+	var valencies;
 	var color =  {
 				mass: [0,9],
 				melting_point: [0,4000],
@@ -22,6 +23,14 @@ $(document).ready(function() {
 		dataType: "json"
 	});
 
+	$.ajax({
+		type: "GET",
+		url: "http://localhost:3000/valencies",
+		success: function(response){valencies=response},
+		error: function(response){alert("Success: false")},
+		dataType: "json"
+	});
+
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
@@ -29,11 +38,13 @@ $(document).ready(function() {
 			$('#element'+i).css('opacity', '1');
 			$("#element"+ i +"-property").text(elements[i][$property]);
 			if ($property == 'state') {
-				$('#second-legend').css('visibility', 'visible');
 				elementState(i, $property, 293);
 				$("#element"+ i +"-property").text('');
-			} else if ($property != 'state') {
-				$('#second-legend').css('visibility', 'hidden');
+			} else if ($property == 'valencies'){
+				fillInitLegend($(this));
+				elementValencies(i, $property);
+			} else if ($property) {
+				fillInitLegend($(this));
 				colorVariation(i, $property);
 			} else {
 				$("#element"+ i +"-property").text(' ');
@@ -47,10 +58,10 @@ $(document).ready(function() {
     	$(this).on('mousemove', function(e){
         	moveSlider(e);
 	    });
-
 	}).on('mouseup', function(){
 	    $(this).off('mousemove');
 	});
+
 
 	function moveSlider(e){
 	    e.preventDefault();
@@ -71,7 +82,38 @@ $(document).ready(function() {
 	    }
 	}
 
-	//rellenar la leyenda principal
+	//choose elements by category 
+
+	$(".button-category").on("click", function(){
+		var $category = $(this).attr('data-category');
+		console.log($category);
+		for(var k = 0; k < elements.length; k++ ) {
+			if ($category == elements[k]['category']){
+				$('#element'+k).css('opacity', '1');
+			} else {
+				//console.log(i, elements[k]['category'])
+				$('#element'+k).css('opacity', '0.3');
+			}	
+		}
+	})
+
+	$(".metals").on("click", function(){
+		var $category = $(this).attr('data-category');
+		console.log($category);
+		for(var k = 0; k < elements.length; k++ ) {
+			if ($category == elements[k]['category']){
+				$('#element'+k).css('opacity', '0.3');
+			} else {
+				$('#element'+k).css('opacity', '1');
+				//console.log(i, elements[k]['category'])
+			}	
+		}
+	})
+
+	metals
+
+
+	//rellenar el cuadro del atomo en la leyenda
 	function fillLegend(){
 		$('.border-element').on("click", function(){
 			var i = $(this).attr('id').replace('element','');
@@ -86,14 +128,43 @@ $(document).ready(function() {
 		});	
 	}
 
+	function fillInitLegend(button){
+		$('#second-legend').css('visibility', 'hidden');
+		$('#first-state-legend').css('visibility', 'hidden');
+		$('#box-legend').css('visibility', 'visible');
+		var $property = $(button).attr('subname');
+		$('#atomic-number').text("Z");
+		$('#legend-property').text($property);
+		$('#atomic-short').text('Symbol');
+		$('#elect-configuration').text('Configuration');
+		$('#atomic-name').text('Name');
+		$('#box-legend').css('background-color', '#D8D8D8');
+	}
+
+	//Función para las valencias
+	function elementValencies(i, property){
+		$('#second-legend').css('visibility', 'hidden');
+		$('#first-state-legend').css('visibility', 'hidden');
+		$('#box-legend').css('visibility', 'visible');
+		$('#element'+i).css('opacity', '1');
+		$("#element"+ i +"-property").text(valencies[i]);
+		$('#element'+i).css('background-color', '#FFCC00');
+		if (valencies[i] == ""){
+			$('#element'+i).css('opacity', '0.7');
+		}
+	}
+
 	//Función para detectar el estado de agregación de los elementos
 	function elementState(i, property, temperature) {
+		$('#second-legend').css('visibility', 'visible');
+		$('#first-state-legend').css('visibility', 'visible');
+		$('#box-legend').css('visibility', 'hidden');
 		$("#element"+ i +"-property").text(property);
 		$('#legend-property').text(' ');
 		if (!elements[i]['melting_point'] && !elements[i]['boiling_point']){
 			//console.log(elements[i].short_name,'Unknown');
 			$('#element'+i).css('background-color', '#D8D8D8');
-			$('#element'+i).css('opacity', '0.5');
+			$('#element'+i).css('opacity', '0.7');
 		} else if (elements[i]['melting_point'] > temperature ){ //solid
 			$('#element'+i).css('background-color', '#FF3366');
 		} else if (elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > temperature) { //liquid
@@ -117,7 +188,7 @@ $(document).ready(function() {
 				//console.log(elements[index].short_name,'Unknown');
 				$("#element"+ index +"-property").text('');
 				$('#element'+index).css('background-color', '#D8D8D8');
-				$('#element'+index).css('opacity', '0.5');
+				$('#element'+index).css('opacity', '0.7');
 			} else {
 				for (var i=(length-1); i>=0; i--) {
 					var margen1 = init + ((ending - init)/length) * (i);
@@ -127,10 +198,15 @@ $(document).ready(function() {
 					}
 				}
 			}
+			$('#categories-legend').css('visibility', 'hidden');
 		} else {
 			var i = elements[index]['category'];
-			var colors = ['#99CC00','#00CCFF','#FF00FF','#FFCC00','#990099','#FF6600','#FF0066','#00CC66','#9966FF','#FFCC66'];
+			var colors;
+			for (var k=0; k<10; k++){
+				colors =  colors.concat($('td[data-category="'+k+'"]').css('background-color')) 
+			}
 			$('#element'+index).css('background-color', colors[i]);
+			$('#categories-legend').css('visibility', 'visible');
 		}
 	}
 

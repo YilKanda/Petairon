@@ -1,14 +1,14 @@
 <header>
 	<div id="property-options">
-			<label><button type="submit" value="mass" name="property" id="mass" class="property-button">Atomic mass (g/mol)</button></label>
-			<label><button type="submit" value="melting_point" name="property" id="melting-point" class="property-button">Melting point (K)</button></label>
-			<label><button type="submit" value="boiling_point" name="property" id="boiling-point" class="property-button">Boiling point (K)</button></label>
-			<label><button type="submit" value="abundance" name="property" id="abundance" class="property-button">Abundance (%)</button></label>
-			<label><button type="submit" value="radium" name="property" id="radium" class="property-button">Radium (pm)</button></label>
-			<label><button type="submit" value="ionization_energy" name="property" id="ionization-energy" class="property-button">Ionization energy (kJ/mol)</button></label>
-			<label><button type="submit" value="electronegativity" name="property" id="electronegativity" class="property-button"> Electronegativity </button></label>
-			<label><button type="submit" value="electron_affinity" name="property" id="electron-affinity"class="property-button">Electron affinity (KJ/mol)</button></label>
-			<label><button type="submit" value="valencies" name="property" id="valencies" class="property-button">valencies</button></label>
+			<label><button type="submit" value="mass" name="property" id="mass" class="property-button" subname="Atomic mass">Atomic mass (g/mol)</button></label>
+			<label><button type="submit" value="melting_point" name="property" id="melting-point" class="property-button" subname="Melting Tª">Melting point (K)</button></label>
+			<label><button type="submit" value="boiling_point" name="property" id="boiling-point" class="property-button" subname="Boiling Tª">Boiling point (K)</button></label>
+			<label><button type="submit" value="abundance" name="property" id="abundance" class="property-button" subname="Abundance">Abundance (%)</button></label>
+			<label><button type="submit" value="radium" name="property" id="radium" class="property-button" subname="Radium">Radium (pm)</button></label>
+			<label><button type="submit" value="ionization_energy" name="property" id="ionization-energy" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></label>
+			<label><button type="submit" value="electronegativity" name="property" id="electronegativity" class="property-button" subname="Electron Negativity"> Electronegativity </button></label>
+			<label><button type="submit" value="electron_affinity" name="property" id="electron-affinity"class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></label>
+			<label><button type="submit" value="valencies" name="property" id="valencies" class="property-button" subname="valencies">valencies</button></label>
 			<label><button type="submit" value="state" name="property" id="state" class="property-button">State</button></label>
 	</div>
 
@@ -35,6 +35,63 @@
 							<td id="atomic-name" class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
 						</tr>
 					</table>
+					<table id="categories-legend">
+						<tr>
+							<td class="button-category" rowspan="3" data-category="4" data-metal-category="semimetal">Semi Metals</td>
+							<td class="button-category" colspan="3" data-category="title"> Nonmetals</td>
+						<tr>
+						</tr>
+							<td class="button-category" data-category="5" data-metal-category="nonmetal">Other nonmetals</td>
+							<td class="button-category" data-category="6" data-metal-category="nonmetal">Halogen</td>
+							<td class="button-category" data-category="7" data-metal-category="nonmetal">Noble Gases</td>
+						</tr>
+						<tr>
+							<td class="button-category" colspan="4" data-category="title">Metals</td>
+						</tr>
+						<tr>
+							<td class="button-category" data-category="0" data-metal-category="metal">Alkali Metals</td>
+							<td class="button-category" rowspan="2" data-category="2" data-metal-category="metal">Transition Metals</td>
+							<td class="button-category" data-category="8" data-metal-category="metal">Lanthanides</td>
+							<td class="button-category" rowspan="2" data-category="3" data-metal-category="metal">Basic Metals</td>
+						</tr>
+						<tr>
+							<td class="button-category" data-category="1" data-metal-category="metal">Alkali Earth</td>
+							<td class="button-category" data-category="9" data-metal-category="metal">Actinides</td>
+						</tr>
+					</table>
+					<div id='first-state-legend'>
+						<table id="state-legend">
+							<tr>
+								<td><div id="solid" class="border-state"> S</div></td>
+								<td class="left-align"> Solid</td>
+							</tr>
+							<tr>
+								<td><div id="liquid" class="border-state">L</div></td>
+								<td class="left-align"> Liquid</td>
+							</tr>
+							<tr>
+								<td><div class="border-state" id="gas"> G</div></td>
+								<td class="left-align"> Gas</td>
+							</tr>
+							<tr>
+								<td><div class="border-state" id="unknown">U </div></td>
+								<td class="left-align"> Unknown</td>
+							</tr>
+						</table>
+						<div>
+							<table id="temperature-units">
+								<tr>
+									<td><span id="kelvin">293</span> &#8490</td>
+								</tr>
+								<tr>
+									<td><span id="centigrades">20</span> &#8451</td>
+								</tr>
+								<tr>
+									<td><span id="fahrenheit">68</span>&#8457</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 				</div> 
 				<div id='second-legend'>
 					<div class='slider'>
@@ -42,7 +99,7 @@
 			            <div class='progress'></div>
 			            <div class='indicator'></div>
 					</div>	<br>				
-			        <div id="slider-text">Current Tª: <span id="temperature-val">293</span> K</div>
+			        <div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
 				</div>
 			</td>
 
@@ -88,6 +145,8 @@
 						<% i += 1 %>
 					<% elsif is_an_element == 5 %>
 						<td class="column-periods"> <%= index - 2 %> </td>
+					<% elsif is_an_element == 6 %>
+						<td class="border-element" id="elementanoids"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
 						<td class="no-border"> </td>
 					<% end %>

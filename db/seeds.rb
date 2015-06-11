@@ -3,11 +3,16 @@ require 'chemistry_rails'
 
 elements = []
 array_elements = []
-  gem_elements = ChemistryRails::ELEMENTS
+gem_elements = ChemistryRails::ELEMENTS
+array_valencies = []
+
   SmarterCSV.process('public/bd.csv') do |array|
     array_elements << array[0]
+  end
 
-end
+  SmarterCSV.process('public/valencies.csv') do |array|
+    array_valencies << array[0]
+  end
 
   (0..117).each do |i|
     elements << Element.create( short_name: array_elements[i][:short_name], 
@@ -29,21 +34,31 @@ end
   end
       
 # H-valencies
-      v1 = Valency.create valence: -4 
-      v2 = Valency.create valence: -3 
-      v3 = Valency.create valence: -2 
-      v4 = Valency.create valence: -1 
-      v5 = Valency.create valence: 0 
-      v6 = Valency.create valence: 1 
-      v7 = Valency.create valence: 2 
-      v8 = Valency.create valence: 3
-      v9 = Valency.create valence: 4
-      v10 = Valency.create valence: 5 
-      v11 = Valency.create valence: 6
-      v12 = Valency.create valence: 7
-      v13 = Valency.create valence: 8   
+valencies = []
+      valencies << [:v_4, Valency.create(valence: -4)] 
+      valencies << [:v_3, Valency.create(valence: -3)] 
+      valencies << [:v_2, Valency.create(valence: -2)] 
+      valencies << [:v_1, Valency.create(valence: -1)] 
+      valencies << [:v0, Valency.create(valence: 0)]
+      valencies << [:v1, Valency.create(valence: 1)]
+      valencies << [:v2, Valency.create(valence: 2)]
+      valencies << [:v3, Valency.create(valence: 3)]
+      valencies << [:v4, Valency.create(valence: 4)]
+      valencies << [:v5, Valency.create(valence: 5)]
+      valencies << [:v6, Valency.create(valence: 6)]
+      valencies << [:v7, Valency.create(valence: 7)]
+      valencies << [:v8, Valency.create(valence: 8)]
 
-elements[0].valencies << v4
-elements[0].valencies << v6
+valencies.each do |valency|
+  (0..117).each do |i|     
+    if array_valencies[i][valency[0]] == 1
+      elements[i].valencies << valency[1]
+    end
+  end
+end
+
 
 puts "Seed complete!"
+
+
+

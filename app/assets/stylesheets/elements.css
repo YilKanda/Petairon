@@ -1,5 +1,5 @@
 body{
-	margin: 2%;
+	margin: 1%;
 	padding: 0;
 	width: 100%;
 	font-family: calibri;
@@ -35,19 +35,35 @@ td, tr {
 }
 
 .border-element {
-	border: 1px solid black;
-	width: 60px;
+	width: 65px;
 	height: 60px;
 	background: #D8D8D8;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+	border-radius: 3%;
 }
+
+.border-state {
+	width: 40px;
+	height: 36px;
+	padding-top: 4px;
+	font-size: 30px;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.left-align {text-align: left;}
+#solid{background: #FF3366;}
+#liquid{background: #33FFFF;}
+#gas{background: #99FF33;}
+#unknown{background: #D8D8D8; opacity: 0.7;}
 
 #legend {
 	position: absolute;
 	margin-top: 18px;
-	margin-left: 155px;
-	width: 655px;
+	margin-left: 150px;
+	width: 673px;
 	height: 210px;
-	background: red;
+	background: none;
 	display: inline-block;
 }
 
@@ -55,7 +71,7 @@ td, tr {
 	visibility: hidden;
 	position: absolute;
 	margin-top: 18px;
-	margin-left: 812px;
+	margin-left: 828px;
 	width: 340px;
 	height: 80px;
 	background: lightgreen;
@@ -63,7 +79,6 @@ td, tr {
 }
 
 #box-legend {
-	border: 1px solid black;
 	padding: 5px;
 	width: 140px;
 	height: 180px;
@@ -71,8 +86,37 @@ td, tr {
 	font-size: 20px;
 	position: absolute;
 	margin-top: 18px;
-	margin-left: 15px;	
+	margin-left: 20px;	
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	border-radius: 12%;
 }
+
+#categories-legend {
+	visibility: hidden;
+	border-radius: 10px;
+	margin-left: 200px;
+	margin-top: 20px;
+}
+
+#categories-legend tr td {
+	padding: 6px 8px 6px 8px;
+	text-decoration: bold;
+	text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.4);
+	font-size: 17px;
+	border-radius: 5%;
+}
+
+#categories-legend tr td[data-category="0"] {text-shadow: 0px 0px 0px; background-color: #FF6600; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="1"] {text-shadow: 0px 0px 0px; background-color: #FFCC00; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="2"] {text-shadow: 0px 0px 0px; background-color: #FF0066; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="3"] {text-shadow: 0px 0px 0px; background-color: #99FF00; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="4"] {text-shadow: 0px 0px 0px; background-color: #11D51B; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="5"] {text-shadow: 0px 0px 0px; background-color: #1BFFDD; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="6"] {text-shadow: 0px 0px 0px; background-color: #3EA3E8; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="7"] {text-shadow: 0px 0px 0px; background-color: #0066CC; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="8"] {text-shadow: 0px 0px 0px; background-color: #C266C2; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="9"] {text-shadow: 0px 0px 0px; background-color: #A319A3; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 95%;}
+#categories-legend tr td[data-category="title"] {background-color: white; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 105%;}
 
 .slider{
    	height: 20px;
@@ -127,16 +171,35 @@ td, tr {
 	display: inline-block;
 }
 
-#temperature-val{
-	border: 10%;
+#temperature-val{border: 10%;}
+
+#first-state-legend { 
+	visibility: hidden; 
+	position: relative;
+	top: -200px;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+}
+
+#state-legend {
+	position: absolute;
+	margin-top: 20px;
+	left: 40px;
+}
+
+#state-legend tr td {
+	padding-bottom: 5px;
+	padding-right: 10px;
 }
 
 #atomic-short {
 	margin: 0;
 	padding: 0;
-	font-size: 45px;
+	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
 	text-decoration: bold;
 	text-align: center;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -158,6 +221,8 @@ td, tr {
 	font-size: 25px;
 	text-decoration: bold;
 	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .atomic-number{ text-decoration: bold; text-align: left; }
@@ -186,4 +251,5 @@ td, tr {
 #electron-affinity {background: #FFFF66;}
 #categories {background: #FF0066;}
 
+#elementanoids {text-align: center; font-size: 80%; opacity: 0.7}
 
