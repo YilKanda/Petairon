@@ -42,6 +42,7 @@ td, tr {
 	border-radius: 3%;
 }
 
+
 .border-state {
 	width: 40px;
 	height: 36px;
@@ -231,12 +232,14 @@ td, tr {
 .atomic-name{ text-decoration: bold; font-size: 90%;}
 .simbol-row{ width: 60%; height: 40%; }
 
-.column-periods {
+.group {border-bottom: 8px solid white;}
+.period {
 	width: 15px;
 	height: 60px;
 	text-align: right;
 	padding-right: 10px;
 	margin: 0;
+	border-right: 8px solid white;
 }
 
 .row { padding: 0px; margin: 0px; }
@@ -252,5 +255,5 @@ td, tr {
 #electron-affinity {background: #FFFF66;}
 #categories {background: #FF0066;}
 
-#elementanoids {text-align: center; font-size: 80%; opacity: 0.7}
+.elementoids {text-align: center; font-size: 80%; opacity: 0.7;}
 

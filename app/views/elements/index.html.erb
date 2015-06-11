@@ -104,17 +104,20 @@
 			</td>
 
 			<% (1..18).each do |i| %>
-				<td> <%= i %> </td>
+				<td id="group<%= i %>" class="group"> <%= i %> </td>
 			<% end %>
 		</tr>
 		<% i = 0 %>
 		<% @matrix_elements.each_with_index do |period, index| %>
 			<tr class="row"> 
-				<td class="column-periods"> 
-					<% if index < 7 %>
+				<% if index < 7 %>
+					<td class="period" id="period<%= index + 1 %>" data-period="<%= index + 1 %>"> 
 						<%= index + 1 %> 
-					<% end %>
-				</td>
+					</td>
+				<% else %>
+					<td> </td>
+				<% end %>
+
 				<% period.each do |is_an_element|  %>
 					<% if is_an_element == 2 %>
 						<% i = i + 15 %>
@@ -144,9 +147,9 @@
 						</td>
 						<% i += 1 %>
 					<% elsif is_an_element == 5 %>
-						<td class="column-periods"> <%= index - 2 %> </td>
+						<td class="period" id="period<%= index %>" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
 					<% elsif is_an_element == 6 %>
-						<td class="border-element" id="elementanoids"> <%= (i+1) %> - <%= (i+15) %> </td>
+						<td class="border-element elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
 						<td class="no-border"> </td>
 					<% end %>

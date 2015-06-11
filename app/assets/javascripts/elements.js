@@ -113,9 +113,72 @@ $(document).ready(function() {
 		}	
 	}
 
+	//grupos y periodos
 
+	$('.border-element').on('mouseover', function(){
+			$('.group').css('border-bottom', '8px solid white');
+			$('.period').css('border-right', '8px solid white');
+			var i = $(this).attr('id').replace('element','');
+			var group = elements[i].group; 
+			var period = elements[i].period; 
+			if ((i >= 56 && i <= 70) || (i >= 88 && i <= 102)){
+				period += 2;
+			} 
+			$('#group'+group).css('border-bottom', '8px solid green');
+			$('#period'+period).css('border-right', '8px solid green');
+	})
 
-	//rellenar el cuadro del atomo en la leyenda
+	$('.border-element').on('mouseleave', function(){
+		$('.group').css('border-bottom', '8px solid white');
+		$('.period').css('border-right', '8px solid white');
+	})	
+
+//pulsar un periodo entero
+	$('.period').on("mouseover", function(){
+		$('.period').css('border-right', '8px solid white');
+		$('.elementoids').css('opacity', '0.3');
+		var $period = $(this).attr('data-period');
+		$('[data-period="'+$period+'"]').css('border-right', '8px solid green');
+		$('.elementoids').css('border-right', 'none');
+		console.log($period);
+		for (var i=0; i < elements.length; i++) {
+			if (elements[i].period == $period){
+				$('#element'+i).css('opacity', '1');
+				$('#elementoids'+$period).css('opacity', '1');
+			} else {
+				$('#element'+i).css('opacity', '0.3');
+			}
+		}
+	})
+
+	$('.period').on('mouseleave', function(){
+		$('.border-element').css('opacity', '1');
+		$('.period').css('border-right', '8px solid white');
+		$('.elementoids').css('opacity', '0.7');
+	})
+
+//pulsar un grupo entero
+	$('.group').on("mouseover", function(){
+		$('.elementoids').css('opacity', '0.3');
+		$('.group').css('border-bottom', '8px solid white');
+		$(this).css('border-bottom', '8px solid green');
+		var $group= $(this).text();
+		for (var i=0; i < elements.length; i++) {
+			if (elements[i].group == $group){
+				$('#element'+i).css('opacity', '1');
+			} else {
+				$('#element'+i).css('opacity', '0.3');
+			}
+		}
+	})
+
+	$('.group').on('mouseleave', function(){
+		$('.border-element').css('opacity', '1');		
+		$('.group').css('border-bottom', '8px solid white');
+		$('.elementoids').css('opacity', '0.7');
+	})
+
+//rellenar el cuadro del atomo en la leyenda
 	function fillLegend(){
 		$('.border-element').on("click", function(){
 			var i = $(this).attr('id').replace('element','');
@@ -127,7 +190,7 @@ $(document).ready(function() {
 			$('#atomic-name').text(elements[i].long_name);
 			var $color = $(this).css('background-color');
 			$('#box-legend').css('background-color', $color);
-		});	
+		});
 	}
 
 	function fillInitLegend(button){
