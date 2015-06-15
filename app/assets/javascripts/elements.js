@@ -31,6 +31,27 @@ $(document).ready(function() {
 		dataType: "json"
 	});
 
+	var menu = $("ul.nav-options");  
+  
+	//control de eventos   
+	    menu.on("click", function(){  
+	        displayOptions($(this).find("li"));  
+	    });  
+	    menu.mouseout(function(){  
+	        hideOptions($(this));  
+	    });   
+
+	  
+	//funcion que MUESTRA todos los elementos del menu  
+	function displayOptions(e){  
+	    e.show();  
+	}  
+	//funcion que OCULTA los elementos del menu  
+	function hideOptions(e){  
+	    e.find("li").hide();  
+	    e.find("li.menu-button").show();  
+	} 
+
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
@@ -84,7 +105,7 @@ $(document).ready(function() {
 
 	//choose elements by category 
 
-	$(".button-category").on("mouseover", function(){
+	$(".button-category").on("click", function(){
 		var $category = $(this).attr('data-category'),
 				metalsOrNot = [],
 				$generalCategory = $(this).attr('data-metal-category'),
@@ -98,9 +119,9 @@ $(document).ready(function() {
 		for(var k = 0; k < elements.length; k++ ) {
 			$('#element'+k).css('opacity', '0.3');
 			$('.button-category').css('opacity', '0.3');
-			console.log($(this).attr('data-general'));
 			if ($(this).attr('data-general')){
 				$('td[data-metal-category="'+$generalCategory+'"]').css('opacity', '1');
+				console.log($('td[data-metal-category="'+$generalCategory+'"]').css('opacity', '1'));
 				for (var j=0; j<length; j++){
 					checkCategory(k, metalsOrNot[j],$generalCategory);
 				}
@@ -127,8 +148,9 @@ $(document).ready(function() {
 	//grupos y periodos
 
 	$('.border-element').on('mouseover', function(){
-			$('.group').css('border-bottom', '8px solid white');
-			$('.period').css('border-right', '8px solid white');
+			$('.group').css('background', '#F0F0F0');
+			$('.group').css('border-bottom', '8px solid #F0F0F0');
+			$('.period').css('border-right', '8px solid #F0F0F0');
 			var i = $(this).attr('id').replace('element','');
 			var group = elements[i].group; 
 			var period = elements[i].period; 
@@ -140,13 +162,14 @@ $(document).ready(function() {
 	})
 
 	$('.border-element').on('mouseleave', function(){
-		$('.group').css('border-bottom', '8px solid white');
-		$('.period').css('border-right', '8px solid white');
+		$('.group').css('border-bottom', '8px solid #F0F0F0');
+		$('.group').css('background', '#F0F0F0');
+		$('.period').css('border-right', '8px solid #F0F0F0');
 	})	
 
 //pulsar un periodo entero
 	$('.period').on("mouseover", function(){
-		$('.period').css('border-right', '8px solid white');
+		$('.period').css('border-right', '8px solid #F0F0F0');
 		$('.elementoids').css('opacity', '0.3');
 		var $period = $(this).attr('data-period');
 		$('[data-period="'+$period+'"]').css('border-right', '8px solid green');
@@ -164,14 +187,15 @@ $(document).ready(function() {
 
 	$('.period').on('mouseleave', function(){
 		$('.border-element').css('opacity', '1');
-		$('.period').css('border-right', '8px solid white');
+		$('.period').css('border-right', '8px solid #F0F0F0');
 		$('.elementoids').css('opacity', '0.7');
 	})
 
 //pulsar un grupo entero
 	$('.group').on("mouseover", function(){
 		$('.elementoids').css('opacity', '0.3');
-		$('.group').css('border-bottom', '8px solid white');
+		$('.group').css('background', '#F0F0F0');
+		$('.group').css('border-bottom', '8px solid #F0F0F0');
 		$(this).css('border-bottom', '8px solid green');
 		var $group= $(this).text();
 		for (var i=0; i < elements.length; i++) {
@@ -185,7 +209,8 @@ $(document).ready(function() {
 
 	$('.group').on('mouseleave', function(){
 		$('.border-element').css('opacity', '1');		
-		$('.group').css('border-bottom', '8px solid white');
+		$('.group').css('background', '#F0F0F0');
+		$('.group').css('border-bottom', '8px solid #F0F0F0');
 		$('.elementoids').css('opacity', '0.7');
 	})
 

@@ -1,19 +1,32 @@
 <header>
-	<div id="property-options">
-			<label><button type="submit" value="mass" name="property" id="mass" class="property-button" subname="Atomic mass">Atomic mass (g/mol)</button></label>
-			<label><button type="submit" value="melting_point" name="property" id="melting-point" class="property-button" subname="Melting Tª">Melting point (K)</button></label>
-			<label><button type="submit" value="boiling_point" name="property" id="boiling-point" class="property-button" subname="Boiling Tª">Boiling point (K)</button></label>
-			<label><button type="submit" value="abundance" name="property" id="abundance" class="property-button" subname="Abundance">Abundance (%)</button></label>
-			<label><button type="submit" value="radium" name="property" id="radium" class="property-button" subname="Radium">Radium (pm)</button></label>
-			<label><button type="submit" value="ionization_energy" name="property" id="ionization-energy" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></label>
-			<label><button type="submit" value="electronegativity" name="property" id="electronegativity" class="property-button" subname="Electron Negativity"> Electronegativity </button></label>
-			<label><button type="submit" value="electron_affinity" name="property" id="electron-affinity"class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></label>
-			<label><button type="submit" value="valencies" name="property" id="valencies" class="property-button" subname="valencies">valencies</button></label>
-			<label><button type="submit" value="state" name="property" id="state" class="property-button">State</button></label>
-	</div>
-
-
+	<div id="header">
+			<ul class="nav">
+				<li><div><i class="fa fa-home"> </i> Home</div></li>
+				<li><div>Physical State</div>
+					<ul class="nav-options">
+						<li><button type="submit" value="state" name="property" class="property-button">State</button></li>
+						<li><button type="submit" value="mass" name="property" class="property-button" subname="Atomic Mass">Mass</button></li>
+						<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
+						<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
+					</ul>
+				</li>
+				<li><div>Other properties</div>
+					<ul>
+						<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
+						<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
+						<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
+						<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
+						<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
+						<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
+					</ul>
+				</li>
+				<li><div>Compounds</div></li>
+			</ul>
+		</div>
 </header>
+
+<div class="publicity"></div>
+
 <!-- Tabla Periodica-elementos -->
 <div id="periodic-table">
 	<table>
@@ -104,7 +117,7 @@
 			</td>
 
 			<% (1..18).each do |i| %>
-				<td id="group<%= i %>" class="group"> <%= i %> </td>
+				<td id="group<%= i %>" class="group"> <%= i %>  </td>
 			<% end %>
 		</tr>
 		<% i = 0 %>
@@ -147,7 +160,7 @@
 						</td>
 						<% i += 1 %>
 					<% elsif is_an_element == 5 %>
-						<td class="period" id="period<%= index %>" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
+						<td class="period period-special" id="period<%= index %>" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
 					<% elsif is_an_element == 6 %>
 						<td class="border-element elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
