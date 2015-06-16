@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:3000/elements -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Petairon</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" media="all" href="http://localhost:3000/assets/elements.self-7c138a8b5ab5668c6828d4c9eef177bd9e891600a2debf28ee6896cf7028d3bc.css?body=1">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/valencies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1">
+  <script src="./Petairon_files/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js"></script>
+<script src="./Petairon_files/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js"></script>
+<script src="./Petairon_files/elements.self-86cccd905906d385e76ca583dbdf9c9a18d764c9c28506a781e46643398ff00f.js"></script>
+<script src="./Petairon_files/valencies.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js"></script>
+<script src="./Petairon_files/application.self-1da6d28687370077cd6ba59def469f872870ada4ce65335c79d77914791d0983.js"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Y9tm9rBSSwkyzOciGoGp8ekxhOK9ahJ3qR7F1BE+nIbrqZkxqnl8Q5ZA4u/YMzcHNGDCFo/7qXL9WCCjimiSoA==">
+</head>
+<body>
+
+<header>
+	<div id="header">
+			<ul class="nav">
+				<li><a class="home-button" href="./Petairon_files/Petairon.html"> <i class="fa fa-home"> </i> Home </a></li>
+				<li><button type="submit" value="mass" name="property" class="property-button menu" subname="Atomic Mass">Categories</button></li>
+        <li><div>Physical State</div>
+          <ul class="nav-options">
+            <li><button type="submit" value="state" name="property" class="property-button">State</button></li>
+						<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
+						<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
+					</ul>
+				</li>
+				<li><div>Other properties</div>
+					<ul>
+						<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
+						<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
+						<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
+						<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
+						<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
+						<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
+					</ul>
+				</li>
+				<li><div>Compounds</div></li>
+			</ul>
+		</div>
+</header>
+
+<div class="publicity"></div>
+
+<!-- Tabla Periodica-elementos -->
+<div id="periodic-table">
+	<table>
+		<tbody><tr class="row-header">
+			<td>
+				<div id="legend">
+					<table id="box-legend">
+						<tbody><tr>
+							<td id="atomic-number" class="atomic-number"> 1 </td>
+							<td id="legend-property" class="element-property" colspan="2"> 1.0079 </td>
+						</tr>
+						<tr>
+							<td id="atomic-short" class="atomic-number" colspan="3"> H</td>
+						</tr>
+						<tr>
+							<td id="elect-configuration" class="electron-configuration" colspan="3"> 1s<sup>1</sup> </td>
+						</tr>
+						<tr>
+							<td id="atomic-name" class="atomic-name" colspan="3">Hydrogen</td>
+						</tr>
+					</tbody></table>
+					<table id="categories-legend">
+						<tbody><tr>
+							<td class="button-category" rowspan="3" data-category="4" data-metal-category="semimetal">Semi Metals</td>
+							<td class="button-category" colspan="3" data-metal-category="nonmetal" data-general="nonmetal"> Nonmetals</td>
+						</tr><tr>
+						</tr>
+							<tr><td class="button-category" data-category="5" data-metal-category="nonmetal">Other nonmetals</td>
+							<td class="button-category" data-category="6" data-metal-category="nonmetal">Halogen</td>
+							<td class="button-category" data-category="7" data-metal-category="nonmetal">Noble Gases</td>
+						</tr>
+						<tr>
+							<td class="button-category" colspan="4" data-metal-category="metal" data-general="metal">Metals</td>
+						</tr>
+						<tr>
+							<td class="button-category" data-category="0" data-metal-category="metal">Alkali Metals</td>
+							<td class="button-category" rowspan="2" data-category="2" data-metal-category="metal">Transition Metals</td>
+							<td class="button-category" data-category="8" data-metal-category="metal">Lanthanides</td>
+							<td class="button-category" rowspan="2" data-category="3" data-metal-category="metal">Basic Metals</td>
+						</tr>
+						<tr>
+							<td class="button-category" data-category="1" data-metal-category="metal">Alkali Earth</td>
+							<td class="button-category" data-category="9" data-metal-category="metal">Actinides</td>
+						</tr>
+					</tbody></table>
+					<div id="first-state-legend">
+						<table id="state-legend">
+							<tbody><tr>
+								<td><div id="solid" class="border-state"> S</div></td>
+								<td class="left-align"> Solid</td>
+							</tr>
+							<tr>
+								<td><div id="liquid" class="border-state">L</div></td>
+								<td class="left-align"> Liquid</td>
+							</tr>
+							<tr>
+								<td><div class="border-state" id="gas"> G</div></td>
+								<td class="left-align"> Gas</td>
+							</tr>
+							<tr>
+								<td><div class="border-state" id="unknown">U </div></td>
+								<td class="left-align"> Unknown</td>
+							</tr>
+						</tbody></table>
+						<div>
+							<table id="temperature-units">
+								<tbody><tr>
+									<td><span id="kelvin">293</span> K</td>
+								</tr>
+								<tr>
+									<td><span id="centigrades">20</span> ℃</td>
+								</tr>
+								<tr>
+									<td><span id="fahrenheit">68</span>℉</td>
+								</tr>
+							</tbody></table>
+						</div>
+					</div>
+				</div> 
+				<div id="second-legend">
+					<div class="slider">
+						<div class="emptyprogress"></div>
+						<div class="progress"></div>
+						<div class="indicator"></div>
+					</div>	<br>				
+					<div id="slider-text">Current Tª: <span id="temperature-val">293</span> K </div>
+				</div>
+			</td>
+
+				<td id="group1" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 1  </td>
+				<td id="group2" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 2  </td>
+				<td id="group3" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 3  </td>
+				<td id="group4" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 4  </td>
+				<td id="group5" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 5  </td>
+				<td id="group6" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 6  </td>
+				<td id="group7" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 7  </td>
+				<td id="group8" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 8  </td>
+				<td id="group9" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 9  </td>
+				<td id="group10" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 10  </td>
+				<td id="group11" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 11  </td>
+				<td id="group12" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 12  </td>
+				<td id="group13" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 13  </td>
+				<td id="group14" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 14  </td>
+				<td id="group15" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 15  </td>
+				<td id="group16" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 16  </td>
+				<td id="group17" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 17  </td>
+				<td id="group18" class="group" style="border-bottom-width: 8px; border-bottom-style: solid; border-bottom-color: rgb(240, 240, 240); background: rgb(240, 240, 240);"> 18  </td>
+		</tr>
+			<tr class="row"> 
+					<td class="period" id="period1" data-period="1" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						1 
+					</td>
+
+
+						<td id="element0" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 1 </td>
+									<td class="element-property" id="element0-property" colspan="2"> 1.0079 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> H</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Hydrogen</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td id="element1" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 2 </td>
+									<td class="element-property" id="element1-property" colspan="2"> 4.0026 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> He</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Helium</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period2" data-period="2" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						2 
+					</td>
+
+
+						<td id="element2" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 3 </td>
+									<td class="element-property" id="element2-property" colspan="2"> 6.941 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Li</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Lithium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element3" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 4 </td>
+									<td class="element-property" id="element3-property" colspan="2"> 9.01218 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Be</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Beryllium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td id="element4" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 5 </td>
+									<td class="element-property" id="element4-property" colspan="2"> 10.811 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> B</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Boron</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element5" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 6 </td>
+									<td class="element-property" id="element5-property" colspan="2"> 12.011 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> C</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Carbon</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element6" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 7 </td>
+									<td class="element-property" id="element6-property" colspan="2"> 14.00674 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> N</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>3</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Nitrogen</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element7" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 8 </td>
+									<td class="element-property" id="element7-property" colspan="2"> 15.9994 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> O</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>4</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Oxygen</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element8" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 9 </td>
+									<td class="element-property" id="element8-property" colspan="2"> 18.998403 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> F</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>5</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Fluorine</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element9" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 10 </td>
+									<td class="element-property" id="element9-property" colspan="2"> 20.1797 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ne</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Neon</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period3" data-period="3" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						3 
+					</td>
+
+
+						<td id="element10" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 11 </td>
+									<td class="element-property" id="element10-property" colspan="2"> 22.989768 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Na</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Sodium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element11" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 12 </td>
+									<td class="element-property" id="element11-property" colspan="2"> 24.305 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Mg</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Magnesium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td id="element12" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 13 </td>
+									<td class="element-property" id="element12-property" colspan="2"> 26.981539 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Al</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Aluminium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element13" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 14 </td>
+									<td class="element-property" id="element13-property" colspan="2"> 28.0855 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Si</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Silicon</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element14" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 15 </td>
+									<td class="element-property" id="element14-property" colspan="2"> 30.973762 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> P</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>3</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Phosphorus</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element15" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 16 </td>
+									<td class="element-property" id="element15-property" colspan="2"> 32.066 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> S</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>4</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Sulfur</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element16" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 17 </td>
+									<td class="element-property" id="element16-property" colspan="2"> 35.4527 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cl</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>5</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Chlorine</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element17" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 18 </td>
+									<td class="element-property" id="element17-property" colspan="2"> 39.948 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ar</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ne]3s<sup>2</sup>3p<sup>6</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Argon</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period4" data-period="4" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						4 
+					</td>
+
+
+						<td id="element18" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 19 </td>
+									<td class="element-property" id="element18-property" colspan="2"> 39.0983 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> K</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]4s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Potassium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element19" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 20 </td>
+									<td class="element-property" id="element19-property" colspan="2"> 40.078 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ca</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Calcium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element20" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 21 </td>
+									<td class="element-property" id="element20-property" colspan="2"> 44.95591 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sc</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>1</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Scandium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element21" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 22 </td>
+									<td class="element-property" id="element21-property" colspan="2"> 47.88 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ti</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>2</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Titanium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element22" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 23 </td>
+									<td class="element-property" id="element22-property" colspan="2"> 50.9415 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> V</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>3</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Venadium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element23" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 24 </td>
+									<td class="element-property" id="element23-property" colspan="2"> 51.9961 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>5</sup>4s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Chromium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element24" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 25 </td>
+									<td class="element-property" id="element24-property" colspan="2"> 54.938 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Mn</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>5</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Manganese</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element25" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 26 </td>
+									<td class="element-property" id="element25-property" colspan="2"> 54.847 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Fe</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>6</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Iron</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element26" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 27 </td>
+									<td class="element-property" id="element26-property" colspan="2"> 58.9332 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Co</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>7</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Cobalt</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element27" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 28 </td>
+									<td class="element-property" id="element27-property" colspan="2"> 58.6934 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ni</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>8</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Nickel</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element28" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 29 </td>
+									<td class="element-property" id="element28-property" colspan="2"> 63.546 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cu</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Copper</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element29" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 30 </td>
+									<td class="element-property" id="element29-property" colspan="2"> 65.39 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Zn</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Zinc</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element30" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 31 </td>
+									<td class="element-property" id="element30-property" colspan="2"> 69.732 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ga</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Gallium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element31" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 32 </td>
+									<td class="element-property" id="element31-property" colspan="2"> 72.64 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ge</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Germanium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element32" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 33 </td>
+									<td class="element-property" id="element32-property" colspan="2"> 74.92159 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> As</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Arsenic</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element33" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 34 </td>
+									<td class="element-property" id="element33-property" colspan="2"> 78.96 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Se</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>4</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Selenium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element34" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 35 </td>
+									<td class="element-property" id="element34-property" colspan="2"> 79.904 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Br</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>5</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Bromine</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element35" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 36 </td>
+									<td class="element-property" id="element35-property" colspan="2"> 83.8 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Kr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>6</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Krypton</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period5" data-period="5" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						5 
+					</td>
+
+
+						<td id="element36" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 37 </td>
+									<td class="element-property" id="element36-property" colspan="2"> 85.4678 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Rb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Rubidium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element37" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 38 </td>
+									<td class="element-property" id="element37-property" colspan="2"> 87.62 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]5s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Strontium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element38" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 39 </td>
+									<td class="element-property" id="element38-property" colspan="2"> 88.90585 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Y</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>1</sup>5s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Yttrium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element39" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 40 </td>
+									<td class="element-property" id="element39-property" colspan="2"> 91.224 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Zr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>2</sup>5s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Zirconium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element40" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 41 </td>
+									<td class="element-property" id="element40-property" colspan="2"> 92.90638 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Nb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>4</sup>5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Niobium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element41" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 42 </td>
+									<td class="element-property" id="element41-property" colspan="2"> 95.94 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Mo</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>5</sup>5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Molybdenum</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element42" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 43 </td>
+									<td class="element-property" id="element42-property" colspan="2"> 98.9072 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Tc</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>5</sup>5s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Technetium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element43" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 44 </td>
+									<td class="element-property" id="element43-property" colspan="2"> 101.07 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ru</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>7</sup>5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ruthenium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element44" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 45 </td>
+									<td class="element-property" id="element44-property" colspan="2"> 102.9055 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Rh</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>8</sup>5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Rhodium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element45" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 46 </td>
+									<td class="element-property" id="element45-property" colspan="2"> 106.42 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pd</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Palladium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element46" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 47 </td>
+									<td class="element-property" id="element46-property" colspan="2"> 107.8682 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ag</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Silver</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element47" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 48 </td>
+									<td class="element-property" id="element47-property" colspan="2"> 112.411 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cd</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Cadmium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element48" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 49 </td>
+									<td class="element-property" id="element48-property" colspan="2"> 114.818 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> In</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Indium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element49" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 50 </td>
+									<td class="element-property" id="element49-property" colspan="2"> 118.71 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sn</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Tin</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element50" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 51 </td>
+									<td class="element-property" id="element50-property" colspan="2"> 121.76 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>3</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Antimony</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element51" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 52 </td>
+									<td class="element-property" id="element51-property" colspan="2"> 127.6 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Te</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>4</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Tellurium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element52" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 53 </td>
+									<td class="element-property" id="element52-property" colspan="2"> 126.90447 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> I</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>5</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Iodine</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element53" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 54 </td>
+									<td class="element-property" id="element53-property" colspan="2"> 131.29 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Xe</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>6</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Xenon</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period6" data-period="6" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						6 
+					</td>
+
+
+						<td id="element54" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 55 </td>
+									<td class="element-property" id="element54-property" colspan="2"> 132.90543 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cs</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]6s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Cesium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element55" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 56 </td>
+									<td class="element-property" id="element55-property" colspan="2"> 137.327 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ba</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Barium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td class="border-element elementoids" id="elementoids6" data-period="6" style="opacity: 0.7; border-right-style: none;"> 57 - 71 </td>
+
+						<td id="element71" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 72 </td>
+									<td class="element-property" id="element71-property" colspan="2"> 178.49 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Hf</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>2</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Hafnium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element72" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 73 </td>
+									<td class="element-property" id="element72-property" colspan="2"> 180.9479 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ta</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>3</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Tantalum</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element73" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 74 </td>
+									<td class="element-property" id="element73-property" colspan="2"> 183.85 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> W</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>4</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Tungsten</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element74" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 75 </td>
+									<td class="element-property" id="element74-property" colspan="2"> 186.207 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Re</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>5</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Rhenium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element75" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 76 </td>
+									<td class="element-property" id="element75-property" colspan="2"> 190.23 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Os</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>6</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Osmium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element76" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 77 </td>
+									<td class="element-property" id="element76-property" colspan="2"> 192.22 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ir</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>7</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Iridium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element77" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 78 </td>
+									<td class="element-property" id="element77-property" colspan="2"> 195.08 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pt</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>9</sup>6s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Platinum</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element78" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 79 </td>
+									<td class="element-property" id="element78-property" colspan="2"> 196.9665 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Au</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>9</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Gold</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element79" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 80 </td>
+									<td class="element-property" id="element79-property" colspan="2"> 200.59 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Hg</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Mercury</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element80" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 81 </td>
+									<td class="element-property" id="element80-property" colspan="2"> 204.3833 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Tl</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Thallium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element81" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 82 </td>
+									<td class="element-property" id="element81-property" colspan="2"> 204.3833 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Lead</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element82" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 83 </td>
+									<td class="element-property" id="element82-property" colspan="2"> 208.98037 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Bi</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>3</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Bismuth</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element83" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 84 </td>
+									<td class="element-property" id="element83-property" colspan="2"> 208.9824 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Po</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>4</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Polonium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element84" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 85 </td>
+									<td class="element-property" id="element84-property" colspan="2"> 209.9871 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> At</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>5</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Astatine</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element85" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 86 </td>
+									<td class="element-property" id="element85-property" colspan="2"> 222.0176 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Rn</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>6</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Radon</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td class="period" id="period7" data-period="7" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 
+						7 
+					</td>
+
+
+						<td id="element86" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 87 </td>
+									<td class="element-property" id="element86-property" colspan="2"> 223.0197 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Fr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]7s<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Francium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element87" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 88 </td>
+									<td class="element-property" id="element87-property" colspan="2"> 226.0254 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ra</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Radium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td class="border-element elementoids" id="elementoids7" data-period="7" style="opacity: 0.7; border-right-style: none;"> 89 - 103 </td>
+
+						<td id="element103" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 104 </td>
+									<td class="element-property" id="element103-property" colspan="2"> 261.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Rf</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>14</sup>6d<sup>2</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Rutherfordium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element104" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 105 </td>
+									<td class="element-property" id="element104-property" colspan="2"> 262.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Db</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Dubnium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element105" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 106 </td>
+									<td class="element-property" id="element105-property" colspan="2"> 266.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sg</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Seaborgium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element106" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 107 </td>
+									<td class="element-property" id="element106-property" colspan="2"> 264.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Bh</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Bohrium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element107" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 108 </td>
+									<td class="element-property" id="element107-property" colspan="2"> 269.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Hs</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Hassium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element108" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 109 </td>
+									<td class="element-property" id="element108-property" colspan="2"> 268.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Mt</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Meitnerium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element109" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 110 </td>
+									<td class="element-property" id="element109-property" colspan="2"> 269.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ds</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Darmstadium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element110" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 111 </td>
+									<td class="element-property" id="element110-property" colspan="2"> 272.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Rg</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Roentgenium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element111" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 112 </td>
+									<td class="element-property" id="element111-property" colspan="2"> 277.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cn</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Copernicium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element112" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 113 </td>
+									<td class="element-property" id="element112-property" colspan="2"> 286.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Uut</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ununtrium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element113" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 114 </td>
+									<td class="element-property" id="element113-property" colspan="2"> 289.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Fl</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Flerovium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element114" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 115 </td>
+									<td class="element-property" id="element114-property" colspan="2"> 288.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Uup</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ununpentium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element115" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 116 </td>
+									<td class="element-property" id="element115-property" colspan="2"> 293.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Lv</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Livermorium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element116" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 117 </td>
+									<td class="element-property" id="element116-property" colspan="2"> 294.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Uus</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ununseptium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element117" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 118 </td>
+									<td class="element-property" id="element117-property" colspan="2"> 294.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Uuo</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3">  </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ununoctium</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td> </td>
+
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+			</tr><tr class="row"> 
+					<td> </td>
+
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="period period-special" id="period8" data-period="6" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 6 </td>
+
+						<td id="element56" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 57 </td>
+									<td class="element-property" id="element56-property" colspan="2"> 138.9055 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> La</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]5d<sup>1</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Lanthanum</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element57" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 58 </td>
+									<td class="element-property" id="element57-property" colspan="2"> 140.115 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ce</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>1</sup>5d<sup>1</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Cerium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element58" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 59 </td>
+									<td class="element-property" id="element58-property" colspan="2"> 140.90765 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>3</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Praseodymium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element59" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 60 </td>
+									<td class="element-property" id="element59-property" colspan="2"> 144.24 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Nd</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>4</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Neodymium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element60" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 61 </td>
+									<td class="element-property" id="element60-property" colspan="2"> 144.9127 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pm</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>5</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Promethium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element61" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 62 </td>
+									<td class="element-property" id="element61-property" colspan="2"> 150.36 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Sm</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>6</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Samarium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element62" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 63 </td>
+									<td class="element-property" id="element62-property" colspan="2"> 151.9655 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Eu</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>7</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Europium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element63" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 64 </td>
+									<td class="element-property" id="element63-property" colspan="2"> 157.25 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Gd</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>7</sup>5d<sup>1</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Gadolinium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element64" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 65 </td>
+									<td class="element-property" id="element64-property" colspan="2"> 158.92534 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Tb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>9</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Terbium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element65" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 66 </td>
+									<td class="element-property" id="element65-property" colspan="2"> 162.5 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Dy</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>10</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Dysprosium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element66" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 67 </td>
+									<td class="element-property" id="element66-property" colspan="2"> 164.93032 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ho</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>11</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Holmium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element67" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 68 </td>
+									<td class="element-property" id="element67-property" colspan="2"> 167.26 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Er</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>12</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Erbium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element68" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 69 </td>
+									<td class="element-property" id="element68-property" colspan="2"> 168.93421 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Tm</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>13</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Thulium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element69" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 70 </td>
+									<td class="element-property" id="element69-property" colspan="2"> 173.04 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Yb</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Ytterbium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element70" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 71 </td>
+									<td class="element-property" id="element70-property" colspan="2"> 174.967 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Lu</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Xe]4f<sup>14</sup>5d<sup>1</sup>6s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Lutetium</td>
+								</tr>
+							</tbody></table>
+						</td>
+			</tr><tr class="row"> 
+					<td> </td>
+
+
+						<td class="no-border"> </td>
+
+						<td class="no-border"> </td>
+
+						<td class="period period-special" id="period9" data-period="7" style="border-right-width: 8px; border-right-style: solid; border-right-color: rgb(240, 240, 240);"> 7 </td>
+
+						<td id="element88" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 89 </td>
+									<td class="element-property" id="element88-property" colspan="2"> 227.0278 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Ac</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Actinium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element89" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 90 </td>
+									<td class="element-property" id="element89-property" colspan="2"> 232.0381 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Th</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]6d<sup>2</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Thorium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element90" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 91 </td>
+									<td class="element-property" id="element90-property" colspan="2"> 231.03588 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pa</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>2</sup>6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Protactinium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element91" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 92 </td>
+									<td class="element-property" id="element91-property" colspan="2"> 238.0289 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> U</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>3</sup>6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Uranium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element92" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 93 </td>
+									<td class="element-property" id="element92-property" colspan="2"> 237.0482 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Np</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>4</sup>6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Neptunium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element93" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 94 </td>
+									<td class="element-property" id="element93-property" colspan="2"> 244.0642 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Pu</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>6</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Plutonium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element94" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 95 </td>
+									<td class="element-property" id="element94-property" colspan="2"> 243.0614 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Am</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>7</sup>6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Americium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element95" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 96 </td>
+									<td class="element-property" id="element95-property" colspan="2"> 247.0703 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cm</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>7</sup>6d<sup>1</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Curium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element96" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 97 </td>
+									<td class="element-property" id="element96-property" colspan="2"> 247.0703 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Bk</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>9</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Berkelium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element97" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 98 </td>
+									<td class="element-property" id="element97-property" colspan="2"> 251.0796 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Cf</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>10</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Californium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element98" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 99 </td>
+									<td class="element-property" id="element98-property" colspan="2"> 254.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Es</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>11</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Einsteinium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element99" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 100 </td>
+									<td class="element-property" id="element99-property" colspan="2"> 257.0951 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Fm</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>12</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Fermium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element100" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 101 </td>
+									<td class="element-property" id="element100-property" colspan="2"> 258.1 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Md</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>13</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Mendelevium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element101" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 102 </td>
+									<td class="element-property" id="element101-property" colspan="2"> 259.1009 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> No</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>14</sup>7s<sup>2</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Nobelium</td>
+								</tr>
+							</tbody></table>
+						</td>
+
+						<td id="element102" class="border-element" style="opacity: 1;"> 
+							<table class="element-box">
+								<tbody><tr>
+									<td class="atomic-number"> 103 </td>
+									<td class="element-property" id="element102-property" colspan="2"> 262.0 </td>
+								</tr>
+								<tr>
+									<td class="atomic-short" colspan="3"> Lr</td>
+								</tr>
+								<tr>
+									<td class="electron-configuration" colspan="3"> [Rn]5f<sup>14</sup>7s<sup>2</sup>7p<sup>1</sup> </td>
+								</tr>
+								<tr>
+									<td class="atomic-name" colspan="3">Lawrencium</td>
+								</tr>
+							</tbody></table>
+						</td>
+		</tr>
+	</tbody></table>
+</div>
+
+
+<script src="./Petairon_files/bootstrap.min.js"></script>
+
+
+
+</body></html>

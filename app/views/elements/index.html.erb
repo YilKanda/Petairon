@@ -1,32 +1,3 @@
-<header>
-	<div id="header">
-			<ul class="nav">
-				<li><div><i class="fa fa-home"> </i> Home</div></li>
-				<li><div>Physical State</div>
-					<ul class="nav-options">
-						<li><button type="submit" value="state" name="property" class="property-button">State</button></li>
-						<li><button type="submit" value="mass" name="property" class="property-button" subname="Atomic Mass">Mass</button></li>
-						<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
-						<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
-					</ul>
-				</li>
-				<li><div>Other properties</div>
-					<ul>
-						<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
-						<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
-						<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
-						<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
-						<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
-						<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
-					</ul>
-				</li>
-				<li><div>Compounds</div></li>
-			</ul>
-		</div>
-</header>
-
-<div class="publicity"></div>
-
 <!-- Tabla Periodica-elementos -->
 <div id="periodic-table">
 	<table>
@@ -108,11 +79,11 @@
 				</div> 
 				<div id='second-legend'>
 					<div class='slider'>
-					    <div class='emptyprogress'></div>
-			            <div class='progress'></div>
-			            <div class='indicator'></div>
+						<div class='emptyprogress'></div>
+						<div class='progress'></div>
+						<div class='indicator'></div>
 					</div>	<br>				
-			        <div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
+					<div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
 				</div>
 			</td>
 
@@ -145,7 +116,7 @@
 							<table class="element-box">
 								<tr>
 									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
-									<td class="element-property" id="element<%= i %>-property" colspan="2"> <%= @elements[i].mass %> </td>
+									<td class="element-property" id="element<%= i %>-property" colspan="2">  </td>
 								</tr>
 								<tr>
 									<td class="atomic-short" colspan="3"> <%= @elements[i].short_name %></td>

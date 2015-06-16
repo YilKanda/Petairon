@@ -37,6 +37,9 @@ module ElementsHelper
 	  else
 	  	''
 	  end
+	end
 
+	def round_to_x_decimals(num,x)
+		num.to_f.round(x)
 	end
 end

@@ -9,6 +9,35 @@
 </head>
 <body>
 
+<header>
+	<div id="header">
+			<ul class="nav">
+				<li><a class="home-button" href="<%= elements_path %>"> <i class="fa fa-home"> </i> Home </a></li>
+				<li><button type="submit" value="mass" name="property" class="property-button menu" subname="Atomic Mass">Categories</button></li>
+        <li><div>Physical State</div>
+          <ul class="nav-options">
+            <li><button type="submit" value="state" name="property" class="property-button">State</button></li>
+						<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
+						<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
+					</ul>
+				</li>
+				<li><div>Other properties</div>
+					<ul>
+						<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
+						<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
+						<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
+						<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
+						<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
+						<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
+					</ul>
+				</li>
+				<li><a class="home-button" href="<%= compounds_path %>">Compounds</a></li>
+			</ul>
+		</div>
+</header>
+
+<div class="publicity"></div>
+
 <%= yield %>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

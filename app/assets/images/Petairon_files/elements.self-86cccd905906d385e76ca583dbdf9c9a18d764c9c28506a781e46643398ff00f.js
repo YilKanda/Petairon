@@ -19,7 +19,7 @@ $(document).ready(function() {
 		type: "GET",
 		url: "http://localhost:3000/properties",
 		success: function(response){elements=response; fillLegend()},
-		error: function(response){alert("Success: Elements error")},
+		error: function(response){alert("Success: false")},
 		dataType: "json"
 	});
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		type: "GET",
 		url: "http://localhost:3000/valencies",
 		success: function(response){valencies=response},
-		error: function(response){alert("Success: Valencies error")},
+		error: function(response){alert("Success: false")},
 		dataType: "json"
 	});
 
@@ -35,12 +35,12 @@ $(document).ready(function() {
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
-		$('#categories-legend').css('visibility', 'hidden');
 		for(var i = 0; i < elements.length; i++ ) {
 			$('#element'+i).css('opacity', '1');
 			$("#element"+ i +"-property").text(elements[i][$property]);
 			if ($property == 'state') {
 				elementState(i, $property, 293);
+				$("#element"+ i +"-property").text('');
 			} else if ($property == 'valencies'){
 				fillInitLegend($(this));
 				elementValencies(i, $property);
@@ -69,15 +69,16 @@ $(document).ready(function() {
 
 	    var pos = $(e.currentTarget).offset(), 
 	    	posX = e.pageX - pos.left,   
-	    	value = Math.round((posX-0.12493896484375)*6019/$(e.currentTarget).outerWidth());
+	    	value = Math.round((posX)*6019/$(e.currentTarget).outerWidth())-10;
 	    if(posX >= 0 && posX <= $(e.currentTarget).outerWidth()){
-	    	console.log(posX)
 	        $('.slider > .progress').css('width', posX+'px');
 	        $('.slider > .indicator').css('left', posX+'px');
+	        console.log(value);
 	        $('#temperature-val').text(value);
 	        for(var i = 0; i < elements.length; i++ ) {
 				$('#element'+i).css('opacity', '1');
 				elementState(i, 'state', value);
+				$("#element"+ i +"-property").text('');
 			}
 	  }
 	}
@@ -114,7 +115,7 @@ $(document).ready(function() {
 	$(".button-category").on("mouseleave", function(){
 		$('.border-element').css('opacity', '1');
 		$('.button-category').css('opacity', '1');
-		$('.elementoids').css('opacity', '0.6');
+		$('.elementoids').css('opacity', '0.7');
 	});
 
 	function checkCategory(k,category,generalCategory){
@@ -167,8 +168,7 @@ $(document).ready(function() {
 	$('.period').on('mouseleave', function(){
 		$('.border-element').css('opacity', '1');
 		$('.period').css('border-right', '8px solid #F0F0F0');
-		$('.elementoids').css('opacity', '0.6');
-		propertyEmpty();
+		$('.elementoids').css('opacity', '0.7');
 	})
 
 //pulsar un grupo entero
@@ -191,17 +191,8 @@ $(document).ready(function() {
 		$('.border-element').css('opacity', '1');		
 		$('.group').css('background', '#F0F0F0');
 		$('.group').css('border-bottom', '8px solid #F0F0F0');
-		$('.elementoids').css('opacity', '0.6');
-		propertyEmpty();
+		$('.elementoids').css('opacity', '0.7');
 	})
-
-	function propertyEmpty(){
-		for (var i=0; i<elements.length; i++){
-			if ($('#element'+i+'-property').text()==''){
-				$('#element'+i).css('opacity', '0.6');
-			}
-		}
-	}
 
 //rellenar el cuadro del atomo en la leyenda
 	function fillLegend(){
@@ -240,7 +231,7 @@ $(document).ready(function() {
 		$("#element"+ i +"-property").text(valencies[i]);
 		$('#element'+i).css('background-color', '#FFCC00');
 		if (valencies[i] == ""){
-			$('#element'+i).css('opacity', '0.6');
+			$('#element'+i).css('opacity', '0.7');
 		}
 	}
 
@@ -249,24 +240,20 @@ $(document).ready(function() {
 		$('#second-legend').css('visibility', 'visible');
 		$('#first-state-legend').css('visibility', 'visible');
 		$('#box-legend').css('visibility', 'hidden');
-		$("#element"+ i +"-property").text('');
+		$("#element"+ i +"-property").text(property);
 		$('#legend-property').text(' ');
-		if (!elements[i]['melting_point'] && !elements[i]['boiling_point']){ //unknown
+		if (!elements[i]['melting_point'] && !elements[i]['boiling_point']){
 			//console.log(elements[i].short_name,'Unknown');
 			$('#element'+i).css('background-color', '#D8D8D8');
-			$('#element'+i).css('opacity', '0.6');
+			$('#element'+i).css('opacity', '0.7');
 		} else if (elements[i]['melting_point'] > temperature ){ //solid
 			$('#element'+i).css('background-color', '#FF3366');
-			$('#element'+i+'-property').text('Solid');
 		} else if (elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > temperature) { //liquid
 			$('#element'+i).css('background-color', '#33FFFF');
-			$('#element'+i+'-property').text('Liquid');
 		} else if (elements[i]['boiling_point'] > temperature) { //liquid
 			$('#element'+i).css('background-color', '#33FFFF');
-			$('#element'+i+'-property').text('Liquid');
 		} else {
-			$('#element'+i).css('background-color', '#99FF33');//gas
-			$('#element'+i+'-property').text('Gas');
+			$('#element'+i).css('background-color', '#99FF33');
 		} 	
 	}
 
@@ -282,7 +269,7 @@ $(document).ready(function() {
 				//console.log(elements[index].short_name,'Unknown');
 				$("#element"+ index +"-property").text('');
 				$('#element'+index).css('background-color', '#D8D8D8');
-				$('#element'+index).css('opacity', '0.6');
+				$('#element'+index).css('opacity', '0.7');
 			} else {
 				for (var i=(length-1); i>=0; i--) {
 					var margen1 = init + ((ending - init)/length) * (i);
@@ -292,6 +279,7 @@ $(document).ready(function() {
 					}
 				}
 			}
+			$('#categories-legend').css('visibility', 'hidden');
 		} else {
 			var i = elements[index]['category'];
 			var colors;
