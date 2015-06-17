@@ -62,7 +62,7 @@ class Element < ActiveRecord::Base
 
 	def self.check_formula(array_atoms, atoms_composition_object, elements)
 		if incorrect_formula(array_atoms)
-			return 'Incorrect Formula. Try again!'
+			return 'Incorrect Simbols. Try again!'
 		else
 			mass = calculate_mass(atoms_composition_object, elements)
 			return 'Molecular weight: ' + mass.to_f.round(4).to_s + ' g/mol'	

@@ -13,15 +13,16 @@ $(document).ready(function() {
 				electronegativity: [0,4],
 				electron_affinity: [0,350]
 			};
-
+	var elements_length;
 
 	$.ajax({
 		type: "GET",
 		url: "http://localhost:3000/properties",
-		success: function(response){elements=response; fillLegend()},
+		success: function(response){elements=response; elements_length = elements.length; fillLegend()},
 		error: function(response){alert("Success: Elements error")},
 		dataType: "json"
 	});
+
 
 	$.ajax({
 		type: "GET",
@@ -30,13 +31,21 @@ $(document).ready(function() {
 		error: function(response){alert("Success: Valencies error")},
 		dataType: "json"
 	});
+	
 
+
+	$("#compounds").on("click", function(){
+		$('#categories-legend').css('visibility', 'hidden');
+		$('#first-state-legend').css('visibility', 'hidden');
+		$('.slider').css('visibility', 'hidden');
+	});
 
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
-		$('#categories-legend').css('visibility', 'hidden');
-		for(var i = 0; i < elements.length; i++ ) {
+		$('#categories-legend').css('visibility', 'hidden');		
+		$('#mass-molecule').css('visibility', 'hidden');
+		for(var i = 0; i < elements_length; i++ ) {
 			$('#element'+i).css('opacity', '1');
 			$("#element"+ i +"-property").text(elements[i][$property]);
 			if ($property == 'state') {
@@ -75,7 +84,7 @@ $(document).ready(function() {
 	        $('.slider > .progress').css('width', posX+'px');
 	        $('.slider > .indicator').css('left', posX+'px');
 	        $('#temperature-val').text(value);
-	        for(var i = 0; i < elements.length; i++ ) {
+	        for(var i = 0; i < elements_length; i++ ) {
 				$('#element'+i).css('opacity', '1');
 				elementState(i, 'state', value);
 			}
@@ -95,7 +104,7 @@ $(document).ready(function() {
 		}
 		var length = metalsOrNot.length;
 
-		for(var k = 0; k < elements.length; k++ ) {
+		for(var k = 0; k < elements_length; k++ ) {
 			$('#element'+k).css('opacity', '0.3');
 			$('.button-category').css('opacity', '0.3');
 			if ($(this).attr('data-general')){
@@ -138,12 +147,16 @@ $(document).ready(function() {
 			} 
 			$('#group'+group).css('border-bottom', '8px solid green');
 			$('#period'+period).css('border-right', '8px solid green');
+			$(this).css('-webkit-box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');
+			$(this).css('-moz-box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');
+			$(this).css('box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');		
 	})
 
 	$('.border-element').on('mouseleave', function(){
 		$('.group').css('border-bottom', '8px solid #F0F0F0');
 		$('.group').css('background', '#F0F0F0');
 		$('.period').css('border-right', '8px solid #F0F0F0');
+		$(this).css('box-shadow', 'none');
 	})	
 
 //pulsar un periodo entero
@@ -154,7 +167,7 @@ $(document).ready(function() {
 		$('[data-period="'+$period+'"]').css('border-right', '8px solid green');
 		$('.elementoids').css('border-right', 'none');
 		console.log($period);
-		for (var i=0; i < elements.length; i++) {
+		for (var i=0; i < elements_length; i++) {
 			if (elements[i].period == $period){
 				$('#element'+i).css('opacity', '1');
 				$('#elementoids'+$period).css('opacity', '1');
@@ -178,7 +191,7 @@ $(document).ready(function() {
 		$('.group').css('border-bottom', '8px solid #F0F0F0');
 		$(this).css('border-bottom', '8px solid green');
 		var $group= $(this).text();
-		for (var i=0; i < elements.length; i++) {
+		for (var i=0; i < elements_length; i++) {
 			if (elements[i].group == $group){
 				$('#element'+i).css('opacity', '1');
 			} else {
@@ -196,7 +209,7 @@ $(document).ready(function() {
 	})
 
 	function propertyEmpty(){
-		for (var i=0; i<elements.length; i++){
+		for (var i=0; i<elements_length; i++){
 			if ($('#element'+i+'-property').text()==''){
 				$('#element'+i).css('opacity', '0.6');
 			}
@@ -270,7 +283,7 @@ $(document).ready(function() {
 		} 	
 	}
 
-	// Variation of color depends of the state
+	// Variation of color depends of the property
 	function colorVariation(index, property) {
 		var init = color[property][0];
 		var ending = color[property][1];
@@ -278,12 +291,7 @@ $(document).ready(function() {
 		if (property != 'mass') {
 			colors = propertyColors(property);
 			var length = colors.length;
-			if (!elements[index][property]){
-				//console.log(elements[index].short_name,'Unknown');
-				$("#element"+ index +"-property").text('');
-				$('#element'+index).css('background-color', '#D8D8D8');
-				$('#element'+index).css('opacity', '0.6');
-			} else {
+			if (elements[index][property] || elements[index][property]==0){
 				for (var i=(length-1); i>=0; i--) {
 					var margen1 = init + ((ending - init)/length) * (i);
 					var margen2 = init + ((ending - init)/length) * (i+1);
@@ -291,6 +299,11 @@ $(document).ready(function() {
 						$('#element'+index).css('background-color', colors[i]);
 					}
 				}
+			} else {
+				//console.log(elements[index].short_name,'Unknown');
+				$("#element"+ index +"-property").text('');
+				$('#element'+index).css('background-color', '#D8D8D8');
+				$('#element'+index).css('opacity', '0.6');
 			}
 		} else {
 			var i = elements[index]['category'];
@@ -325,7 +338,7 @@ $(document).ready(function() {
 	}
 
 
-	//ecuacion para escribir la configuracion electronica		
+	//funcion para escribir la configuracion electronica		
 	function element_configuration(element_electron_configuration){
 		
 	  if (element_electron_configuration) {
