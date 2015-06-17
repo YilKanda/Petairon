@@ -18,7 +18,7 @@ td, tr {
 	padding: 0;
 }
 
-button .property-button {
+button .property-button, button {
 	background: none;
 	border: none;
 	text-decoration: none;
@@ -43,6 +43,7 @@ ul, ol {
 
 #periodic-table{
 	z-index: 0;
+	padding: 0;
 }
 
 #atomic-short {
@@ -198,7 +199,7 @@ ul, ol {
 #first-state-legend { 
 	visibility: hidden; 
 	position: relative;
-	top: -310px;
+	top: -190px;
 	left: 20px;
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
@@ -226,7 +227,7 @@ ul, ol {
 #mass-molecule {
 	position: relative;
 	text-align: center;
-	top: -150px;
+	top: 30px;
 	left: 100px;
 	border: 1px solid grey;
 	font-size: 120%;
@@ -309,7 +310,7 @@ ul, ol {
 }
 
 .border-element-options {
-	width: 65px;
+	width: 63px;
 	background: #D8D8D8;
 	border-radius: 3%;
 	border: 1px solid grey;
@@ -319,9 +320,9 @@ ul, ol {
 	position: relative;
 	top: 30px;
 	left: 95px;
+	border: 1px solid grey;
 }
 
+.border-element-options .atomic-number { text-decoration: bold; text-align: left; height: 9px;}
 .border-element-game .atomic-number{ text-decoration: bold; text-align: left; height: 11px;}
-.border-element-game table tr td {
-	visibility: hidden;
-}
+.border-element-game table tr td { visibility: hidden;}

@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-
 	var elements;
 	var valencies;
 	var random_elements;
@@ -19,7 +18,7 @@ $(document).ready(function() {
 	$.ajax({
 		type: "GET",
 		url: "http://localhost:3000/properties",
-		success: function(response){elements=response; elements_length = elements.length; fillLegend()},
+		success: function(response){elements=response; elements_length = elements.length; fillLegend},
 		error: function(response){alert("Success: Elements error")},
 		dataType: "json"
 	});
@@ -41,12 +40,21 @@ $(document).ready(function() {
 		dataType: "json"
 	});
 
-	// Mostrar vista calculo de pesos moleculares
-	$("#compounds").on("click", function(){
-		$('#categories-legend').css('visibility', 'hidden');
-		$('#first-state-legend').css('visibility', 'hidden');
-		$('.slider').css('visibility', 'hidden');
-	});
+	// Mostrar vista de cada boton
+
+	var url = window.location.href;
+	if (url=='http://localhost:3000/elements'){
+		console.log($('#elements-properties').next('ul').attr('class'));
+		$('#elements-properties').next('ul').removeClass("none-display");
+		$('#elements-properties').next('ul').addClass("on-display");
+		$('.caret-down > i').addClass('fa-caret-up');
+	}
+	
+	$('.caret-down > i').on('click', function(){
+		$('#elements-properties').next('ul').fadeToggle();
+		$(this).toggleClass('fa-caret-up');
+		$(this).toggleClass('fa-caret-down');
+	})
 
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){

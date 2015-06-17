@@ -19,30 +19,6 @@
 							<td id="atomic-name" class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
 						</tr>
 					</table>
-					<table id="categories-legend">
-						<tr>
-							<td class="button-category" rowspan="3" data-category="4" data-metal-category="semimetal">Semi Metals</td>
-							<td class="button-category" colspan="3" data-metal-category="nonmetal" data-general="nonmetal"> Nonmetals</td>
-						<tr>
-						</tr>
-							<td class="button-category" data-category="5" data-metal-category="nonmetal">Other nonmetals</td>
-							<td class="button-category" data-category="6" data-metal-category="nonmetal">Halogen</td>
-							<td class="button-category" data-category="7" data-metal-category="nonmetal">Noble Gases</td>
-						</tr>
-						<tr>
-							<td class="button-category" colspan="4" data-metal-category="metal" data-general="metal">Metals</td>
-						</tr>
-						<tr>
-							<td class="button-category" data-category="0" data-metal-category="metal">Alkali Metals</td>
-							<td class="button-category" rowspan="2" data-category="2" data-metal-category="metal">Transition Metals</td>
-							<td class="button-category" data-category="8" data-metal-category="metal">Lanthanides</td>
-							<td class="button-category" rowspan="2" data-category="3" data-metal-category="metal">Basic Metals</td>
-						</tr>
-						<tr>
-							<td class="button-category" data-category="1" data-metal-category="metal">Alkali Earth</td>
-							<td class="button-category" data-category="9" data-metal-category="metal">Actinides</td>
-						</tr>
-					</table>
 					<table id="mass-molecule">
 						<tr>
 							<td class="molecular-calculator"> Molecular Weight Calculator </td>
@@ -62,48 +38,7 @@
 							<td class="mass-result"> <%= @molecular_weight %> </td>
 						</tr>
 					</table>
-					<div id='first-state-legend'>
-						<table id="state-legend">
-							<tr>
-								<td><div id="solid" class="border-state"> S</div></td>
-								<td class="left-align"> Solid</td>
-							</tr>
-							<tr>
-								<td><div id="liquid" class="border-state">L</div></td>
-								<td class="left-align"> Liquid</td>
-							</tr>
-							<tr>
-								<td><div class="border-state" id="gas"> G</div></td>
-								<td class="left-align"> Gas</td>
-							</tr>
-							<tr>
-								<td><div class="border-state" id="unknown">U </div></td>
-								<td class="left-align"> Unknown</td>
-							</tr>
-						</table>
-						<div>
-							<table id="temperature-units">
-								<tr>
-									<td><span id="kelvin">293</span> &#8490</td>
-								</tr>
-								<tr>
-									<td><span id="centigrades">20</span> &#8451</td>
-								</tr>
-								<tr>
-									<td><span id="fahrenheit">68</span>&#8457</td>
-								</tr>
-							</table>
-						</div>
-					</div>
 				</div> 
-				<div id='second-legend'>
-					<div class='slider'>
-						<div class='emptyprogress'></div>
-						<div class='progress'></div>
-						<div class='indicator'></div>
-					</div>	<br>				
-					<div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
-				</div>
 			</td>
 
 			<% (1..18).each do |i| %>

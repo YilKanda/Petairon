@@ -18,14 +18,14 @@
 					<table id="random-elements">
 						<% (0..1).each do |i| %>
 							<tr>
-								<% (1..6).each do |j| %>
-									<td class="border-element-options">
+								<% (0..5).each do |j| %>
+									<td class="border-element-options" id="random-element<%= i+j*6 %>">
 										<table class="element-box">
 										<tr>
 											<td class="atomic-number" colspan="3"></td>
 										</tr>
 										<tr>
-											<td class="atomic-short" id="atomic-short<%= i+j*6 %>" colspan="3"> <%= @random_elements[i+j*6].short_name %></td>
+											<td class="atomic-short" id="random-atomic-short<%= i+j*6 %>" colspan="3"> <%= @random_elements[i+j*6].short_name %></td>
 										</tr>
 										<tr>
 											<td class="electron-configuration" colspan="3"></td>
@@ -67,7 +67,7 @@
 					<% end %>
 
 					<% if is_an_element > 0 && is_an_element < 5  %>
-						<td id="element<%= i %>-game" class="border-element-game"> 
+						<td id="element-game<%= i %>" class="border-element-game"> 
 							<table class="element-box">
 								<tr>
 									<td class="atomic-number" colspan="3"></td>

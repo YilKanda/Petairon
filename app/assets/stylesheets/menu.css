@@ -41,7 +41,8 @@ header {
     width: 5px auto;
 }
 
-.nav li div, .menu, .home-button{
+.nav li a {
+    /* .menu, .home-button */
 	border: none;
     color: #5d5d5d;
     display: inline-block;
@@ -65,9 +66,9 @@ header {
     background-color: #5f5f5f;
 }
  
-.nav li div:hover, .menu:hover, .home-button:hover {
+.nav li a:hover{
     /* Gradients! */
-
+    /* .menu:hover, .home-button:hover  */
     background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
     background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
     background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
@@ -88,30 +89,30 @@ header {
     transition:0.25s all;
 }
 
-.nav li ul {
+.none-display {
 	display:none;
 	position:absolute;
 	min-width:140px;
 }
 
-.nav li:hover > ul {
-	display:block;
-	z-index: 1000000;
+.on-display {
+  display:block;
+  position:absolute;
+  min-width:140px;
+  z-index: 10;
 }
 
-.nav li ul li {position:relative;}
-
-.nav li ul li button{
-	text-shadow: 0 -1px 3px #202020;
-	margin-left:30px;
-	color:white;
-	top: 0px;
-	font-size: 100%;
-	text-align: left;
-	width: 220px;
-	padding: 10px;
-	background-color: #f0f0f0;
-	
+.nav ul {
+  text-shadow: 0 -1px 3px #202020;
+  position: absolute;
+  margin-top: 60px;
+  color:white;
+  top: 0px;
+  font-size: 100%;
+  text-align: left;
+  width: 97%;
+  padding-bottom: 10px;
+  
     /* border radius */
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -123,20 +124,46 @@ header {
     box-shadow: 0 3px 4px #8b8b8b;
 
     /* gradient */
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
-    background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-    background-color: #5f5f5f;
-}
-	
-.nav li ul li button:hover{
 
-	font-size: 120%;
-	margin-left:30px;
+    background-color: #6f6f6f;
+}
+
+.nav ul table tr td table tr, .nav ul table tr {
+  vertical-align: text-top;
+  text-align: left;
+}
+
+.nav ul table tr td table tr td{
+  width: 220px;
+  -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+ 
+
+}
+.nav ul table tr td table tr td li {position:relative;}
+
+.nav ul table tr td table tr td div {text-align: center; color:#F5F5DC; font-size: 115%; text-decoration: bold; position:relative; padding: 4px;}
+
+.nav ul table tr td table tr td li button {
+  font-family: Arial, Helvetica, sans-serif;
+  color:black;
+  font-size: 100%;
+  text-align: left;
+  margin-left: 15px;
+  padding: 4px;
+  text-shadow: 0 -1px 3px #202020;
+
+}
+
+	
+.nav ul table tr td table tr td li button:hover{
+
+	font-size: 110%;
 	top: 0px;
 	text-align: left;
-	width: 220px;
-	padding: 8px;
-	z-index: 200;
+	padding: 2px;
+	z-index: 2;
 
 	background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
     background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
@@ -159,3 +186,18 @@ header {
 }
 
 
+.caret-down{
+  position: relative;
+  left: 116px;
+  top: -41px;
+  z-index: 40;
+}
+
+.fa-caret-down, .fa-caret-up {
+  color: white;
+  font-size: 1.5em;
+}
+
+#element-menu {
+  padding-right: 45px;
+}

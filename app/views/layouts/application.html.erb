@@ -3,7 +3,6 @@
 <head>
   <title>Petairon</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="jquery-ui.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -13,27 +12,63 @@
 <header>
 	<div id="header">
 			<ul class="nav">
-				<li><a class="home-button" href="<%= elements_path %>"> <i class="fa fa-home"> </i> Home </a></li>
-				<li><button type="submit" value="mass" name="property" class="property-button menu" subname="Atomic Mass">Categories</button></li>
-        <li><div>Physical State</div>
-          <ul class="nav-options">
-            <li><button type="submit" value="state" name="property" class="property-button">State</button></li>
-						<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
-						<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
-					</ul>
+				<li><a class="home-button" href="<%= root_path %>"> <i class="fa fa-home"> </i> Home </a></li>
+				<li id='elements-properties'>
+					<a class="home-button" href="<%= elements_path %>" id="element-menu"> Elements </a>
+					<button class="caret-down"><i class="fa"></i></button>
 				</li>
-				<li><div>Other properties</div>
-					<ul>
-						<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
-						<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
-						<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
-						<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
-						<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
-						<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
-					</ul>
-				</li>
+				<ul class="none-display submenu">
+					<table>
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td colspan='2'><div class="home-button">Categories</div></td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table>
+									<tr>
+										<td colspan="2"><div class="home-button">Physical Properties</div></td>
+									</tr>
+									<tr>
+										<td>
+											<li><button type="submit" value="mass" name="property" class="property-button menu" subname="Atomic Mass">Atomic Mass</button></li>
+											<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
+											<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
+										</td>
+			        			<td>
+											<li><button type="submit" value="state" name="property" class="property-button">State</button></li>
+											<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
+			        			</td>
+									</tr>
+								</table>
+							</td>
+							<td>
+								<table>
+									<tr>
+										<td colspan="2"><div class="home-button">Other properties</div></td>
+									</tr>
+									<tr>
+										<td>
+											<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
+											<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
+											<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
+										</td>
+
+										<td>
+											<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
+											<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</ul>
 				<li><a id="compounds" class="home-button" href="<%= compounds_path %>">Compounds</a></li>
-				<li><a class="home-button" href="<%= game_path %>">Play!</a></li>
+				<li><a id="game" class="home-button" href="<%= game_path %>">Play!</a></li>
 			</ul>
 		</div>
 </header>
@@ -43,8 +78,7 @@
 <%= yield %>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="external/jquery/jquery.js"></script>
-<script src="jquery-ui.min.js"></script>
+
 
 </body>
 </html>
