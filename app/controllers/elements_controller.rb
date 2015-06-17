@@ -28,4 +28,15 @@ class ElementsController < ApplicationController
 		@molecular_weight = Element.calculate_weight(@formula_elements)
 		render 'compounds'
 	end
+
+	def game
+		@elements = Element.all	
+		@matrix_elements = Element.matrix_periodic_table
+		@random_elements = @elements.sample(@elements.length)
+		
+		respond_to do |format|
+			format.html
+    	format.json { render json: @random_elements }
+		end
+	end
 end

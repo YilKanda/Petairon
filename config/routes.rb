@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/properties' => 'elements#property'
   get '/valencies' => 'elements#element_valencies'
   get '/compounds' => 'elements#compounds'
+  get '/game' => 'elements#game'
   post '/compounds/molecule' => 'elements#molecule', as: 'element_molecule'
 end

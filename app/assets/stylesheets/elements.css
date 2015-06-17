@@ -1,4 +1,4 @@
-
+/* general */
 * {
 	margin: 0;
 	padding: 0;
@@ -32,6 +32,8 @@ ul, ol {
 	height: 80px;
 }
 
+/* cajas de los elementos */
+
 .border-element {
 	width: 67px;
 	height: 60px;
@@ -39,7 +41,81 @@ ul, ol {
 	border-radius: 3%;
 }
 
+#periodic-table{
+	z-index: 0;
+}
 
+#atomic-short {
+	margin: 0;
+	padding: 0;
+	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: bold;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.no-border {
+	width: 60px;
+	height: 60px;
+}
+
+.element-box{
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	font-size: 11px;
+}
+
+.atomic-short{
+	margin: 0;
+	padding: 0;
+	font-size: 25px;
+	text-decoration: bold;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.atomic-number{ text-decoration: bold; text-align: left; height: 12px;}
+.element-property { text-decoration: bold; text-align: right; font-size: 90%;}
+.electron-configuration {font-size: 70%; height: 12px;}
+.atomic-name{ text-decoration: bold; font-size: 90%;}
+.simbol-row{ width: 60%; height: 40%; }
+
+#elect-configuration {font-size: 84%;} 
+
+.blank {
+	width: 40%;
+}
+.group { border-bottom: 8px solid #F0F0F0; background: #F0F0F0; padding-top: 4px;}
+.period {
+	background: #F0F0F0;
+	width: 17px;
+	text-align: right;
+	padding-right: 10px;
+	margin: 0;
+	border-right: 8px solid #F0F0F0;
+}
+
+.period-special{
+	background: #F0F0F0;
+	border-left: 32px solid white;
+	width: 17px;
+	height: 60px;
+	text-align: right;
+	padding-right: 10px;
+	margin: 0;
+	border-right: 8px solid #F0F0F0;
+}
+
+.row { padding: 0px; margin: 0px; }
+.row-header { height: 25px; text-align: center; }
+
+
+.elementoids {text-align: center; font-size: 80%; opacity: 0.6;}
+
+/* leyendas */
 .border-state {
 	width: 40px;
 	height: 36px;
@@ -63,10 +139,6 @@ ul, ol {
 	height: 210px;
 	background: none;
 	display: inline-block;
-	z-index: 0;
-}
-
-#periodic-table{
 	z-index: 0;
 }
 
@@ -121,7 +193,59 @@ ul, ol {
 #categories-legend tr td[data-general="metal"] {background-color: #F8F8FF; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 105%;}
 #categories-legend tr td[data-general="nonmetal"] {background-color: #F8F8FF; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); font-size: 105%;}
 
+#temperature-val{border: 10%;}
 
+#first-state-legend { 
+	visibility: hidden; 
+	position: relative;
+	top: -310px;
+	left: 20px;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+}
+
+#state-legend {
+	position: absolute;
+	margin-top: 20px;
+	left: 40px;
+}
+
+#state-legend tr td {
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+
+.atom-amount{
+	font-size: 87%;
+	float: right;
+	clear: both;
+	text-align: right;
+}
+
+
+#mass-molecule {
+	position: relative;
+	text-align: center;
+	top: -150px;
+	left: 100px;
+	border: 1px solid grey;
+	font-size: 120%;
+	width: 350px;
+}
+
+#mass-molecule tr td {
+	padding: 5px;
+}
+
+.atom-imputs {
+	text-align: right;
+}
+
+.molecular-calculator {
+	border: 1px solid black;
+}
+
+/* slider temperatura */
 .slider{
    	height: 20px;
    	position: relative;
@@ -175,126 +299,29 @@ ul, ol {
 	display: inline-block;
 }
 
-#temperature-val{border: 10%;}
 
-#first-state-legend { 
-	visibility: hidden; 
-	position: relative;
-	top: -310px;
-	left: 20px;
-	font-size: 18px;
-	font-family: 'Roboto', sans-serif;
-}
-
-#state-legend {
-	position: absolute;
-	margin-top: 20px;
-	left: 40px;
-}
-
-#state-legend tr td {
-	padding-bottom: 5px;
-	padding-right: 10px;
-}
-
-#atomic-short {
-	margin: 0;
-	padding: 0;
-	font-size: 40px;
-	font-family: 'Roboto', sans-serif;
-	text-decoration: bold;
-	text-align: center;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-
-.no-border {
-	width: 60px;
-	height: 60px;
-}
-
-.element-box{
-	width: 100%;
-	padding: 0;
-	text-align: center;
-	font-size: 11px;
-}
-
-.atomic-short{
-	margin: 0;
-	padding: 0;
-	font-size: 25px;
-	text-decoration: bold;
-	text-align: center;
-	font-family: 'Roboto', sans-serif;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.atomic-number{ text-decoration: bold; text-align: left; }
-.element-property { text-decoration: bold; text-align: right; font-size: 90%;}
-.electron-configuration {font-size: 70%;height: 9px;}
-.atomic-name{ text-decoration: bold; font-size: 90%;}
-.simbol-row{ width: 60%; height: 40%; }
-
-#elect-configuration {font-size: 84%;} 
-
-.blank {
-	width: 40%;
-}
-.group {border-bottom: 8px solid #F0F0F0; background: #F0F0F0; padding-top: 4px;}
-.period {
-	background: #F0F0F0;
-	width: 17px;
-	height: 60px;
-	text-align: right;
-	padding-right: 10px;
-	margin: 0;
-	border-right: 8px solid #F0F0F0;
-}
-
-.period-special{
-	background: #F0F0F0;
-	border-left: 32px solid white;
-	width: 17px;
-	height: 60px;
-	text-align: right;
-	padding-right: 10px;
-	margin: 0;
-	border-right: 8px solid #F0F0F0;
-}
-
-.row { padding: 0px; margin: 0px; }
-.row-header { height: 25px; text-align: center; }
-
-
-.elementoids {text-align: center; font-size: 80%; opacity: 0.6;}
-
-.atom-amount{
-	font-size: 87%;
-	float: right;
-	clear: both;
-	text-align: right;
-}
-
-
-#mass-molecule {
-	position: relative;
-	text-align: center;
-	top: -150px;
-	left: 100px;
+/* game */
+.border-element-game {
+	width: 65px;
+	background: white;
+	border-radius: 3%;
 	border: 1px solid grey;
-	font-size: 120%;
-	width: 350px;
 }
 
-#mass-molecule tr td {
-	padding: 5px;
+.border-element-options {
+	width: 65px;
+	background: #D8D8D8;
+	border-radius: 3%;
+	border: 1px solid grey;
 }
 
-.atom-imputs {
-	text-align: right;
+#random-elements {
+	position: relative;
+	top: 30px;
+	left: 95px;
 }
 
-.molecular-calculator {
-	border: 1px solid black;
+.border-element-game .atomic-number{ text-decoration: bold; text-align: left; height: 11px;}
+.border-element-game table tr td {
+	visibility: hidden;
 }

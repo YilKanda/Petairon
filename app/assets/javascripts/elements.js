@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 	var elements;
 	var valencies;
+	var random_elements;
 	var color =  {
 				mass: [0,9],
 				melting_point: [0,4000],
@@ -32,8 +33,15 @@ $(document).ready(function() {
 		dataType: "json"
 	});
 	
+	$.ajax({
+		type: "GET",
+		url: "http://localhost:3000/game",
+		success: function(response){random_elements=response; random_elements_length=random_elements.length},
+		error: function(response){alert("Success: Random Elements error")},
+		dataType: "json"
+	});
 
-
+	// Mostrar vista calculo de pesos moleculares
 	$("#compounds").on("click", function(){
 		$('#categories-legend').css('visibility', 'hidden');
 		$('#first-state-legend').css('visibility', 'hidden');

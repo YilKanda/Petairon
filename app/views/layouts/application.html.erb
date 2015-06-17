@@ -3,6 +3,7 @@
 <head>
   <title>Petairon</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="jquery-ui.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -32,7 +33,7 @@
 					</ul>
 				</li>
 				<li><a id="compounds" class="home-button" href="<%= compounds_path %>">Compounds</a></li>
-				<li><a class="home-button" href="">Play!</a></li>
+				<li><a class="home-button" href="<%= game_path %>">Play!</a></li>
 			</ul>
 		</div>
 </header>
@@ -42,6 +43,8 @@
 <%= yield %>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.min.js"></script>
 
 </body>
 </html>
