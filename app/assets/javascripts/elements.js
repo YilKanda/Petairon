@@ -1,9 +1,11 @@
 
 $(document).ready(function() {
-	var elements;
-	var valencies;
-	var random_elements;
-	var color =  {
+	var elements,
+			valencies,
+			random_elements,
+			elements_length,
+			random_elements_length,
+			color =  {
 				mass: [0,9],
 				melting_point: [0,4000],
 				boiling_point: [0,6000],
@@ -13,7 +15,8 @@ $(document).ready(function() {
 				electronegativity: [0,4],
 				electron_affinity: [0,350]
 			};
-	var elements_length;
+
+	$.fx.speeds['very-slow'] = 1000;
 
 	$.ajax({
 		type: "GET",
@@ -44,23 +47,22 @@ $(document).ready(function() {
 
 	var url = window.location.href;
 	if (url=='http://localhost:3000/elements'){
-		console.log($('#elements-properties').next('ul').attr('class'));
-		$('#elements-properties').next('ul').removeClass("none-display");
-		$('#elements-properties').next('ul').addClass("on-display");
+		$('#elements-properties').next('ul').removeClass("none-display").addClass("on-display");
 		$('.caret-down > i').addClass('fa-caret-up');
 	}
 	
 	$('.caret-down > i').on('click', function(){
-		$('#elements-properties').next('ul').fadeToggle();
-		$(this).toggleClass('fa-caret-up');
-		$(this).toggleClass('fa-caret-down');
+
+		$('#elements-properties').next('ul').fadeToggle('slow');
+		$(this).toggleClass('fa-caret-up').toggleClass('fa-caret-down');
 	})
 
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
-		$('#categories-legend').css('visibility', 'hidden');		
-		$('#mass-molecule').css('visibility', 'hidden');
+		$('#elements-properties').next('ul').fadeOut('very-slow');
+		$('.caret-down > i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+		$('#categories-legend').css('visibility', 'hidden');	
 		for(var i = 0; i < elements_length; i++ ) {
 			$('#element'+i).css('opacity', '1');
 			$("#element"+ i +"-property").text(elements[i][$property]);
@@ -73,7 +75,7 @@ $(document).ready(function() {
 				fillInitLegend($(this));
 				colorVariation(i, $property);
 			} else {
-				$("#element"+ i +"-property").text(' ');
+				$("#element"+ i +"-property").text('');
 			}
 		}
 	});
@@ -125,7 +127,6 @@ $(document).ready(function() {
 			$('.button-category').css('opacity', '0.3');
 			if ($(this).attr('data-general')){
 				$('td[data-metal-category="'+$generalCategory+'"]').css('opacity', '1');
-				console.log($('td[data-metal-category="'+$generalCategory+'"]').css('opacity', '1'));
 				for (var j=0; j<length; j++){
 					checkCategory(k, metalsOrNot[j],$generalCategory);
 				}
@@ -152,27 +153,26 @@ $(document).ready(function() {
 	//grupos y periodos
 
 	$('.border-element').on('mouseover', function(){
-			$('.group').css('background', '#F0F0F0');
-			$('.group').css('border-bottom', '8px solid #F0F0F0');
+			$('.group').css('background', '#F0F0F0').css('border-bottom', '8px solid #F0F0F0');
 			$('.period').css('border-right', '8px solid #F0F0F0');
-			var i = $(this).attr('id').replace('element','');
-			var group = elements[i].group; 
-			var period = elements[i].period; 
+			var i = $(this).attr('id').replace('element',''),
+					group = elements[i].group,
+					period = elements[i].period; 
 			if ((i >= 56 && i <= 70) || (i >= 88 && i <= 102)){
 				period += 2;
 			} 
-			$('#group'+group).css('border-bottom', '8px solid green');
-			$('#period'+period).css('border-right', '8px solid green');
-			$(this).css('-webkit-box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');
-			$(this).css('-moz-box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');
-			$(this).css('box-shadow', 'inset 0px 0px 7px 7px rgba(0,0,0,0.3)');		
+			$('#group'+group).css('border-bottom', '8px solid #FFCC00');
+			$('#period'+period).css('border-right', '8px solid #FFCC00');
+			$(this).children().children().children().children().css('z-index', '0');
+			$(this).css('z-index', '10').css('-webkit-box-shadow', '0px 0px 2px 7px rgba(0,0,0,0.7)'
+				).css('-moz-box-shadow', '0px 0px 2px 7px rgba(0,0,0,0.7)'
+				).css('box-shadow', '0px 0px 2px 7px rgba(0,0,0,0.7)');	
 	})
 
 	$('.border-element').on('mouseleave', function(){
-		$('.group').css('border-bottom', '8px solid #F0F0F0');
-		$('.group').css('background', '#F0F0F0');
+		$('.group').css('border-bottom', '8px solid #F0F0F0').css('background', '#F0F0F0');
 		$('.period').css('border-right', '8px solid #F0F0F0');
-		$(this).css('box-shadow', 'none');
+		$(this).css('box-shadow', 'none').css('z-index', '0');	
 	})	
 
 //pulsar un periodo entero
@@ -180,9 +180,8 @@ $(document).ready(function() {
 		$('.period').css('border-right', '8px solid #F0F0F0');
 		$('.elementoids').css('opacity', '0.3');
 		var $period = $(this).attr('data-period');
-		$('[data-period="'+$period+'"]').css('border-right', '8px solid green');
+		$('[data-period="'+$period+'"]').css('border-right', '8px solid #FFCC00');
 		$('.elementoids').css('border-right', 'none');
-		console.log($period);
 		for (var i=0; i < elements_length; i++) {
 			if (elements[i].period == $period){
 				$('#element'+i).css('opacity', '1');
@@ -205,7 +204,7 @@ $(document).ready(function() {
 		$('.elementoids').css('opacity', '0.3');
 		$('.group').css('background', '#F0F0F0');
 		$('.group').css('border-bottom', '8px solid #F0F0F0');
-		$(this).css('border-bottom', '8px solid green');
+		$(this).css('border-bottom', '8px solid #FFCC00');
 		var $group= $(this).text();
 		for (var i=0; i < elements_length; i++) {
 			if (elements[i].group == $group){
@@ -236,7 +235,9 @@ $(document).ready(function() {
 	function fillLegend(){
 		$('.border-element').on("click", function(){
 			var i = $(this).attr('id').replace('element','');
+		console.log($('.border-element').children('table').children('tr').children('td'), i);
 			var $property = $("#element"+i+"-property").text();
+			console.log($property)
 			$('#atomic-number').text(elements[i].atomic_number);
 			$('#legend-property').text($property);
 			$('#atomic-short').text(elements[i].short_name);

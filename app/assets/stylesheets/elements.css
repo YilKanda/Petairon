@@ -37,23 +37,12 @@ ul, ol {
 .border-element {
 	width: 67px;
 	height: 60px;
-	background: #D8D8D8;
+	background: #FFFF66;
 	border-radius: 3%;
 }
 
 #periodic-table{
-	z-index: 0;
 	padding: 0;
-}
-
-#atomic-short {
-	margin: 0;
-	padding: 0;
-	font-size: 40px;
-	font-family: 'Roboto', sans-serif;
-	text-decoration: bold;
-	text-align: center;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .no-border {
@@ -84,7 +73,17 @@ ul, ol {
 .atomic-name{ text-decoration: bold; font-size: 90%;}
 .simbol-row{ width: 60%; height: 40%; }
 
-#elect-configuration {font-size: 84%;} 
+#atomic-short {
+	margin: 0;
+	padding: 13px 0px 13px 0px;
+	font-size: 40px;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: bold;
+	text-align: center;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+#elect-configuration {font-size: 84%; padding-top: 7px;} 
+#atomic-name {font-size: 110%;}
 
 .blank {
 	width: 40%;
@@ -140,7 +139,6 @@ ul, ol {
 	height: 210px;
 	background: none;
 	display: inline-block;
-	z-index: 0;
 }
 
 #second-legend {
@@ -157,7 +155,7 @@ ul, ol {
 	padding: 5px;
 	width: 150px;
 	height: 180px;
-	background: #D8D8D8;
+	background: #FFCC00;
 	font-size: 20px;
 	position: absolute;
 	margin-top: 18px;
@@ -216,6 +214,7 @@ ul, ol {
 	padding-right: 10px;
 }
 
+/* leyenda para calcular pesos moleculares */
 .atom-amount{
 	font-size: 87%;
 	float: right;
@@ -311,7 +310,7 @@ ul, ol {
 
 .border-element-options {
 	width: 63px;
-	background: #D8D8D8;
+	background: #FFCC00;
 	border-radius: 3%;
 	border: 1px solid grey;
 }

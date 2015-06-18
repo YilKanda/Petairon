@@ -6,17 +6,17 @@
 				<div id='legend'>
 					<table id="box-legend">
 						<tr>
-							<td id="atomic-number" class="atomic-number"> <%= @elements[0].atomic_number %> </td>
-							<td id="legend-property" class="element-property" colspan="2"> <%= @elements[0].mass %> </td>
+							<td id="atomic-number" class="atomic-number"> Z </td>
+							<td id="legend-property" class="element-property" colspan="2"> Atomic mass </td>
 						</tr>
 						<tr>
-							<td id="atomic-short" class="atomic-number" colspan="3"> <%= @elements[0].short_name %></td>
+							<td id="atomic-short" class="atomic-number" colspan="3"> Symbol </td>
 						</tr>
 						<tr>
-							<td id="elect-configuration" class="electron-configuration" colspan="3"> <%= element_configuration(@elements[0].electron_configuration) %> </td>
+							<td id="elect-configuration" class="electron-configuration" colspan="3"> Configuration</td>
 						</tr>
 						<tr>
-							<td id="atomic-name" class="atomic-name" colspan="3"><%= @elements[0].long_name %></td>
+							<td id="atomic-name" class="atomic-name" colspan="3">Name </td>
 						</tr>
 					</table>
 					<table id="mass-molecule">
