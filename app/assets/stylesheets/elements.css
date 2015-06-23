@@ -400,9 +400,9 @@ footer{
 
 #wiki {
   width: 70%;
+  position: fixed;
   margin-left: 15%;
   margin-top: 20px; 
-  position: fixed;
   z-index: 100;
   background: white;
   border: 2px solid #333;
@@ -413,7 +413,7 @@ footer{
   -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   padding: 0px;
-	visibility: hidden;
+  display: none;
 }
 
 #wiki-menu {

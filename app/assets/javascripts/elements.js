@@ -551,15 +551,17 @@ $(document).ready(function() {
 		$('#element'+i).css('background-color', '#D8D8D8').css('opacity', '0.6');
 	}
 
+
 	//wiki window
 	var maximizar = true;
 
 	$('.border-element').on("dblclick", function(){ 
 		var elementName = $(this).children().children().children().children('.atomic-name').text();
 		$('#wiki-info').attr('src', 'https://en.wikipedia.org/wiki/'+elementName);
+		
 
 		if (maximizar) {
-			$('#wiki').css('visibility', 'visible'); 
+			$('#wiki').css('display', 'inline'); 
 		} else {
 			maxMinimize();
 		}
@@ -568,8 +570,7 @@ $(document).ready(function() {
 	$('#maxmin').on("click", maxMinimize);
 
 	function maxMinimize() { 
-		console.log('hola', maximizar);
-		$('#wiki').removeAttr('style');
+		$('#wiki').removeAttr('style').css('display', 'inline'); 
 		if (maximizar){
 			$('#wiki').animate({
 				height: "35px",
@@ -581,14 +582,13 @@ $(document).ready(function() {
 		} else {
 			maximizar = true;
 		}
-			$(this).children().toggleClass('fa-minus').toggleClass('fa-desktop');
+		$('#maxmin').children().toggleClass('fa-minus').toggleClass('fa-desktop');
 	}
 
 	$('.fa-times').on("click", function(){ 
-		$('#wiki').removeAttr('style');
-		$('#maxmin').children().removeClass('fa-desktop');
-		$('#maxmin').children().addClass('fa-minus');
-		$('#wiki').css('visibility', 'hidden');
+		$('#maxmin').children().removeClass('fa-desktop').addClass('fa-minus');
+		$('#wiki').removeAttr('style').hide();
+		$('#wiki-info').attr('src', '');
 		maximizar = true;
 	});
 
