@@ -1,56 +1,52 @@
 <!-- Tabla Periodica-elementos -->
 <div id="periodic-table">
-	<table>
+	<table id="limits">
 		<tr class="row-header">
-			<td>
-				<div id='legend'>
-					<table id="box-legend">
+			<td id='legend'>
+					<table id="box-legend-game">
 						<tr>
 							<td id="atomic-short" class="atomic-number" colspan="3"> <%= 'Symbol' %></td>
-						</tr>
-						<tr>
-							<td id="elect-configuration" class="electron-configuration" colspan="3"></td>
 						</tr>
 						<tr>
 							<td id="atomic-name" class="atomic-name" colspan="3"><%= 'Name' %></td>
 						</tr>
 					</table>
-					<table id="random-elements">
-						<% (0..1).each do |i| %>
+					<table id="random-elements-legend">
+						<% (0..1).each do |j| %>
 							<tr>
-								<% (0..5).each do |j| %>
-									<td class="border-element-options" id="random-element<%= i+j*6 %>">
+								<% (0..5).each do |i| %>
+									<td class="border-element-options" id="random-element<%= i+j*6 %>" data-symbol="">
 										<table class="element-box">
-										<tr>
-											<td class="atomic-number" colspan="3"></td>
-										</tr>
-										<tr>
-											<td class="atomic-short" id="random-atomic-short<%= i+j*6 %>" colspan="3"> <%= @random_elements[i+j*6].short_name %></td>
-										</tr>
-										<tr>
-											<td class="electron-configuration" colspan="3"></td>
-										</tr>
-										<tr>
-											<td class="atomic-name" id="atomic-name<%= i+j*6 %>" colspan="3"> <%= @random_elements[i+j*6].long_name %></td>
-										</tr>
+											<tr class="atomic-symbol">
+												<td class="atomic-short random-atomic-short" id="random-atomic-short<%= i+j*6 %>"  colspan="3"></td>
+											</tr>
+											<tr class="atom_name">
+												<td class="random-atomic-name" id="random-atomic-name<%= i+j*6 %>" colspan="3"> </td>
+											</tr>
 										</table>
 									</td>
 								<% end %>
 							</tr>
 						<% end %>
 					</table>
-				</div>
+					<div id='second-legend-game'>
+						<div>Total score: <span id='score'>0</span></div>
+	        </div>
+					<div id="successMessage">
+				    <h2>You did it!</h2>
+				    <button onclick="init()">Play Again</button>
+  				</div>
 			</td>
 
 			<% (1..18).each do |i| %>
-				<td id="group<%= i %>-game" class="group"> <%= i %>  </td>
+				<td id="group<%= i %>-game" class="group-game"> <%= i %>  </td>
 			<% end %>
 		</tr>
 		<% i = 0 %>
 		<% @matrix_elements.each_with_index do |period, index| %>
 			<tr class="row"> 
 				<% if index < 7 %>
-					<td class="period" id="period<%= index + 1 %>-game" data-period="<%= index + 1 %>"> 
+					<td class="period-game" id="period<%= index + 1 %>-game" data-period="<%= index + 1 %>"> 
 						<%= index + 1 %> 
 					</td>
 				<% else %>
@@ -67,16 +63,10 @@
 					<% end %>
 
 					<% if is_an_element > 0 && is_an_element < 5  %>
-						<td id="element-game<%= i %>" class="border-element-game"> 
-							<table class="element-box">
-								<tr>
-									<td class="atomic-number" colspan="3"></td>
-								</tr>
+						<td class="border-element-game" id="element-game<%= i %>" data-symbol="<%= @elements[i].short_name %>"> 
+							<table class="element-box-game">
 								<tr>
 									<td class="atomic-short" id="atomic-short<%= i %>" colspan="3"> <%= @elements[i].short_name %></td>
-								</tr>
-								<tr>
-									<td class="electron-configuration" colspan="3"></td>
 								</tr>
 								<tr>
 									<td class="atomic-name" id="atomic-name<%= i %>" colspan="3"><%= @elements[i].long_name %></td>
@@ -85,11 +75,11 @@
 						</td>
 						<% i += 1 %>
 					<% elsif is_an_element == 5 %>
-						<td class="period period-special" id="period<%= index %>-game" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
+						<td class="period-game period-special-game" id="period<%= index %>-game" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
 					<% elsif is_an_element == 6 %>
-						<td class="border-element elementoids" id="elementoids<%= index + 1 %>-game" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
+						<td class="elementoids-game" id="elementoids<%= index + 1 %>-game" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
-						<td class="no-border"> </td>
+						<td class="no-border-game"> </td>
 					<% end %>
 				<% end %>
 			<% end %>

@@ -1,9 +1,21 @@
+<div id='wiki'>
+  <div id="wiki-menu">
+      <span id="size-menu">Information</span>
+      <span class="icons"><i class="fa fa-times"></i></span>
+      <span class="icons" id="maxmin"><i class="fa fa-minus"></i></button></span>
+  </div>
+  <div id="info">
+    <iframe id="wiki-info" src="" width="99.5%" height="99%" name="SubHtml" scrolling="auto" frameborder="1">
+      <p>Texto alternativo para navegadores que no aceptan iframes.</p>
+    </iframe>
+  </div>
+</div>
+
 <!-- Tabla Periodica-elementos -->
-<div id="periodic-table">
-	<table>
+<div>
+	<table id="periodic-table">
 		<tr class="row-header">
-			<td>
-				<div id='legend'>
+			<td id='legend'>
 					<table id="box-legend">
 						<tr>
 							<td id="atomic-number" class="atomic-number"> Z </td>
@@ -38,7 +50,6 @@
 							<td class="mass-result"> <%= @molecular_weight %> </td>
 						</tr>
 					</table>
-				</div> 
 			</td>
 
 			<% (1..18).each do |i| %>
@@ -87,7 +98,7 @@
 					<% elsif is_an_element == 5 %>
 						<td class="period period-special" id="period<%= index %>" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
 					<% elsif is_an_element == 6 %>
-						<td class="border-element elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
+						<td class="elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
 						<td class="no-border"> </td>
 					<% end %>

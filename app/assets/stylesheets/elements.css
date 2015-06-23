@@ -18,7 +18,7 @@ td, tr {
 	padding: 0;
 }
 
-button .property-button, button {
+button {
 	background: none;
 	border: none;
 	text-decoration: none;
@@ -28,13 +28,19 @@ ul, ol {
 	list-style: none;
 }
 
+footer{
+	background: grey;
+	height: 50px;
+	border-top: 2px solid red;
+}
 .publicity {
-	height: 80px;
+	height: 40px;
 }
 
 /* cajas de los elementos */
 
-.border-element {
+.border-element, .elementoids {
+	position: relative;
 	width: 67px;
 	height: 60px;
 	background: #FFFF66;
@@ -47,7 +53,7 @@ ul, ol {
 
 .no-border {
 	width: 60px;
-	height: 60px;
+	height: 30px;
 }
 
 .element-box{
@@ -88,8 +94,8 @@ ul, ol {
 .blank {
 	width: 40%;
 }
-.group { border-bottom: 8px solid #F0F0F0; background: #F0F0F0; padding-top: 4px;}
-.period {
+.group, .group-game { border-bottom: 8px solid #F0F0F0; background: #F0F0F0; padding-top: 4px;}
+.period, .period-game {
 	background: #F0F0F0;
 	width: 17px;
 	text-align: right;
@@ -98,11 +104,10 @@ ul, ol {
 	border-right: 8px solid #F0F0F0;
 }
 
-.period-special{
+.period-special, .period-special-game{
 	background: #F0F0F0;
 	border-left: 32px solid white;
 	width: 17px;
-	height: 60px;
 	text-align: right;
 	padding-right: 10px;
 	margin: 0;
@@ -113,7 +118,7 @@ ul, ol {
 .row-header { height: 25px; text-align: center; }
 
 
-.elementoids {text-align: center; font-size: 80%; opacity: 0.6;}
+.elementoids, .elementoids-game {text-align: center; font-size: 80%; opacity: 0.6; height: 20px;}
 
 /* leyendas */
 .border-state {
@@ -133,7 +138,7 @@ ul, ol {
 
 #legend {
 	position: absolute;
-	margin-top: 18px;
+	margin-top: 40px;
 	margin-left: 150px;
 	width: 673px;
 	height: 210px;
@@ -142,13 +147,13 @@ ul, ol {
 }
 
 #second-legend {
-	visibility: hidden;
-	position: absolute;
-	margin-top: 17px;
-	margin-left: 835px;
+	display: none;
+	position: relative;
+	top: -95px;
+	left: 690px;
 	width: 340px;
 	height: 70px;
-	display: inline-block;
+	z-index: 8;
 }
 
 #box-legend {
@@ -165,7 +170,7 @@ ul, ol {
 }
 
 #categories-legend {
-	visibility: hidden;
+	display: none;
 	border-radius: 10px;
 	margin-left: 220px;
 	margin-top: 22px;
@@ -195,9 +200,8 @@ ul, ol {
 #temperature-val{border: 10%;}
 
 #first-state-legend { 
-	visibility: hidden; 
+	display: none; 
 	position: relative;
-	top: -190px;
 	left: 20px;
 	font-size: 18px;
 	font-family: 'Roboto', sans-serif;
@@ -205,13 +209,19 @@ ul, ol {
 
 #state-legend {
 	position: absolute;
-	margin-top: 20px;
-	left: 40px;
+	margin-top: 15px;
+	left: 220px;
 }
 
 #state-legend tr td {
 	padding-bottom: 5px;
 	padding-right: 10px;
+}
+
+#temperature-units {
+	position: relative;
+	left: 90px;
+	top: 25px;
 }
 
 /* leyenda para calcular pesos moleculares */
@@ -247,49 +257,49 @@ ul, ol {
 
 /* slider temperatura */
 .slider{
-   	height: 20px;
-   	position: relative;
-   	width: 90%;
+ 	height: 20px;
+ 	position: relative;
+ 	width: 90%;
 	top: 15px;
 	left: 18px;
 }
 
 .slider > .emptyprogress{
-   background: #97d9fb;
-   border: 2px solid white;
-   cursor: pointer;
-   border-radius: 10px;
-   height: 40%;
-   top: 25%;
-   position: absolute;
-   width: 100%;
-   -webkit-box-shadow: 1px 1px 3px 0px #ccc;
-   box-shadow: 1px 1px 3px 0px #ccc;
+	background: #97d9fb;
+	border: 2px solid white;
+	cursor: pointer;
+	border-radius: 10px;
+	height: 40%;
+	top: 25%;
+	position: absolute;
+	width: 100%;
+	-webkit-box-shadow: 1px 1px 3px 0px #ccc;
+	box-shadow: 1px 1px 3px 0px #ccc;
 }
 
 .slider > .progress{
-   background: #14aaf6;
-   border: 2px solid white;
-   cursor: pointer;
-   border-radius: 7px;
-   height: 40%;
-   top: 25%;
-   position: absolute;
-   width: 4.9%;
-   -webkit-box-shadow: 1px 1px 3px 0px #ccc;
-   box-shadow: 1px 1px 3px 0px #ccc;
+	background: #14aaf6;
+	border: 2px solid white;
+	cursor: pointer;
+	border-radius: 7px;
+	height: 40%;
+	top: 25%;
+	position: absolute;
+	width: 4.9%;
+	-webkit-box-shadow: 1px 1px 3px 0px #ccc;
+	box-shadow: 1px 1px 3px 0px #ccc;
 }
 
 .slider > .indicator{
-   background: url('atom_logo_full.png') no-repeat;
-   background-size: auto 100%;
-   cursor: move;
-   height: 100%;
-   margin: 1px auto auto -10px;
-   left: 4.9%;
-   position: absolute;
-   width: 27px;
-   z-index: 1;
+	background: url('atom_logo_full.png') no-repeat;
+	background-size: auto 100%;
+	cursor: move;
+	height: 100%;
+	margin: 1px auto auto -10px;
+	left: 4.9%;
+	position: absolute;
+	width: 27px;
+	z-index: 1;
 }
 
 #slider-text {
@@ -302,26 +312,130 @@ ul, ol {
 
 /* game */
 .border-element-game {
-	width: 65px;
+	width: 63px;
+	height: 50px;
 	background: white;
 	border-radius: 3%;
 	border: 1px solid grey;
 }
 
 .border-element-options {
+	height: 53px;
 	width: 63px;
+	position: relative;
 	background: #FFCC00;
 	border-radius: 3%;
-	border: 1px solid grey;
+	border: none;
+	z-index: 3;
 }
 
-#random-elements {
+#random-elements-legend {
 	position: relative;
-	top: 30px;
+	top: 15px;
 	left: 95px;
 	border: 1px solid grey;
 }
 
-.border-element-options .atomic-number { text-decoration: bold; text-align: left; height: 9px;}
-.border-element-game .atomic-number{ text-decoration: bold; text-align: left; height: 11px;}
-.border-element-game table tr td { visibility: hidden;}
+#box-legend-game {
+	padding: 5px;
+	width: 130px;
+	height: 130px;
+	background: #FFCC00;
+	font-size: 20px;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 30px;	
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+	border-radius: 12%;
+}
+
+.no-border-game {
+	width: 60px;
+	height: 20px;
+}
+
+.element-box-game{
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	font-size: 11px;
+}
+
+.border-element-options .random-atomic-short, .border-element-options .atomic-short, .border-element-game .random-atomic-short, .border-element-game .atomic-short { text-decoration: bold; text-align: center; padding-top: 1px; padding-bottom: 1px;}
+.border-element-game .random-atomic-name, .border-element-game .atomic-name, .border-element-options .random-atomic-name, .border-element-options .atomic-name { text-decoration: bold; text-align: center; padding-top: 1px; padding-bottom: 1px; font-size: 90%;}
+.border-element-game table { display: none; background:  #A4FF23;}
+
+#second-legend-game {
+	position: relative;
+	top: -125px;
+	left: 530px;
+	width: 340px;
+	height: 40px;
+	display: inline-block;
+	z-index: 10;
+	padding-top: 15px;
+	font-size: 120%;
+}
+
+#successMessage {
+	display: none;
+  position: absolute;
+  left: 580px;
+  top: 250px;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  background: #dfd;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+}
+
+/* wiki ventana*/
+
+#wiki {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 20px; 
+  position: fixed;
+  z-index: 100;
+  background: white;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 1px 1px;
+  -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 0px;
+	visibility: hidden;
+}
+
+#wiki-menu {
+	height: 25px;
+	position: relative;
+	background-color: black;
+  border: 2px solid #333;
+	color: white;
+	font-size: 20px;
+	padding: 5px;
+	padding-left: 10px;
+	text-decoration: bold;
+	border-radius: 8px 8px 0px 0px;
+	margin: -2px;
+}
+
+#info {
+	height: 70vh;
+}
+
+.icons {
+	padding-right: 10px;
+	float: right;
+  font-size: 16px;
+}

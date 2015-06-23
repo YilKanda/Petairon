@@ -13,20 +13,13 @@
 	<div id="header">
 			<ul class="nav">
 				<li><a class="home-button" href="<%= root_path %>"> <i class="fa fa-home"> </i> Home </a></li>
-				<li id='elements-properties'>
-					<a class="home-button" href="<%= elements_path %>" id="element-menu"> Elements </a>
-					<button class="caret-down"><i class="fa"></i></button>
+				<li id='elements-properties' class="menu-option" data-menu="elements">
+					<a class="home-button" href="<%= elements_path %>" id="elements-submenu"> Elements </a>
+					<button class="caret-down caret-down-elements"><i class="fa"></i></button>
 				</li>
 				<ul class="none-display submenu">
 					<table>
 						<tr>
-							<td>
-								<table>
-									<tr>
-										<td colspan='2'><div class="home-button">Categories</div></td>
-									</tr>
-								</table>
-							</td>
 							<td>
 								<table>
 									<tr>
@@ -67,8 +60,37 @@
 						</tr>
 					</table>
 				</ul>
-				<li><a id="compounds" class="home-button" href="<%= compounds_path %>">Compounds</a></li>
-				<li><a id="game" class="home-button" href="<%= game_path %>">Play!</a></li>
+				<li>
+					<a id="compounds" class="home-button" href="<%= compounds_path %>">Compounds</a>
+				</li>
+				<li id='game' class="menu-option" data-menu="game">
+					<a id="game-submenu" class="home-button" href="<%= game_path %>">Play!</a>
+					<button class="caret-down caret-down-game"><i class="fa"></i></button>
+				</li>
+				<ul class="none-display submenu">
+					<table>
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td>
+											<li><button type="submit" class="game-level" value="easy" data-level="easy">Easy</button></li>
+										</td>
+										<td>
+											<li><button type="submit" class="game-level" value="medium" data-level="medium">Medium</button></li>
+										</td>
+										<td>
+											<li><button type="submit" class="game-level" value="hard" data-level="hard">Hard</button></li>
+										</td>
+										<td>
+											<li><button type="submit" class="game-level" value="expert" data-level="expert">Expert</button></li>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</ul>
 			</ul>
 		</div>
 </header>
@@ -76,9 +98,10 @@
 <div class="publicity"></div>
 
 <%= yield %>
+<footer>@virgo</footer>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 </body>
 </html>

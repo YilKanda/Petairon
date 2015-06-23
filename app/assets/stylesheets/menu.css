@@ -42,33 +42,30 @@ header {
 }
 
 .nav li a {
-    /* .menu, .home-button */
 	border: none;
-    color: #5d5d5d;
-    display: inline-block;
-    font: 18px/1 Lobster,Arial,sans-serif;
-    padding: 12px 35px 14px;
-    position: relative;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
-    z-index: 2;
-    text-decoration:none !important;
-    white-space:nowrap;
-    color: #FFFFFF;
-    display: block;
-    line-height: 34px;
-    outline: medium none;
-    text-align: center;
-    text-decoration: none;
- 
-    /* gradient */
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
-    background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-    background-color: #5f5f5f;
+  color: #5d5d5d;
+  display: inline-block;
+  font: 18px/1 Lobster,Arial,sans-serif;
+  padding: 12px 35px 14px;
+  position: relative;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+  z-index: 2;
+  text-decoration:none !important;
+  white-space:nowrap;
+  color: #FFFFFF;
+  display: block;
+  line-height: 34px;
+  outline: medium none;
+  text-align: center;
+  text-decoration: none;
+
+  /* gradient */
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
+  background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
+  background-color: #5f5f5f;
 }
  
 .nav li a:hover{
-    /* Gradients! */
-    /* .menu:hover, .home-button:hover  */
     background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
     background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
     background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
@@ -143,7 +140,7 @@ header {
 }
 .nav ul table tr td table tr td li {position:relative;}
 
-.nav ul table tr td table tr td div {text-align: center; color:#F5F5DC; font-size: 115%; text-decoration: bold; position:relative; padding: 4px;}
+.nav ul table tr td table tr td div {text-align: center; color:#F5F5DC; font-size: 115%; text-decoration: bold; position:relative; padding: -10px;}
 
 .nav ul table tr td table tr td li button {
   font-family: Arial, Helvetica, sans-serif;
@@ -186,9 +183,16 @@ header {
 }
 
 
-.caret-down{
+.caret-down-elements{
   position: relative;
   left: 116px;
+  top: -41px;
+  z-index: 40;
+}
+
+.caret-down-game{
+  position: relative;
+  left: 80px;
   top: -41px;
   z-index: 40;
 }

@@ -1,9 +1,21 @@
+<div id='wiki'>
+  <div id="wiki-menu">
+      <span id="size-menu">Information</span>
+      <span class="icons"><i class="fa fa-times"></i></span>
+      <span class="icons" id="maxmin"><i class="fa fa-minus"></i></button></span>
+  </div>
+  <div id="info">
+    <iframe id="wiki-info" src="" width="99.5%" height="99%" name="SubHtml" scrolling="auto" frameborder="1">
+      <p>Texto alternativo para navegadores que no aceptan iframes.</p>
+    </iframe>
+  </div>
+</div>
+
 <!-- Tabla Periodica-elementos -->
 <div id="periodic-table">
 	<table>
 		<tr class="row-header">
-			<td>
-				<div id='legend'>
+			<td id='legend'>
 					<table id="box-legend">
 						<tr>
 							<td id="atomic-number" class="atomic-number"> Z </td>
@@ -62,19 +74,17 @@
 								<td class="left-align"> Unknown</td>
 							</tr>
 						</table>
-						<div>
-							<table id="temperature-units">
-								<tr>
-									<td><span id="kelvin">293</span> &#8490</td>
-								</tr>
-								<tr>
-									<td><span id="centigrades">20</span> &#8451</td>
-								</tr>
-								<tr>
-									<td><span id="fahrenheit">68</span>&#8457</td>
-								</tr>
-							</table>
-						</div>
+						<table id="temperature-units">
+							<tr>
+								<td><span id="kelvin">293</span> &#8490</td>
+							</tr>
+							<tr>
+								<td><span id="centigrades">20</span> &#8451</td>
+							</tr>
+							<tr>
+								<td><span id="fahrenheit">68</span>&#8457</td>
+							</tr>
+						</table>
 					</div>
 				</div> 
 				<div id='second-legend'>
@@ -84,7 +94,7 @@
 						<div class='indicator'></div>
 					</div>	<br>				
 					<div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
-				</div>
+        </div>
 			</td>
 
 			<% (1..18).each do |i| %>
@@ -112,7 +122,8 @@
 					<% end %>
 
 					<% if is_an_element > 0 && is_an_element < 5  %>
-						<td id="element<%= i %>" class="border-element"> 
+            <td id="element<%= i %>" class="border-element"> 
+            
 							<table class="element-box">
 								<tr>
 									<td class="atomic-number"> <%= @elements[i].atomic_number %> </td>
@@ -126,14 +137,14 @@
 								</tr>
 								<tr>
 									<td class="atomic-name" colspan="3"><%= @elements[i].long_name %></td>
-								</tr>
-							</table>
+                </tr>
+              </table>
 						</td>
 						<% i += 1 %>
 					<% elsif is_an_element == 5 %>
 						<td class="period period-special" id="period<%= index %>" data-period="<%= index - 2 %>"> <%= index - 2 %> </td>
 					<% elsif is_an_element == 6 %>
-						<td class="border-element elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
+						<td class="elementoids" id="elementoids<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= (i+1) %> - <%= (i+15) %> </td>
 					<% else %>
 						<td class="no-border"> </td>
 					<% end %>
