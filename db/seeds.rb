@@ -5,6 +5,7 @@ elements = []
 array_elements = []
 gem_elements = ChemistryRails::ELEMENTS
 array_valencies = []
+array_compound = []
 
   SmarterCSV.process('public/bd.csv') do |array|
     array_elements << array[0]
@@ -12,6 +13,11 @@ array_valencies = []
 
   SmarterCSV.process('public/valencies.csv') do |array|
     array_valencies << array[0]
+  end
+
+  SmarterCSV.process('public/compounds.csv') do |array|
+    puts array
+    array_compound << array[0]
   end
 
 amount_of_elements = array_elements.length - 1 
