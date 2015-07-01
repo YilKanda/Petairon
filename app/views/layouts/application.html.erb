@@ -12,85 +12,53 @@
 <header>
 	<div id="header">
 			<ul class="nav">
-				<li><a class="home-button" href="<%= root_path %>"> <i class="fa fa-home"> </i> Home </a></li>
-				<li id='elements-properties' class="menu-option" data-menu="elements">
-					<a class="home-button" href="<%= elements_path %>" id="elements-submenu"> Elements </a>
-					<button class="caret-down caret-down-elements"><i class="fa"></i></button>
+				<li class="left-margin"> </li>
+				<li class="home-button" data-menu=""> <i class="fa fa-home"> </i> Home </li>
+				<li class="home-button" id='elements-properties' data-menu="elements"> Elements </li>
+				<li class="home-button" data-menu="compounds"> Compounds </li>
+				<li class="home-button" id='game' data-menu="game">
+					Play! <i class="fa fa-caret-down caret-down" id="caret-down-game"></i></button>
 				</li>
-				<ul class="none-display submenu">
-					<table>
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td colspan="2"><div class="home-button">Physical Properties</div></td>
-									</tr>
-									<tr>
-										<td>
-											<li><button type="submit" value="mass" name="property" class="property-button menu" subname="Atomic Mass">Atomic Mass</button></li>
-											<li><button type="submit" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">Boiling point (K)</button></li>
-											<li><button type="submit" value="radium" name="property" class="property-button" subname="Radium">Radium (pm)</button></li>
-										</td>
-			        			<td>
-											<li><button type="submit" value="state" name="property" class="property-button">State</button></li>
-											<li><button type="submit" value="melting_point" name="property" class="property-button" subname="Melting Tª">Melting point (K)</button></li>
-			        			</td>
-									</tr>
-								</table>
-							</td>
-							<td>
-								<table>
-									<tr>
-										<td colspan="2"><div class="home-button">Other properties</div></td>
-									</tr>
-									<tr>
-										<td>
-											<li><button type="submit" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">Ionization energy (kJ/mol)</button></li>
-											<li><button type="submit" value="electronegativity" name="property" class="property-button" subname="Electron Negativity"> Electronegativity </button></li>
-											<li><button type="submit" value="abundance" name="property" class="property-button" subname="Abundance">Abundance (%)</button></li>
-										</td>
+					<ul class="none-display submenu" id="submenu-game">
+						<li><button type="submit" class="game-level" value="easy" data-level="easy">Easy</button></li>
+						<li><button type="submit" class="game-level" value="medium" data-level="medium">Medium</button></li>
+						<li><button type="submit" class="game-level" value="hard" data-level="hard">Hard</button></li>
+						<li><button type="submit" class="game-level" value="expert" data-level="expert">Expert</button></li>
+					</ul>
+				</li>
+			</ul>
 
-										<td>
-											<li><button type="submit" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">Electron affinity (KJ/mol)</button></li>
-											<li><button type="submit" value="valencies" name="property" class="property-button" subname="valencies">Valencies</button></li>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</ul>
-				<li>
-					<a id="compounds" class="home-button" href="<%= compounds_path %>">Compounds</a>
-				</li>
-				<li id='game' class="menu-option" data-menu="game">
-					<a id="game-submenu" class="home-button" href="<%= game_path %>">Play!</a>
-					<button class="caret-down caret-down-game"><i class="fa"></i></button>
-				</li>
-				<ul class="none-display submenu">
-					<table>
-						<tr>
-							<td>
-								<table>
-									<tr>
-										<td>
-											<li><button type="submit" class="game-level" value="easy" data-level="easy">Easy</button></li>
-										</td>
-										<td>
-											<li><button type="submit" class="game-level" value="medium" data-level="medium">Medium</button></li>
-										</td>
-										<td>
-											<li><button type="submit" class="game-level" value="hard" data-level="hard">Hard</button></li>
-										</td>
-										<td>
-											<li><button type="submit" class="game-level" value="expert" data-level="expert">Expert</button></li>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</ul>
+			<ul class="nav login-users">
+				<li class="left-margin"> </li>
+				<% if current_user %> 
+					<li class="home-button img-profile" data-menu="user">
+		    			<%= image_tag current_user.image_url.to_s, :class => "img-little-size" %> 
+		    			<%= current_user.nick %>
+					</li>
+					<ul class="none-display submenu" id="submenu-user">
+						<li class="menu-option" data-menu="">
+				    	<%= link_to "My ranking", user_path(current_user), :class=> "home-button" %>
+						</li>
+						<li class="menu-option" data-menu="">
+				    	<%= link_to "Participants", users_path, :class=> "home-button" %>
+						</li>
+						<li class="menu-option" data-menu="">
+				    	<%= link_to "Edit my profile", edit_user_path(current_user), :class=> "home-button" %>
+						</li>
+						<hr>
+						<li class="menu-option" data-menu="">
+				    	<%= link_to "Log out", logout_path, method: "delete", :class=> "home-button" %>
+						</li>
+					</ul>
+		    <% else %> 
+		    	<li class="menu-option" data-menu="user">
+				    <a href="<%= login_path %>" class="home-button">Log in</a> 
+				  </li> 
+				  <li class="none">|</li>
+				  <li class="menu-option" data-menu="user">
+		    		<a href="<%= new_user_path %>" class="home-button">Create an account</a>
+		    	</li> 
+				<% end %>
 			</ul>
 		</div>
 </header>
@@ -98,7 +66,7 @@
 <div class="publicity"></div>
 
 <%= yield %>
-<footer>@virgo</footer>
+<footer> @virgo - Copyleft © 2015 - Legal Notice - Data Protection - Publicity - Cookies Policy</footer>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>

@@ -14,7 +14,11 @@ $(document).ready(function() {
 				ionization_energy: [300,2400],
 				electronegativity: [0,4],
 				electron_affinity: [0,350]
-			};
+			},
+			properties = ['mass', 'state', 'melting_point', 'boiling_point', 
+										'radium', 'abundance', 'ionization_energy', 'electronegativity',
+										'electron_affinity', 'valencies'];
+
 	$.fx.speeds['very-slow'] = 1000;
 
 	$.ajax({
@@ -43,6 +47,31 @@ $(document).ready(function() {
     height: 0
   } );
 
+  //menu
+  var url = window.location.href,
+  		data = url.replace('http://localhost:3000/', '');
+  if (url==('http://localhost:3000/'+data) ){
+  	showSubmenu(url, data);
+  }
+
+  $('.home-button').on('click', function() {
+  	var dataMenu = $(this).data('menu');
+  	if (url!=('http://localhost:3000/'+dataMenu)&& dataMenu!='user' ){
+			window.location.href = ("http://localhost:3000/"+dataMenu);
+		}
+		showSubmenu(url, dataMenu);
+  })
+
+
+  function showSubmenu(url, data) {
+		if (url == ('http://localhost:3000/'+data)) {
+			$('#submenu-'+data).toggle();		
+			$('#caret-down-'+data).toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+		} else if (data=='user'){
+			$('#submenu-'+data).toggle();		
+		}	
+  }
+
 	// game
 
 		var correctElements = 0,
@@ -54,7 +83,7 @@ $(document).ready(function() {
 		newGame();
 		var level = $(this).data('level');
 		$('#game').next('ul').fadeOut('very-slow');
-		$('.caret-down-game > i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+		$('#caret-down-game').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
 		play(level);
 	})
 
@@ -183,31 +212,12 @@ $(document).ready(function() {
 		}
 
 
-
-	// Mostrar vista de cada boton
-
-	var url = window.location.href,
-			route = url.replace('http://localhost:3000/', '');
-	
-		if (url=='http://localhost:3000/elements' || url=='http://localhost:3000/game'){
-			$('.caret-down > i').removeClass('fa-caret-up').removeClass('fa-caret-down');
-			$('li[data-menu="'+ route +'"]').next('ul').removeClass("none-display").addClass("on-display");
-			$('#'+route+'-submenu').next('button').children('i').addClass('fa-caret-up');
-		} 
-		
-		$('.caret-down > i').on('click', function(){
-			$('li[data-menu="'+ route +'"]').next('ul').fadeToggle('slow');
-			$(this).toggleClass('fa-caret-up').toggleClass('fa-caret-down');
-		})
-
-
-
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
-		$('#elements-properties').next('ul').fadeOut('very-slow');
-		$('.caret-down-elements > i').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
-		
+		$('.home-button').css('background-color', '#181a1e');
+		$('.submenu').fadeOut('very-slow');
+	
 		for(var i = 0; i < elementsLength; i++ ) {
 			$('#element'+i).css('opacity', '1');
 			$("#element"+ i +"-property").text(elements[i][$property]);
@@ -247,8 +257,11 @@ $(document).ready(function() {
 
       $('.slider > .progress').css('width', posX+'px');
       $('.slider > .indicator').css('left', posX+'px');
-      $('#temperature-val').text(value);
-      for(var i = 0; i < elementsLength; i++ ) {
+      $('#kelvin').text(value);
+      $('#centigrades').text(value-273);
+      $('#fahrenheit').text(Math.round((value-273)*1.8+32));
+      
+      for (var i = 0; i < elementsLength; i++ ) {
 				$('#element'+i).css('opacity', '1');
 				elementState(i, 'state', value);
 			}
@@ -389,11 +402,23 @@ $(document).ready(function() {
 		$('#elect-configuration').html(elementConfiguration(elements[i].electron_configuration));
 		$('#atomic-name').text(elements[i].long_name);
 		$('#box-legend').css('background-color', $color);
+		
+		for (var j=0; j<properties.length; j++){
+			var property = properties[j];
+			if (property == 'valencies'){
+				$('span[value="'+property+'"]').text(valencies[i]);
+			} else if (property == 'state'){
+				$('span[value="'+property+'"]').text(elementStateWord(i, property, 293));
+			} else {
+				$('span[value="'+property+'"]').text(elements[i][property]);
+			}
+		}
 	});
 
 	function fillInitLegend(button){
 
 		var $property = $(button).attr('subname');
+		console.log($property);
 		$('#atomic-number').text("Z");
 		$('#legend-property').text($property);
 		$('#atomic-short').text('Symbol');
@@ -412,6 +437,13 @@ $(document).ready(function() {
 		}
 	}
 
+	//return to general properties
+
+	$('.button-general-properties').on('click', function(){
+		//$('input[type="radio"]').css('background-color', 'white');
+		hideAndShowLeyends('general');
+	})
+
 	// hide and show leyend
 
 	function hideAndShowLeyends(property){
@@ -419,12 +451,16 @@ $(document).ready(function() {
 		if (property != 'state'){
 			$('#second-legend').hide();
 			$('#first-state-legend').hide();
+			$('#properties-menu-legend').show();
 			if (property == 'mass') {
+				$('#properties-menu-legend').hide();
 				$('#categories-legend').show();
+				$('#second-legend').show();
 			}
 		}else {
 			$('#second-legend').show();
 			$('#first-state-legend').show();
+			$('#properties-menu-legend').hide();
 		}
 	}
 
@@ -438,12 +474,27 @@ $(document).ready(function() {
 		} else if (elements[i]['melting_point'] > temperature ){ //solid
 			$('#element'+i).css('background-color', colorState['Solid']);
 			$('#element'+i+'-property').text('Solid');
+			return 'Solid'
 		} else if ((elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > temperature) || elements[i]['boiling_point'] > temperature) { //liquid
 			$('#element'+i).css('background-color', colorState['Liquid']);
 			$('#element'+i+'-property').text('Liquid');
+			return 'Liquid'
 		} else {
 			$('#element'+i).css('background-color', colorState['Gas']);//gas
 			$('#element'+i+'-property').text('Gas');
+			return 'Gas'
+		} 	
+	}
+
+	function elementStateWord(i, property, temperature) {
+		if (!elements[i]['melting_point'] && !elements[i]['boiling_point']){ 
+			return ''
+		} else if (elements[i]['melting_point'] > temperature ){ 
+			return 'Solid'
+		} else if ((elements[i]['melting_point'] < temperature && elements[i]['boiling_point'] > temperature) || elements[i]['boiling_point'] > temperature) { //liquid
+			return 'Liquid'
+		} else {
+			return 'Gas'
 		} 	
 	}
 

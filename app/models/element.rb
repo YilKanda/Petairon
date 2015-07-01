@@ -1,5 +1,6 @@
 class Element < ActiveRecord::Base
 	has_and_belongs_to_many :valencies
+	has_and_belongs_to_many :compounds
 
 	#Function to convert all the valencies of an element in a string
 	def self.order_valencies_in_a_string

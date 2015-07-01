@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col-md-12">
+    <h2 class='centrated-title'><%= @user.nick %></h2>
+		<div class="page-header"></div>
+	</div>
+	<br>
+</div>
+
+<div class="container">
+	<div class="row-container">
+  	<div class="col-md-1"></div>
+    <div class="col-md-4 profile-view">
+      	<div class="row-container">
+	        <div class="col-md-6">
+	        	<br>
+	          <p><strong> Name: </strong> <%= @user.name %> </p>
+	          <p><strong> Email: </strong> <%= @user.email %> </p>
+	          <p><strong> Score: </strong> <%= @user.score %> </p>
+	        </div>
+	        <div class="col-md-6 centrated-img">
+						<%= image_tag @user.image, :class => "img-thumbnail img-profile-size" %>
+					</div>
+				</div>
+				<div class="row-container">
+					<% if current_user && current_user.email == @user.email %>
+
+							<div class="col-md-6"><%= link_to 'Edit account', edit_user_path(@user), class: "btn btn-primary btn-lg btn-block accept" %></div>
+							<div class="col-md-6"><%= link_to 'Delete account', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-lg btn-block cancel" %></div>
+
+					<% else %>
+							<div class="col-md-3"></div>
+							<div class="col-md-6"><%= link_to 'Back', users_path, class: "btn btn-primary btn-lg btn-block" %></div>
+							<div class="col-md-3"></div>
+					<% end %>
+				</div>
+  	</div>
+  	<div class="col-md-6"></div>
+  	<div class="col-md-1"></div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="page-header"></div>
+</div>

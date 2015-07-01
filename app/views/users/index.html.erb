@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h1 class='centrated-title'>
+    	Participants
+    </h1>
+    <div class="page-header">
+      <div class="col-md-12"></div>
+    </div>
+    <br>
+</div>
+
+<div class="container">
+	<div class="col-md-12">
+		<% @users.each do |user| %>	
+			<div class="col-md-3">
+				<ul>
+					<li class="nick"><%= user.nick %></li>
+					<li><a href="<%= user_path(user) %>"><%= image_tag user.image, :class => "img-thumbnail img-big-size" %></a></li>	
+				</ul>
+			</div>			
+		<%end%>
+	</div>
+</div>
+
+<div class="container">
+	<div class="page-header"></div>
+</div>
+

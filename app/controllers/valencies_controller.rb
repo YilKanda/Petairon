@@ -1,2 +1,0 @@
-class ValenciesController < ApplicationController
-end

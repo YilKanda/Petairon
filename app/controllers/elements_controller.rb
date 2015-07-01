@@ -10,6 +10,11 @@ class ElementsController < ApplicationController
 		@matrix_elements = Element.matrix_periodic_table
 	end
 
+	def game
+		@elements = Element.all	
+		@matrix_elements = Element.matrix_periodic_table
+	end
+	
 	def property
 		@elements = Element.all
 		render json: @elements
@@ -29,8 +34,4 @@ class ElementsController < ApplicationController
 		render 'compounds'
 	end
 
-	def game
-		@elements = Element.all	
-		@matrix_elements = Element.matrix_periodic_table
-	end
 end

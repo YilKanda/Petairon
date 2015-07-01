@@ -1,2 +1,0 @@
-class CompoundsController < ApplicationController
-end

@@ -1,0 +1,54 @@
+
+<div class="container">
+    <h1 class='centrated-title'>Modify your data</h1>
+    <div class="page-header">
+      <div class="col-md-12"></div>
+    </div>
+    <br>
+</div>
+<div class="container">
+	<form class="col-md-3"></form>
+	<div class="col-md-6">
+
+	<%= form_for @user, :html => { :multipart => true } do |f| %>
+		<% if flash[:alert] %>
+			<p class="error-msg">
+				<%= flash[:alert] %>
+			</p>
+		<% elsif flash[:error] %>
+			<p>
+				<% flash[:error].each do |error_msg| %>
+	    		<li><%= error_msg %></li>
+	  		<% end %>
+			</p>
+		<% end %>
+		
+	    <div class="form-group">
+	    	<div><strong> Nombre:</strong></div>
+	    	<%= f.text_field :name, class: "form-control input-lg" %>
+	    </div>
+	    <div class="form-group">
+	    	<div><strong> Nick:</strong></div>
+	    	<%= f.text_field :nick, class: "form-control input-lg" %>
+	    </div>
+	    <div class="form-group">
+	    	<div><strong> Email:</strong></div>
+	    	<%= f.email_field :email, class: "form-control input-lg" %>
+	    </div>
+	    <div class="form-group">
+	    	<%= f.file_field :image %>
+	    </div>
+	    <div class="form-group">
+	    	<%= f.submit 'Update', class: "btn btn-primary btn-lg btn-block accept" %>
+	    	<%= link_to 'Cancel', user_path(@user), :class=> "btn btn-primary btn-lg btn-block cancel" %>
+	    </div>
+	</div>
+	<% end %>
+	<form class="col-md-3"></form>
+
+</div>
+
+<div class="container">
+	<div class="page-header"></div>
+</div>
+

@@ -1,101 +1,73 @@
 header {
-	background-color: #f0f0f0;
+	background-color: #181a1e;
 	height: 62px;
 	color: white;
 	margin: 0 auto;
 	padding: 0px;
-	width: 97%;
-    /* border radius */
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+	width: 100%;
+
  
     /* box shadow */
     -moz-box-shadow: 0px 3px 3px #cecece;
     -webkit-box-shadow: 0px 3px 3px #cecece;
     box-shadow: 0 3px 4px #8b8b8b;
-
-    /* gradient */
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
-    background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-    background-color: #5f5f5f;
 }
 
-#header { font-family: Arial, Helvetica, sans-serif;}
+#header { font: 18px/1 Lobster,Arial,sans-serif;}
 
 .nav { /*Le establecemos un ancho*/
 	width: 100%;
 	margin: 0 auto; /*Centramos automaticamente*/
-    text-shadow: 0 -1px 3px #202020;
 }
 
 .nav > li {
-	border-bottom: 1px solid #575757;
-    border-left: 1px solid #929292;
-    border-right: 1px solid #5d5d5d;
-    border-top: 1px solid #797979;
-    display: block;
-    float: left;
-    height: 34px;
-    position: relative;
-    width: 5px auto;
+  float: left;
+  position: relative;
+  width: 0 auto;
 }
 
-.nav li a {
-	border: none;
-  color: #5d5d5d;
+.nav li  {
+  min-width: 5%;
+  border: none;
   display: inline-block;
-  font: 18px/1 Lobster,Arial,sans-serif;
-  padding: 12px 35px 14px;
+  padding: 22px 10px;
   position: relative;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
   z-index: 2;
   text-decoration:none !important;
   white-space:nowrap;
   color: #FFFFFF;
   display: block;
-  line-height: 34px;
-  outline: medium none;
   text-align: center;
   text-decoration: none;
+}
 
-  /* gradient */
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
-  background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
-  background-color: #5f5f5f;
+.nav .none {
+  margin: 0px;
+  min-width: 0px;
+  width: 1px;
+}
+
+.nav li a {
+  text-decoration:none !important;
+  color: #FFFFFF;
+  font-size: 95%;
 }
  
-.nav li a:hover{
-    background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
-    background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:-ms-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-
-    /* Creating borders with box-shadow. Useful, as they don't affect the size of the element. */
-
-    box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-    -moz-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-    -webkit-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-
-    /* This will create a smooth transition for the opacity property */
-
-    -moz-transition:0.25s all;
-    -webkit-transition:0.25s all;
-    -o-transition:0.25s all;
-    transition:0.25s all;
+.nav li:hover {
+  background-color: #0d0e10;
+}
+.nav .none:hover {
+  background-color: #181a1e;
 }
 
 .none-display {
-	display:none;
-	position:absolute;
-	min-width:140px;
+  display:none;
+  position:absolute;
 }
 
 .on-display {
   display:block;
   position:absolute;
-  min-width:140px;
   z-index: 10;
 }
 
@@ -103,12 +75,10 @@ header {
   text-shadow: 0 -1px 3px #202020;
   position: absolute;
   margin-top: 60px;
-  color:white;
   top: 0px;
   font-size: 100%;
   text-align: left;
-  width: 97%;
-  padding-bottom: 10px;
+  z-index: 11;
   
     /* border radius */
     -moz-border-radius: 4px;
@@ -120,88 +90,89 @@ header {
     -webkit-box-shadow: 0px 3px 3px #cecece;
     box-shadow: 0 3px 4px #8b8b8b;
 
-    /* gradient */
+  background-color: #181a1e;
+  border: 1px solid #0d0e10;
 
-    background-color: #6f6f6f;
-}
-
-.nav ul table tr td table tr, .nav ul table tr {
   vertical-align: text-top;
-  text-align: left;
+  display: inline-block;
+  width: 100%;
 }
 
-.nav ul table tr td table tr td{
-  width: 220px;
-  -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
- 
-
-}
-.nav ul table tr td table tr td li {position:relative;}
-
-.nav ul table tr td table tr td div {text-align: center; color:#F5F5DC; font-size: 115%; text-decoration: bold; position:relative; padding: -10px;}
-
-.nav ul table tr td table tr td li button {
+.nav ul li{
+  position:relative;
   font-family: Arial, Helvetica, sans-serif;
-  color:black;
-  font-size: 100%;
-  text-align: left;
-  margin-left: 15px;
-  padding: 4px;
-  text-shadow: 0 -1px 3px #202020;
-
+  text-align: center;
+  padding: 5px;
 }
 
-	
-.nav ul table tr td table tr td li button:hover{
-
-	font-size: 110%;
-	top: 0px;
-	text-align: left;
-	padding: 2px;
-	z-index: 2;
-
-	background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
-    background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:-ms-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-    background-image:linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
-
-    /* Creating borders with box-shadow. Useful, as they don't affect the size of the element. */
-
-    box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-    -moz-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-    -webkit-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
-
-    /* This will create a smooth transition for the opacity property */
-
-    -moz-transition:0.25s all;
-    -webkit-transition:0.25s all;
-    -o-transition:0.25s all;
-    transition:0.25s all;
+.nav ul li button, .nav ul li a {
+  text-decoration: none;
+  font-size: 13px;
+  padding: 2px 0px;
+  width: 100%;
+  color: #dcdee3;
 }
 
-
-.caret-down-elements{
-  position: relative;
-  left: 116px;
-  top: -41px;
-  z-index: 40;
+.nav ul li:hover{
+  background-color: #0d0e10;
+}
+  
+.nav ul li button:hover, .nav ul li a:hover{
+  padding: 0px;
+  top: 0px;
+  font-size: 95%;
 }
 
-.caret-down-game{
-  position: relative;
-  left: 80px;
-  top: -41px;
-  z-index: 40;
-}
 
 .fa-caret-down, .fa-caret-up {
   color: white;
-  font-size: 1.5em;
+  z-index: 10;
 }
 
-#element-menu {
-  padding-right: 45px;
+#submenu-elements {
+  width: 150px;
+  left: 140px;
+  top:-10px;
+  display: none;
+}
+
+#submenu-game {
+  width: 100px;
+  left: 430px;
+  top:-10px;
+  display: none;
+}
+
+/* logout-login */
+
+.img-little-size {
+  background-size: cover;
+  width: 38px;
+  height:38px;
+  border-radius: 20%;
+  vertical-align:middle;
+  margin: 0 5px 0 0;
+  border: 2px solid #666666;
+}
+
+.login-users > li{
+  float: right;
+}
+
+.login-users .img-profile {
+  padding: 12px 25px;
+}
+
+#submenu-user {
+  right: 10px;
+  top:-10px;
+  display: none;
+  width: 150px;
+}
+
+.left-margin {
+  margin: 0px;
+  padding: 0px;
+  min-width: 6%;
+  height: 100%;
 }

@@ -55,6 +55,59 @@
 							<td class="button-category" data-category="9" data-metal-category="metal">Actinides</td>
 						</tr>
 					</table>
+					<div id="properties-menu-legend" class="container">
+						<div class="row-container">
+								<div class="col-md-5">
+									<input type="radio" id="mass" value="mass" name="property" class="property-button" subname="Atomic Mass">
+									<label for="mass">Atomic Mass: <span value="mass"></span>g/mol</label>
+								</div>
+								<div class="col-md-7">
+									<input type="radio" id="state" value="state" name="property" class="property-button" subname="State">
+									<label for="state">State: <span value="state"></span></label>
+								</div>
+						</div>
+						<div class="row-container">
+								<div class="col-md-5">
+									<input type="radio" id="boiling_point" value="boiling_point" name="property" class="property-button" subname="Boiling Tª">
+									<label for="boiling_point">Boiling point: <span value="boiling_point"></span> K</label>
+								</div>
+								<div class="col-md-7">
+									<input type="radio" id="ionization_energy" value="ionization_energy" name="property" class="property-button" subname="Ionization Energy">
+									<label for="ionization_energy">Ionization energy: <span value="ionization_energy"></span> kJ/mol</label>
+								</div>
+						</div>
+						<div class="row-container">
+								<div class="col-md-5">
+									<input type="radio" id="melting_point" value="melting_point" name="property" class="property-button" subname="Melting Tª">
+									<label for="melting_point">Melting point: <span value="melting_point"></span> K</label>
+								</div>
+								<div class="col-md-7">
+									<input type="radio" id="electronegativity" value="electronegativity" name="property" class="property-button" subname="Electron Negativity">
+									<label for="electronegativity" > Electronegativity: <span value="electronegativity"></span></label>
+								</div>
+						</div>
+						<div class="row-container">						
+								<div class="col-md-5">
+									<input type="radio" id="radium" value="radium" name="property" class="property-button" subname="Radium">
+									<label for="radium">Radium: <span value="radium"></span> pm</label>
+								</div>
+								<div class="col-md-7">
+									<input type="radio" id="electron_affinity" value="electron_affinity" name="property" class="property-button" subname="Electron Affinity">
+									<label for="electron_affinity">Electron affinity: <span value="electron_affinity"></span> kJ/mol</label>
+								</div>
+						</div>
+						<div class="row-container">
+								<div class="col-md-5">
+									<input type="radio" id="abundance" value="abundance" name="property" class="property-button" subname="Abundance">
+									<label for="abundance">Abundance: <span value="abundance"></span> %</label>
+								</div>
+								<div class="col-md-7">
+									<input type="radio" id="valencies" value="valencies" name="property" class="property-button" subname="valencies">
+									<label for="valencies">Valencies: <span value="valencies"></span></label>
+								</div>
+							
+						</div>
+					</div>
 					<div id='first-state-legend'>
 						<table id="state-legend">
 							<tr>
@@ -74,28 +127,26 @@
 								<td class="left-align"> Unknown</td>
 							</tr>
 						</table>
-						<table id="temperature-units">
-							<tr>
-								<td><span id="kelvin">293</span> &#8490</td>
-							</tr>
-							<tr>
-								<td><span id="centigrades">20</span> &#8451</td>
-							</tr>
-							<tr>
-								<td><span id="fahrenheit">68</span>&#8457</td>
-							</tr>
-						</table>
+					</div>
+					<div class='temperature-slider'>
+				
+						<div class="slider-text"><span id="kelvin">293</span> Kelvin</div>
+						<div class="slider-text"><span id="centigrades">20</span> &#8451entigrades</div>
+						<div class="slider-text"><span id="fahrenheit">68</span> &#8457ahrenheit</div>
+						<div class='slider'>
+							<div class='emptyprogress'></div>
+							<div class='progress'></div>
+							<div class='indicator'></div>
+						</div>				
 					</div>
 				</div> 
 				<div id='second-legend'>
-					<div class='slider'>
-						<div class='emptyprogress'></div>
-						<div class='progress'></div>
-						<div class='indicator'></div>
-					</div>	<br>				
-					<div id="slider-text">Current Tª: <span id="temperature-val">293</span> &#8490 </div>
+					<div class='button-general-properties'>
+						<button class='btn btn-primary btn-lg btn-block'> General properties </button>
+					</div>
         </div>
 			</td>
+
 
 			<% (1..18).each do |i| %>
 				<td id="group<%= i %>" class="group"> <%= i %>  </td>
