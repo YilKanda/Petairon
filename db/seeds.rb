@@ -64,7 +64,7 @@ valencies.each do |valency|
   end
 end
 
-
+User.create name: 'Virginia', nick: 'Virus', email: 'virgi_baeza17@hotmail.com', password: 'hellou'
 
 puts "Seed complete!"
 

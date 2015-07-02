@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623214423) do
+ActiveRecord::Schema.define(version: 20150625123010) do
 
   create_table "compounds", force: :cascade do |t|
+    t.string   "symbol"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "compounds_elements", id: false, force: :cascade do |t|
+    t.integer "compound_id"
+    t.integer "element_id"
+  end
+
+  add_index "compounds_elements", ["compound_id"], name: "index_compounds_elements_on_compound_id"
+  add_index "compounds_elements", ["element_id"], name: "index_compounds_elements_on_element_id"
 
   create_table "elements", force: :cascade do |t|
     t.string   "short_name"
@@ -45,6 +55,18 @@ ActiveRecord::Schema.define(version: 20150623214423) do
 
   add_index "elements_valencies", ["element_id"], name: "index_elements_valencies_on_element_id"
   add_index "elements_valencies", ["valency_id"], name: "index_elements_valencies_on_valency_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "nick"
+    t.string   "email"
+    t.string   "password_digest"
+    t.float    "score"
+    t.float    "level"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "image"
+  end
 
   create_table "valencies", force: :cascade do |t|
     t.integer  "valence"

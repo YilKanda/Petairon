@@ -262,11 +262,10 @@ h2 {
 }
 
 #properties-menu-legend {
-	/*display: none;*/
-	width: 480px; 
+	width: 520px; 
 	height: 200px;
 	position: relative;
-	left: 130px;
+	left: 140px;
 	font-size: 15px;
 	font-family: 'Roboto', sans-serif;
 	text-align: left;
@@ -288,6 +287,14 @@ h2 {
 
 #properties-menu-legend input[type="radio"]:checked {
 	background-color: #181a1e;
+}
+
+#properties-menu-legend label {
+	color: blue;
+}
+
+#properties-menu-legend label span {
+	color: black;
 }
 
 #properties-menu-legend > div {
@@ -326,18 +333,19 @@ h2 {
 
 /* slider temperatura */
 .temperature-slider{
-	width: 320px;
+	display: none;
+	padding: 0;
+	width: 290px;
 	position: relative;
-	left: 360px;
+	left: 375px;
 	top: 30px;
 }
 
 .slider{
  	height: 20px;
  	position: relative;
- 	width: 90%;
+ 	width: 100%;
 	top: 15px;
-	left: 18px;
 }
 
 .slider > .emptyprogress{
@@ -389,6 +397,7 @@ h2 {
 
 
 /* game */
+
 .border-element-game {
 	width: 63px;
 	height: 50px;
@@ -414,7 +423,7 @@ h2 {
 	border: 1px solid grey;
 }
 
-#box-legend-game {
+#game-options {
 	padding: 5px;
 	width: 130px;
 	height: 130px;
@@ -455,9 +464,9 @@ h2 {
 	font-size: 120%;
 }
 
-#successMessage {
+#successMessage, #successMessageTimer {
 	display: none;
-  position: absolute;
+  position: fixed;
   left: 580px;
   top: 250px;
   width: 0;

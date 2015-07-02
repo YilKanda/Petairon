@@ -3,14 +3,9 @@
 	<table id="limits">
 		<tr class="row-header">
 			<td id='legend'>
-					<table id="box-legend-game">
-						<tr>
-							<td id="atomic-short" class="atomic-number" colspan="3"> <%= 'Symbol' %></td>
-						</tr>
-						<tr>
-							<td id="atomic-name" class="atomic-name" colspan="3"><%= 'Name' %></td>
-						</tr>
-					</table>
+					<div id="game-options">
+						<p class='timer'></p>				
+					</div>
 					<table id="random-elements-legend">
 						<% (0..1).each do |j| %>
 							<tr>
@@ -32,9 +27,13 @@
 					<div id='second-legend-game'>
 						<div>Total score: <span id='score'>0</span></div>
 	        </div>
-					<div id="successMessage">
+					<div id="successMessage" class="message">
 				    <h2>You did it!</h2>
-				    <button onclick="init()">Play Again</button>
+				    <button>Play Again</button>
+  				</div>
+  				<div id="successMessageTimer" class="message">
+				    <h2>Time is over!</h2>
+				    <button>Play Again</button>
   				</div>
 			</td>
 

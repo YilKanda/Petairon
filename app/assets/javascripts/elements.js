@@ -55,18 +55,28 @@ $(document).ready(function() {
   }
 
   $('.home-button').on('click', function() {
-  	var dataMenu = $(this).data('menu');
+  	var dataMenu = $(this).data('menu'),
+  			valueMenu = $(this).data('value');
   	if (url!=('http://localhost:3000/'+dataMenu)&& dataMenu!='user' ){
 			window.location.href = ("http://localhost:3000/"+dataMenu);
 		}
-		showSubmenu(url, dataMenu);
+		showSubmenu(url, dataMenu, valueMenu);
+  })
+
+  $('.mode-button').on('click', function() {
+  	var dataMenu = $(this).data('menu'),
+  			valueMenu = $(this).data('value');
+		showSubmenu(url, dataMenu, valueMenu);
   })
 
 
-  function showSubmenu(url, data) {
+  function showSubmenu(url, data, value) {
 		if (url == ('http://localhost:3000/'+data)) {
-			$('#submenu-'+data).toggle();		
-			$('#caret-down-'+data).toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+			$('#submenu-game'+value).toggle();
+			$('#submenu-game'+value).siblings('ul').hide();
+			if (value=="-mode"){
+				$('#caret-down-'+data).toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+			}	
 		} else if (data=='user'){
 			$('#submenu-'+data).toggle();		
 		}	
@@ -82,12 +92,70 @@ $(document).ready(function() {
 	$('.game-level').on('click', function(){
 		newGame();
 		var level = $(this).data('level');
-		$('#game').next('ul').fadeOut('very-slow');
-		$('#caret-down-game').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+		hideGameMenu()
 		play(level);
 	})
 
-	function newGame(){	
+		// game mode timer
+
+  var currentSeconds;
+  var currentMinutes;
+  var secs;
+	$('.start-game').on('click', function(){
+		hideGameMenu();
+		var level = $(this).data('level'),
+				mins = timeByLevel(level);
+		secs = mins*60;
+		startTimer(level);
+	})
+
+	function startTimer(level){
+		newGame();
+		play(level);
+		setTimeout(timer(), 1000);
+		//$('#successMessageTimer').show();
+		//timeFinished();
+	}
+
+	function hideGameMenu(){
+		$('.submenu-level').fadeOut('very-slow');
+		$('.message').hide();
+		$('.submenu').fadeOut('slow');
+		$('#caret-down-game').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
+	}
+
+	function timer() {
+      currentMinutes = Math.floor(secs / 60);
+      currentSeconds = secs % 60;
+      if(currentSeconds <= 9) currentSeconds = "0" + currentSeconds;
+      console.log(currentMinutes,currentSeconds);
+			$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
+      secs-=1;
+      if(secs !== -1) setTimeout(timer(), 1000);
+
+	};
+
+
+		function timeFinished(){
+			$('.border-element-options').draggable('disable');
+			$('.border-element-game').droppable( 'disable' );
+		}
+
+ 		function timeByLevel(level){
+ 			var time;
+ 			if (level == 'easy') {
+				time = 8;
+			} else if (level == 'medium'){
+				time = 6;
+			} else if (level == 'hard'){
+				time = 4;
+			} else {
+				time = 2;
+			}
+			return time;
+ 		}
+
+ 		function newGame(){	
 		randomElements = elements.sort(function() {return Math.random() - 0.5});
 		randomElementsLength = randomElements.length;
 		resetGame();
@@ -155,13 +223,13 @@ $(document).ready(function() {
 		 
 			  if ( correctElements == elementsLength ) {
 			    $('#successMessage').css('visibility','visible');
-			    $('#successMessage').animate( {
+			    $('#successMessage').animate({
 			      left: '380px',
 			      top: '200px',
 			      width: '400px',
 			      height: '100px',
 			      opacity: 1
-			    } );
+			    });
 			  }
 			}
 		}
@@ -215,6 +283,7 @@ $(document).ready(function() {
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
+		$('.property-value').text('');
 		$('.home-button').css('background-color', '#181a1e');
 		$('.submenu').fadeOut('very-slow');
 	
@@ -236,7 +305,7 @@ $(document).ready(function() {
 	});
 
 	// Mostrar funcionalidad del slider para el cambio de la temperatura
-	$('.slider').on('mousedown', function(e){
+	$('.slider').on('click', function(e){
   	moveSlider(e);
   	$(this).on('mousemove', function(e){
       	moveSlider(e);
@@ -251,7 +320,7 @@ $(document).ready(function() {
 
     var pos = $(e.currentTarget).offset(), 
     		posX = e.pageX - pos.left,   
-    		value = Math.round(posX*6000/$(e.currentTarget).outerWidth());
+    		value = Math.round((posX-0.5)*6021/($(e.currentTarget).outerWidth())-0.5);
 
     if(posX >= 0 && posX <= $(e.currentTarget).outerWidth()){
 
@@ -406,19 +475,36 @@ $(document).ready(function() {
 		for (var j=0; j<properties.length; j++){
 			var property = properties[j];
 			if (property == 'valencies'){
-				$('span[value="'+property+'"]').text(valencies[i]);
+				if (!valencies[i]){
+					emptyValue(property, i);
+				} else {
+					$('span[value="'+property+'"]').text(': '+valencies[i]);
+				}
 			} else if (property == 'state'){
-				$('span[value="'+property+'"]').text(elementStateWord(i, property, 293));
+				if (!elementStateWord(i, property, 293)){
+					emptyValue(property, i);
+				} else {
+					$('span[value="'+property+'"]').text(': '+elementStateWord(i, property, 293));
+				}
+			} else if (elements[i][property]){
+				if (property == 'mass'){
+					$('span[value="'+property+'"]').text(': '+elements[i][property].toFixed(4));
+				} else {
+					$('span[value="'+property+'"]').text(': '+elements[i][property]);
+				}
 			} else {
-				$('span[value="'+property+'"]').text(elements[i][property]);
+				emptyValue(property, i);
 			}
 		}
 	});
 
+	function emptyValue(property, i){
+			$('span[value="'+property+'"]').text(': Unknown');
+	}
+
 	function fillInitLegend(button){
 
 		var $property = $(button).attr('subname');
-		console.log($property);
 		$('#atomic-number').text("Z");
 		$('#legend-property').text($property);
 		$('#atomic-short').text('Symbol');
@@ -449,6 +535,7 @@ $(document).ready(function() {
 	function hideAndShowLeyends(property){
 		$('#categories-legend').hide();
 		if (property != 'state'){
+			$('.temperature-slider').hide();
 			$('#second-legend').hide();
 			$('#first-state-legend').hide();
 			$('#properties-menu-legend').show();
@@ -458,6 +545,7 @@ $(document).ready(function() {
 				$('#second-legend').show();
 			}
 		}else {
+			$('.temperature-slider').show();
 			$('#second-legend').show();
 			$('#first-state-legend').show();
 			$('#properties-menu-legend').hide();

@@ -98,26 +98,28 @@ header {
   width: 100%;
 }
 
-.nav ul li{
+.nav ul li, .nav ul ul li{
   position:relative;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  padding: 5px;
+  padding: 7px;
 }
 
-.nav ul li button, .nav ul li a {
+.nav ul li button, .nav ul li a, .nav ul ul li button {
   text-decoration: none;
   font-size: 13px;
   padding: 2px 0px;
   width: 100%;
   color: #dcdee3;
+  box-sizing: content-box;
 }
 
-.nav ul li:hover{
+.nav ul li:hover, .nav ul ul li:hover{
   background-color: #0d0e10;
 }
   
-.nav ul li button:hover, .nav ul li a:hover{
+.nav ul li button:hover, .nav ul ul li button:hover .nav ul li a:hover{
+  border: none;
   padding: 0px;
   top: 0px;
   font-size: 95%;
@@ -129,17 +131,25 @@ header {
   z-index: 10;
 }
 
-#submenu-elements {
+#submenu-game-mode {
   width: 150px;
-  left: 140px;
+  left: 410px;
   top:-10px;
   display: none;
 }
 
-#submenu-game {
+
+#submenu-game-timer {
   width: 100px;
-  left: 430px;
-  top:-10px;
+  left: 145px;
+  top:-40px;
+  display: none;
+}
+
+#submenu-game-normal {
+  width: 100px;
+  left: 145px;
+  top: -10px;
   display: none;
 }
 

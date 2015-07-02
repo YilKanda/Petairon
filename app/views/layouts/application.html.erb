@@ -13,18 +13,28 @@
 	<div id="header">
 			<ul class="nav">
 				<li class="left-margin"> </li>
-				<li class="home-button" data-menu=""> <i class="fa fa-home"> </i> Home </li>
-				<li class="home-button" id='elements-properties' data-menu="elements"> Elements </li>
-				<li class="home-button" data-menu="compounds"> Compounds </li>
-				<li class="home-button" id='game' data-menu="game">
+				<li class="home-button" data-menu="" data-value=""> <i class="fa fa-home"> </i> Home </li>
+				<li class="home-button" id='elements-properties' data-menu="elements" data-value=""> Elements </li>
+				<li class="home-button" data-menu="compounds" data-value=""> Compounds </li>
+				<li class="home-button" id="game" data-value="-mode" data-menu="game">
 					Play! <i class="fa fa-caret-down caret-down" id="caret-down-game"></i></button>
 				</li>
-					<ul class="none-display submenu" id="submenu-game">
-						<li><button type="submit" class="game-level" value="easy" data-level="easy">Easy</button></li>
-						<li><button type="submit" class="game-level" value="medium" data-level="medium">Medium</button></li>
-						<li><button type="submit" class="game-level" value="hard" data-level="hard">Hard</button></li>
-						<li><button type="submit" class="game-level" value="expert" data-level="expert">Expert</button></li>
-					</ul>
+				<ul class="submenu" id="submenu-game-mode">
+					<li class="mode-button" data-value="-timer" data-menu="game"><button>Timer Mode</button></li>
+						<ul class="submenu-level" id="submenu-game-timer">
+							<li><button type="submit" class="start-game" value="easy" data-level="easy">Easy</button></li>
+							<li><button type="submit" class="start-game" value="medium" data-level="medium">Medium</button></li>
+							<li><button type="submit" class="start-game" value="hard" data-level="hard">Hard</button></li>
+							<li><button type="submit" class="start-game" value="expert" data-level="expert">Expert</button></li>
+						</ul>
+					<li class="mode-button" data-value="-normal" data-menu="game"><button>Normal Mode</button></li>
+						<ul class="submenu-level" id="submenu-game-normal">
+							<li><button type="submit" class="game-level" value="easy" data-level="easy">Easy</button></li>
+							<li><button type="submit" class="game-level" value="medium" data-level="medium">Medium</button></li>
+							<li><button type="submit" class="game-level" value="hard" data-level="hard">Hard</button></li>
+							<li><button type="submit" class="game-level" value="expert" data-level="expert">Expert</button></li>
+						</ul>
+				</ul>
 				</li>
 			</ul>
 
