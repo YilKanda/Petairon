@@ -40,13 +40,14 @@ footer{
 	position: relative;
 	bottom: 0px;
 	background: #181a1e;
-	margin:0;
+	margin: 0;
 	margin-top: 40px;
 	color: white;
 	text-align: center;
 	padding: 20px;
 	font-size: 90%;
 	width: 100%;
+	height: 100%;
  	 	-moz-box-shadow: 0px -3px 3px 0px #cecece;
     -webkit-box-shadow: 0px -3px 3px 0px #cecece;
     box-shadow: 0px -3px 3px 0px #8b8b8b;
@@ -425,15 +426,12 @@ h2 {
 
 #game-options {
 	padding: 5px;
-	width: 130px;
+	width: 150px;
 	height: 130px;
-	background: #FFCC00;
 	font-size: 20px;
 	position: absolute;
 	margin-top: 5px;
 	margin-left: 30px;	
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-	border-radius: 12%;
 }
 
 .no-border-game {
@@ -845,7 +843,6 @@ input[type="hidden"] {
 .img-profile-size {
 	margin: 10px 20px 10px 0px;
 	float:left;
-	background-size: cover;
 	width: 170px;
 	height: 170px;
 	border-radius: 10%;
@@ -873,6 +870,7 @@ input[type="hidden"] {
 }
 
 .profile-view {
+	margin-left: 30px;
 	background-color: #eee;
 	border: 1px solid #ddd;
 	padding: 5px 0px 5px 30px;
@@ -880,4 +878,15 @@ input[type="hidden"] {
 
 iframe {
 	box-sizing: content-box;
+}
+
+@font-face {
+    font-family: 'digi';
+    src: url('/digital-7.ttf');
+}
+
+.timer{
+	font-family: 'digi';
+	font-size: 40px;
+	text-decoration: none;
 }

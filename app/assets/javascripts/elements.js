@@ -88,34 +88,49 @@ $(document).ready(function() {
 	  		failedElements = 0,
 				puntuation=0,
 				elementsDropped = [];
+  var currentSeconds;
+  var currentMinutes;
+  var secs;
+  var checkTimer = false,
+  		checkChronometer = false;
+
+  //  game mode normal
 
 	$('.game-level').on('click', function(){
-		newGame();
 		var level = $(this).data('level');
-		hideGameMenu()
-		play(level);
+		checkChronometer = true;
+		checkTimer = false;
+		secs = 0;
+		startTimer(level);
 	})
 
 		// game mode timer
 
-  var currentSeconds;
-  var currentMinutes;
-  var secs;
 	$('.start-game').on('click', function(){
-		hideGameMenu();
 		var level = $(this).data('level'),
 				mins = timeByLevel(level);
 		secs = mins*60;
+		checkTimer = true;
+		checkChronometer = false;
 		startTimer(level);
 	})
 
+
 	function startTimer(level){
+		hideGameMenu();
 		newGame();
 		play(level);
-		setTimeout(timer(), 1000);
+		if (checkTimer){
+			timer();
+		} else if (checkChronometer) {
+			chronometer();
+		}
 		//$('#successMessageTimer').show();
-		//timeFinished();
 	}
+
+	$('#finish-game').on('click', function(){
+		gameOver();
+	})
 
 	function hideGameMenu(){
 		$('.submenu-level').fadeOut('very-slow');
@@ -124,19 +139,41 @@ $(document).ready(function() {
 		$('#caret-down-game').toggleClass('fa-caret-up').toggleClass('fa-caret-down');
 	}
 
-	function timer() {
-      currentMinutes = Math.floor(secs / 60);
-      currentSeconds = secs % 60;
-      if(currentSeconds <= 9) currentSeconds = "0" + currentSeconds;
-      console.log(currentMinutes,currentSeconds);
-			$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
-      secs-=1;
-      if(secs !== -1) setTimeout(timer(), 1000);
+	function chronometer(){
+		currentMinutes = Math.floor(secs / 60);
+    currentSeconds = secs % 60;
+    if(currentSeconds <= 9) {
+    	currentSeconds = "0" + currentSeconds;
+    }
+		$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
+    secs+=1;
+    if(checkChronometer) {
+    	setTimeout(chronometer, 1000);
+    } else {
+			gameOver();
+    }
+	}
 
+	function timer() {
+    currentMinutes = Math.floor(secs / 60);
+    currentSeconds = secs % 60;
+    if(currentSeconds <= 9) {
+    	currentSeconds = "0" + currentSeconds;
+    }
+		$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
+    secs-=1;
+    if(secs != -1 && checkTimer) {
+    	setTimeout(timer, 1000);
+    } else {
+			gameOver();
+    }
 	};
 
+		function loopTimer(){}
 
-		function timeFinished(){
+		function gameOver(){
+			checkChronometer = false;
+			checkTimer = false;
 			$('.border-element-options').draggable('disable');
 			$('.border-element-game').droppable( 'disable' );
 		}
@@ -230,6 +267,7 @@ $(document).ready(function() {
 			      height: '100px',
 			      opacity: 1
 			    });
+			    gameOver();
 			  }
 			}
 		}
@@ -279,6 +317,19 @@ $(document).ready(function() {
 			return puntuation;
 		}
 
+	function addScore(){
+	var $author = $("#author").val();
+	var $text = $("#text").val();
+	var $newcomment = {author: $author, text: $text};
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:3000/comments",
+			data: $newcomment,
+			success: function(response){alert("Success: true")},
+			error: function(response){alert("Success: false")},
+			dataType: "json"
+		});
+	};
 
 	// Mostrar funcionalidad de los botones del menú		
 	$(".property-button").on("click", function(){

@@ -156,7 +156,8 @@ header {
 /* logout-login */
 
 .img-little-size {
-  background-size: cover;
+  object-fit: auto auto; 
+  object-position: center;
   width: 38px;
   height:38px;
   border-radius: 20%;

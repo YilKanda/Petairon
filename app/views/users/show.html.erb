@@ -8,16 +8,15 @@
 
 <div class="container">
 	<div class="row-container">
-  	<div class="col-md-1"></div>
-    <div class="col-md-4 profile-view">
+    <div class="col-md-5 profile-view">
       	<div class="row-container">
-	        <div class="col-md-6">
+	        <div class="col-md-7">
 	        	<br>
 	          <p><strong> Name: </strong> <%= @user.name %> </p>
 	          <p><strong> Email: </strong> <%= @user.email %> </p>
 	          <p><strong> Score: </strong> <%= @user.score %> </p>
 	        </div>
-	        <div class="col-md-6 centrated-img">
+	        <div class="col-md-5 centrated-img">
 						<%= image_tag @user.image, :class => "img-thumbnail img-profile-size" %>
 					</div>
 				</div>
