@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :scores
 	validates :nick, uniqueness: true
 	validates :nick, presence: true
 	validates :name, presence: true

@@ -5,6 +5,14 @@ class UsersController < ApplicationController
 
   def show
 		@user = User.find params[:id]
+    @score_timer_easy = Score.where(mode: 'Timer mode').where(levelgame: 'easy').where(id_user: @user.id);
+    @score_timer_medium = Score.where(mode: 'Timer mode').where(levelgame: 'medium').where(id_user: @user.id);
+    @score_timer_hard = Score.where(mode: 'Timer mode').where(levelgame: 'hard').where(id_user: @user.id);
+    @score_timer_expert = Score.where(mode: 'Timer mode').where(levelgame: 'expert').where(id_user: @user.id);
+    @score_normal_easy = Score.where(mode: 'Normal mode').where(levelgame: 'easy').where(id_user: @user.id);
+    @score_normal_medium = Score.where(mode: 'Normal mode').where(levelgame: 'medium').where(id_user: @user.id);
+    @score_normal_hard = Score.where(mode: 'Normal mode').where(levelgame: 'hard').where(id_user: @user.id);
+    @score_normal_expert = Score.where(mode: 'Normal mode').where(levelgame: 'expert').where(id_user: @user.id);
   end
 
   def new
@@ -60,6 +68,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-      params.require(:user).permit(:name, :nick, :email, :password, :score, :level, :image)    
+      params.require(:user).permit(:name, :nick, :email, :password, :level, :image)    
   end
 end

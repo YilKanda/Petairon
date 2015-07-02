@@ -13,12 +13,14 @@
 	<div id="header">
 			<ul class="nav">
 				<li class="left-margin"> </li>
+				<li><img src="/public/logo.png"></li>
 				<li class="home-button" data-menu="" data-value=""> <i class="fa fa-home"> </i> Home </li>
 				<li class="home-button" id='elements-properties' data-menu="elements" data-value=""> Elements </li>
 				<li class="home-button" data-menu="compounds" data-value=""> Compounds </li>
 				<li class="home-button" id="game" data-value="-mode" data-menu="game">
 					Play! <i class="fa fa-caret-down caret-down" id="caret-down-game"></i></button>
 				</li>
+				<% if current_user %>
 				<ul class="submenu" id="submenu-game-mode">
 					<li class="mode-button" data-value="-timer" data-menu="game"><button>Timer Mode</button></li>
 						<ul class="submenu-level" id="submenu-game-timer">
@@ -36,6 +38,13 @@
 						</ul>
 				</ul>
 				</li>
+				<% else %>
+					<div id="successMessageLogin" class="message">
+				    <h2>You have to log in!</h2>
+				    <a href="<%= login_path %>">Log in</a> 
+		    		<a href="<%= new_user_path %>">Create an account</a>
+					</div>
+				<% end %>
 			</ul>
 
 			<ul class="nav login-users">

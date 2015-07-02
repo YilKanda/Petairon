@@ -4,7 +4,7 @@
 		<tr class="row-header">
 			<td id='legend'>
 					<div id="game-options">
-						<p class='timer'> 0:00 </p>	
+						<p class='timer'>0:00</p>	
 						<button class='btn btn-primary btn-lg btn-block' id="finish-game"> Finish Game </button>			
 					</div>
 					<table id="random-elements-legend">
@@ -28,13 +28,13 @@
 					<div id='second-legend-game'>
 						<div>Total score: <span id='score'>0</span></div>
 	        </div>
-					<div id="successMessage" class="message">
+					<div id="successMessageChronometer" class="message">
 				    <h2>You did it!</h2>
-				    <button>Play Again</button>
+				    <a href="<%= game_path %>">Play Again</a> 
   				</div>
   				<div id="successMessageTimer" class="message">
 				    <h2>Time is over!</h2>
-				    <button>Play Again</button>
+  					<a href="<%= game_path %>">Play Again</a> 
   				</div>
 			</td>
 

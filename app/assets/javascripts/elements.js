@@ -57,9 +57,13 @@ $(document).ready(function() {
   $('.home-button').on('click', function() {
   	var dataMenu = $(this).data('menu'),
   			valueMenu = $(this).data('value');
+  			$('.message').hide();
   	if (url!=('http://localhost:3000/'+dataMenu)&& dataMenu!='user' ){
 			window.location.href = ("http://localhost:3000/"+dataMenu);
 		}
+		if (url=='http://localhost:3000/game'){
+			$('#successMessageLogin').show();
+		} 
 		showSubmenu(url, dataMenu, valueMenu);
   })
 
@@ -87,39 +91,43 @@ $(document).ready(function() {
 		var correctElements = 0,
 	  		failedElements = 0,
 				puntuation=0,
-				elementsDropped = [];
-  var currentSeconds;
-  var currentMinutes;
-  var secs;
-  var checkTimer = false,
+				elementsDropped = [],
+				level,
+				gameMode;
+  var currentSeconds,
+  		currentMinutes,
+  		secs,
+  		checkTimer = false,
   		checkChronometer = false;
 
   //  game mode normal
 
 	$('.game-level').on('click', function(){
-		var level = $(this).data('level');
+		level = $(this).data('level');
+		gameMode = 'Normal mode';
 		checkChronometer = true;
 		checkTimer = false;
 		secs = 0;
-		startTimer(level);
+		startTimer();
 	})
 
 		// game mode timer
 
 	$('.start-game').on('click', function(){
-		var level = $(this).data('level'),
-				mins = timeByLevel(level);
+		level = $(this).data('level'),
+				mins = timeByLevel();
+		gameMode = 'Timer mode';
 		secs = mins*60;
 		checkTimer = true;
 		checkChronometer = false;
-		startTimer(level);
+		startTimer();
 	})
 
 
-	function startTimer(level){
+	function startTimer(){
 		hideGameMenu();
 		newGame();
-		play(level);
+		play();
 		if (checkTimer){
 			timer();
 		} else if (checkChronometer) {
@@ -151,6 +159,8 @@ $(document).ready(function() {
     	setTimeout(chronometer, 1000);
     } else {
 			gameOver();
+			addScore();
+			$('#successMessageChronometer').show();
     }
 	}
 
@@ -166,10 +176,10 @@ $(document).ready(function() {
     	setTimeout(timer, 1000);
     } else {
 			gameOver();
+			addScore();
+			$('#successMessageTimer').show();
     }
 	};
-
-		function loopTimer(){}
 
 		function gameOver(){
 			checkChronometer = false;
@@ -178,7 +188,7 @@ $(document).ready(function() {
 			$('.border-element-game').droppable( 'disable' );
 		}
 
- 		function timeByLevel(level){
+ 		function timeByLevel(){
  			var time;
  			if (level == 'easy') {
 				time = 8;
@@ -207,12 +217,14 @@ $(document).ready(function() {
 		showElementsOptions(elementsDropped);
 		$('.border-element-game').children().hide();
 		$('#score').text(puntuation);
+		$('.border-element-options').draggable('enable');
+		$('.border-element-game').droppable( 'enable' );
 	}
 	
-	function play(level){
+	function play(){
 		dragAndDrop(level);
 
-		function dragAndDrop(level){
+		function dragAndDrop(){
 		  // Create the draggable box	 	
 		  
 	    $('.border-element-options').draggable( {
@@ -246,10 +258,10 @@ $(document).ready(function() {
 			    $(this).droppable( 'disable' );
 			    $(this).children().show();
 			    showElementsOptions(elementsDropped);
-			    puntuation = guessAnswer(level, puntuation);
+			    puntuation = guessAnswer(puntuation);
 			    correctElements++;
 			  } else {
-			  	puntuation = failAnswer(level, puntuation);
+			  	puntuation = failAnswer(puntuation);
 			  	failedElements++;
 			  }
 			  $('#score').text(puntuation);
@@ -299,12 +311,12 @@ $(document).ready(function() {
 			return $position > -1;
 		}
 
-		function failAnswer(level, puntuation){
+		function failAnswer(puntuation){
 			puntuation -= 1;
 			return puntuation;
 		}
 
-		function guessAnswer(level, puntuation){
+		function guessAnswer(puntuation){
 			if (level == 'easy') {
 				puntuation += 12;
 			} else if (level == 'medium'){
@@ -318,15 +330,25 @@ $(document).ready(function() {
 		}
 
 	function addScore(){
-	var $author = $("#author").val();
-	var $text = $("#text").val();
-	var $newcomment = {author: $author, text: $text};
+
+		var $time,
+				$puntuation = parseInt($("#score").text()),
+				$levelgame = level,
+				$newScore; 
+				if (gameMode=='Normal mode') {
+					mins = timeByLevel();
+					secs = mins % 60;
+					$time = (mins-currentMinutes)+' m '+(secs-currentSeconds)+' s';
+				} else {
+					$time = currentMinutes+' m '+currentSeconds+' s';
+				}
+		$newScore = {puntuation: $puntuation, time: $time, mode: gameMode, levelgame: $levelgame};
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:3000/comments",
-			data: $newcomment,
-			success: function(response){alert("Success: true")},
-			error: function(response){alert("Success: false")},
+			url: "http://localhost:3000/scores",
+			data: $newScore,
+			success: function(response){console.log("Success: true", $newScore)},
+			error: function(response){console.log("Success: false")},
 			dataType: "json"
 		});
 	};

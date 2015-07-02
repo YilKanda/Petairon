@@ -462,15 +462,14 @@ h2 {
 	font-size: 120%;
 }
 
-#successMessage, #successMessageTimer {
+#successMessageChronometer, #successMessageTimer, #successMessageLogin {
 	display: none;
   position: fixed;
-  left: 580px;
-  top: 250px;
-  width: 0;
-  height: 0;
+  left: 30%;
+  top: 100px;
+  width: 500px;
+  height: 200px;
   z-index: 100;
-  background: #dfd;
   border: 2px solid #333;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -479,7 +478,12 @@ h2 {
   -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   padding: 20px;
+  z-index: 20;
+  color:black;
+  text-align: center;
+  background-color: white;
 }
+
 
 /* wiki ventana*/
 
@@ -624,7 +628,31 @@ input[type="hidden"] {
   border-radius: 4px;
 }
 
-.btn:hover {
+.message a {
+	display: none;
+  display: inline-block;
+  margin: 0px;
+  margin-top: 30px; 
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 15px 60px;
+  color: white;
+  background-color: blue;
+}
+
+.btn:hover, .message a:hover {
 	background-color: #003B93;
 }
 
@@ -889,4 +917,30 @@ iframe {
 	font-family: 'digi';
 	font-size: 40px;
 	text-decoration: none;
+}
+
+/*ranking*/
+
+table.score-levels {
+	margin-bottom: 40px;
+	border-spacing:  0px;
+}
+
+.score-levels tr td {
+	border-bottom: 1px solid black !important;
+	width: 150px;
+	padding: 5px;
+	text-align: center;
+}
+
+.score-levels tr td[colspan="3"] {
+	font-size: 110% !important;
+	color: #8A008A;
+}
+
+.table-header {
+	font-size: 110% !important;
+	background-color: #8A008A;
+	color: white;
+	text-decoration: bold !important;
 }

@@ -5,8 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nick
       t.string :email
       t.string :password_digest
-      t.float :score
-      t.float :level
+      t.float :level, default: 0
       
       t.timestamps null: false
     end

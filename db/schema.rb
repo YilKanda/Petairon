@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625123010) do
+ActiveRecord::Schema.define(version: 20150702125449) do
 
   create_table "compounds", force: :cascade do |t|
     t.string   "symbol"
@@ -56,15 +56,24 @@ ActiveRecord::Schema.define(version: 20150625123010) do
   add_index "elements_valencies", ["element_id"], name: "index_elements_valencies_on_element_id"
   add_index "elements_valencies", ["valency_id"], name: "index_elements_valencies_on_valency_id"
 
+  create_table "scores", force: :cascade do |t|
+    t.float    "puntuation", default: 0.0
+    t.string   "time"
+    t.string   "mode"
+    t.integer  "id_user"
+    t.string   "levelgame"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "nick"
     t.string   "email"
     t.string   "password_digest"
-    t.float    "score"
-    t.float    "level"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.float    "level",           default: 0.0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "image"
   end
 
