@@ -184,6 +184,6 @@ header {
 .left-margin {
   margin: 0px;
   padding: 0px;
-  min-width: 6%;
+  min-width: 8% !important;
   height: 100%;
 }

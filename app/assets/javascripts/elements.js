@@ -803,7 +803,7 @@ $(document).ready(function() {
 		$('#wiki-info').attr('src', '');
 		maximizar = true;
 	});
-
+	
 });
 
 

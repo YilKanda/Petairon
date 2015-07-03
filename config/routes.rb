@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'elements#index'
+  root :to => 'elements#home'
   get '/elements' => 'elements#index'
   get '/properties' => 'elements#property'
   get '/valencies' => 'elements#element_valencies'

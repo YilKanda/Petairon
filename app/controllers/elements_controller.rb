@@ -1,4 +1,7 @@
 class ElementsController < ApplicationController
+	def home	
+	end
+
 	def index
 		@elements = Element.all	
 		@matrix_elements = Element.matrix_periodic_table	
