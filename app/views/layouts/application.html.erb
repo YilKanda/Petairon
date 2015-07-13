@@ -12,7 +12,7 @@
 <header>
 	<div id="header">
 			<ul class="nav">
-				<li class="left-margin"> </li>
+				<li class="left-margin none"> </li>
 				<li class="home-button" data-menu="" data-value=""> <i class="fa fa-home"> </i> Home </li>
 				<li class="home-button" id='elements-properties' data-menu="elements" data-value=""> Elements </li>
 				<li class="home-button" data-menu="compounds" data-value=""> Compounds </li>
@@ -47,7 +47,7 @@
 			</ul>
 
 			<ul class="nav login-users">
-				<li class="left-margin"> </li>
+				<li class="left-margin none"> </li>
 				<% if current_user %> 
 					<li class="home-button img-profile" data-menu="user">
 		    			<%= image_tag current_user.image_url.to_s, :class => "img-little-size" %> 

@@ -303,7 +303,7 @@ footer{
 	background-color: #181a1e;
 }
 
-#properties-menu-legend label {
+#properties-menu-legend label, #properties-menu-legend label .kelvin {
 	color: blue;
 }
 

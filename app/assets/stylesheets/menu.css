@@ -57,7 +57,7 @@ header {
   background-color: #0d0e10;
 }
 .nav .none:hover {
-  background-color: #181a1e;
+  background-color: #181a1e !important;
 }
 
 .none-display {

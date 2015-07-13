@@ -357,6 +357,7 @@ $(document).ready(function() {
 	$(".property-button").on("click", function(){
 		var $property = $(this).val();
 		$('.property-value').text('');
+		$('.elementoids').css('background-color', '#D8D8D8');
 		$('.home-button').css('background-color', '#181a1e');
 		$('.submenu').fadeOut('very-slow');
 	
@@ -366,8 +367,11 @@ $(document).ready(function() {
 			hideAndShowLeyends($property);
 			fillInitLegend($(this));
 			if ($property == 'state') {
-				elementState(i, $property, 293);
+				var temperature = $('#kelvin').text();
+				fillTemperatureValues(temperature);
+				elementState(i, $property, temperature);
 			} else if ($property == 'valencies'){
+				$('.elementoids').css('background-color', '#FFCC00');
 				elementValencies(i, $property);
 			} else if ($property) {
 				colorVariation(i, $property);
@@ -399,15 +403,20 @@ $(document).ready(function() {
 
       $('.slider > .progress').css('width', posX+'px');
       $('.slider > .indicator').css('left', posX+'px');
-      $('#kelvin').text(value);
-      $('#centigrades').text(value-273);
-      $('#fahrenheit').text(Math.round((value-273)*1.8+32));
+      fillTemperatureValues(value);
       
       for (var i = 0; i < elementsLength; i++ ) {
 				$('#element'+i).css('opacity', '1');
 				elementState(i, 'state', value);
 			}
 	  }
+	}
+
+	function fillTemperatureValues(temperature){
+      $('.kelvin').text(temperature);
+      $('#centigrades').text(temperature-273);
+      $('#fahrenheit').text(Math.round((temperature-273)*1.8+32));
+
 	}
 
 	//choose elements by category 
@@ -664,7 +673,7 @@ $(document).ready(function() {
 		var init = color[property][0],
 				ending = color[property][1],
 				colors = [];
-		$('.elementoids').css('background-color', '#D8D8D8');
+		
 		if (property != 'mass') {
 			colors = propertyColors(property);
 			var length = colors.length;
