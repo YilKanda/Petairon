@@ -9,7 +9,7 @@
 				<%= flash[:notice] %>
 			</p>
 		<% end %>
-    <h2 class='centrated-title'><%= @user.nick %></h2>
+    <h2 id="user-name" class='centrated-title' data-id="<%= @user.id %>"><%= @user.nick %></h2>
 		<div class="page-header"></div>
 	</div>
 	<br>
@@ -44,6 +44,11 @@
 				</div>
   	</div>
   	<div class="col-md-6">
+  		
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+  		<div id="container" style="width:100%;height:400px;">
+  		</div>
   		<div class="container">
 				<div class="row-container">
 					<div class="col-md-1"></div>
@@ -61,7 +66,7 @@
 									</tr>	
 								<% @score_timer_easy.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -76,7 +81,7 @@
 									</tr>	
 								<% @score_timer_medium.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -91,7 +96,7 @@
 									</tr>	
 								<% @score_timer_hard.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -106,7 +111,7 @@
 									</tr>	
 								<% @score_timer_expert.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 									<% end %>
@@ -135,7 +140,7 @@
 									</tr>	
 								<% @score_normal_easy.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -150,7 +155,7 @@
 									</tr>	
 								<% @score_normal_medium.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -165,7 +170,7 @@
 									</tr>	
 								<% @score_normal_hard.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
@@ -180,7 +185,7 @@
 									</tr>		
 								<% @score_normal_expert.each do |score| %>
 									<tr>
-										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.puntuation %></td>
 										<td><%= score.mins %> m <%= score.secs %> s</td>
 									</tr>	
 								<% end %>
