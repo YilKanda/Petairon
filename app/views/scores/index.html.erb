@@ -18,8 +18,8 @@
 				<% @scores_timer_easy.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -33,8 +33,8 @@
 				<% @scores_timer_medium.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -48,8 +48,8 @@
 				<% @scores_timer_hard.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -63,8 +63,8 @@
 				<% @scores_timer_expert.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 					<% end %>
 			</table>
@@ -87,8 +87,8 @@
 				<% @scores_normal_easy.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -102,8 +102,8 @@
 				<% @scores_normal_medium.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -117,8 +117,8 @@
 				<% @scores_normal_hard.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>
@@ -132,8 +132,8 @@
 				<% @scores_normal_expert.each do |score| %>
 					<tr>
 						<td><%= User.find(score.id_user).nick %></td>
-						<td><%= score.puntuation %></td>
-						<td><%= score.time %></td>
+						<td><%= score.puntuation.to_i %></td>
+						<td><%= score.mins %> m <%= score.secs %> s</td>
 					</tr>	
 				<% end %>
 			</table>

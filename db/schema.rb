@@ -57,13 +57,14 @@ ActiveRecord::Schema.define(version: 20150702125449) do
   add_index "elements_valencies", ["valency_id"], name: "index_elements_valencies_on_valency_id"
 
   create_table "scores", force: :cascade do |t|
-    t.float    "puntuation", default: 0.0
-    t.string   "time"
+    t.integer  "puntuation", default: 0
+    t.integer  "mins"
+    t.integer  "secs"
     t.string   "mode"
     t.integer  "id_user"
     t.string   "levelgame"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

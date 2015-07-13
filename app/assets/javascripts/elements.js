@@ -150,9 +150,7 @@ $(document).ready(function() {
 	function chronometer(){
 		currentMinutes = Math.floor(secs / 60);
     currentSeconds = secs % 60;
-    if(currentSeconds <= 9) {
-    	currentSeconds = "0" + currentSeconds;
-    }
+    currentSeconds = secondsLessThanTen();
 		$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
     secs+=1;
     if(checkChronometer) {
@@ -167,9 +165,7 @@ $(document).ready(function() {
 	function timer() {
     currentMinutes = Math.floor(secs / 60);
     currentSeconds = secs % 60;
-    if(currentSeconds <= 9) {
-    	currentSeconds = "0" + currentSeconds;
-    }
+    currentSeconds = secondsLessThanTen();
 		$('.timer').text(currentMinutes + ":" + currentSeconds); //Set the element id you need the time put into.
     secs-=1;
     if(secs != -1 && checkTimer) {
@@ -180,6 +176,13 @@ $(document).ready(function() {
 			$('#successMessageTimer').show();
     }
 	};
+
+	function secondsLessThanTen(){
+		if(currentSeconds <= 9) {
+    	currentSeconds = "0" + currentSeconds;
+    }
+    return currentSeconds;
+	}
 
 		function gameOver(){
 			checkChronometer = false;
@@ -335,14 +338,17 @@ $(document).ready(function() {
 				$puntuation = parseInt($("#score").text()),
 				$levelgame = level,
 				$newScore; 
-				if (gameMode=='Normal mode') {
+				if (gameMode=='Timer mode') {
+					leftSecs = currentMinutes * 60 + currentSeconds
 					mins = timeByLevel();
-					secs = mins % 60;
-					$time = (mins-currentMinutes)+' m '+(secs-currentSeconds)+' s';
-				} else {
-					$time = currentMinutes+' m '+currentSeconds+' s';
-				}
-		$newScore = {puntuation: $puntuation, time: $time, mode: gameMode, levelgame: $levelgame};
+					secs = mins * 60;
+					totalSecs = secs - leftSecs;
+					currentMinutes = Math.floor(totalSecs / 60);
+					currentSeconds = totalSecs % 60;
+				} 
+				$mins = currentMinutes;
+				$secs = currentSeconds;
+		$newScore = {puntuation: $puntuation, mins: $mins, secs: $secs, mode: gameMode, levelgame: $levelgame};
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:3000/scores",

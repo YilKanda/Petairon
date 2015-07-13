@@ -55,7 +55,10 @@
 					</li>
 					<ul class="none-display submenu" id="submenu-user">
 						<li class="menu-option" data-menu="">
-				    	<%= link_to "My ranking", user_path(current_user), :class=> "home-button" %>
+				    	<%= link_to "My rankings", user_path(current_user), :class=> "home-button" %>
+						</li>
+						<li class="menu-option" data-menu="">
+				    	<%= link_to "Glogal rankings", scores_path, :class=> "home-button" %>
 						</li>
 						<li class="menu-option" data-menu="">
 				    	<%= link_to "Participants", users_path, :class=> "home-button" %>

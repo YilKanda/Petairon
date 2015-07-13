@@ -48,153 +48,149 @@
 				<div class="row-container">
 					<div class="col-md-1"></div>
 					<div class="col-md-5">
-				    <h1 class='centrated-title'>
-				    	Timer Mode
-				    </h1>
-				    <div class="page-header">
-				    </div>
+				    <h1 class='centrated-title-ranking'>Timer Mode</h1>
+				    <div class="page-header"></div>
 				    <br>
-						<% if @score_timer_easy %>
-							<table class='easy score-levels'>	
-						    <tr><td colspan="3">Easy</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_timer_easy.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
-							<% end %>
-							</table>
-						<% end %>
-						<% if @score_timer_medium %>
-						<table class='medium score-levels'>	
-								<tr><td colspan="3">Medium</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_timer_medium.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
-							<% end %>
-							</table>
-						<% end %>
-						<% if @score_timer_hard %>
-							<table class='hard score-levels'>	
-								<tr><td colspan="3">Hard</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_timer_hard.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
-							<% end %>
-							</table>
-						<% end %>
-						<% if @score_timer_expert %>
-							<table class='expert score-levels'>	
-							<tr><td colspan="3">Expert</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_timer_expert.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
+						<% if @score_timer[0] %>
+							<% if @score_timer_easy[0] %>
+								<table class='easy score-levels'>	
+							    <tr><td colspan="2">Easy</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_timer_easy.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
 								<% end %>
+								</table>
+							<% end %>
+							<% if @score_timer_medium[0] %>
+							<table class='medium score-levels'>	
+									<tr><td colspan="2">Medium</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_timer_medium.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
+							<% end %>
+							<% if @score_timer_hard[0] %>
+								<table class='hard score-levels'>	
+									<tr><td colspan="2">Hard</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_timer_hard.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
+							<% end %>
+							<% if @score_timer_expert[0] %>
+								<table class='expert score-levels'>	
+								<tr><td colspan="2">Expert</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_timer_expert.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+									<% end %>
+								</table>
+							<% end %>
+						<% else %>
+							<table>
+								<tr class='score-levels'>
+									<td colspan="2">No rankings yet.</td>
+								</tr>
 							</table>
 						<% end %>
 
-				    <h1 class='centrated-title'>
-				    	Normal Mode
-				    </h1>
-				    <div class="page-header">	     
-				    </div>
+						<p class="publicity"></p>
+
+				    <h1 class='centrated-title-ranking'>Normal Mode</h1>
+				    <div class="page-header"></div>
 				    <br>
-						<% if @score_normal_easy %>
-							<table class='easy score-levels'>	
-								<tr><td colspan="3">Easy</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_normal_easy.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
+				    <% if @score_normal[0] %>
+							<% if @score_normal_easy[0] %>
+								<table class='easy score-levels'>	
+									<tr><td colspan="2">Easy</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_normal_easy.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
 							<% end %>
-							</table>
-						<% end %>
-						<% if @score_normal_medium %>
-							<table class='medium score-levels'>	
-								<tr><td colspan="3">Medium</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_normal_medium.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
+							<% if @score_normal_medium[0] %>
+								<table class='medium score-levels'>	
+									<tr><td colspan="2">Medium</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_normal_medium.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
 							<% end %>
-							</table>
-						<% end %>
-						<% if @score_normal_hard %>
-							<table class='hard score-levels'>	
-								<tr><td colspan="3">Hard</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>	
-							<% @score_normal_hard.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
+							<% if @score_normal_hard[0] %>
+								<table class='hard score-levels'>	
+									<tr><td colspan="2">Hard</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>	
+								<% @score_normal_hard.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
 							<% end %>
-							</table>
-						<% end %>
-						<% if @score_normal_expert %>
-							<table class='expert score-levels'>
-								<tr><td colspan="3">Expert</td></tr>
-								<tr class="table-header">
-									<td>User</td>
-									<td>Puntuation</td>
-									<td>Time</td>
-								</tr>		
-							<% @score_normal_expert.each do |score| %>
-								<tr>
-									<td><%= User.find(score.id_user).nick %></td>
-									<td><%= score.puntuation %></td>
-									<td><%= score.time %></td>
-								</tr>	
+							<% if @score_normal_expert[0] %>
+								<table class='expert score-levels'>
+									<tr><td colspan="2">Expert</td></tr>
+									<tr class="table-header">
+										<td>Puntuation</td>
+										<td>Time</td>
+									</tr>		
+								<% @score_normal_expert.each do |score| %>
+									<tr>
+										<td><%= score.puntuation.to_i %></td>
+										<td><%= score.mins %> m <%= score.secs %> s</td>
+									</tr>	
+								<% end %>
+								</table>
 							<% end %>
+						<% else %>
+							<table>
+								<tr class='score-levels'>
+									<td colspan="2">No rankings yet.</td>
+								</tr>
 							</table>
 						<% end %>
 					</div>
