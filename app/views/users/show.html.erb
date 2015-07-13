@@ -1,10 +1,20 @@
 <div class="container">
   <div class="col-md-12">
+		<% if flash[:alert] %>
+			<p class="error-msg">
+				<%= flash[:alert] %>
+			</p>
+		<% elsif flash[:notice] %>
+			<p class="notice-msg">
+				<%= flash[:notice] %>
+			</p>
+		<% end %>
     <h2 class='centrated-title'><%= @user.nick %></h2>
 		<div class="page-header"></div>
 	</div>
 	<br>
 </div>
+
 
 <div class="container">
 	<div class="row-container">
@@ -196,5 +206,5 @@
 </div>
 
 <div class="container">
-	<div class="page-header"></div>
+	<div class="page-header-bottom"></div>
 </div>

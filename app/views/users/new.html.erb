@@ -16,7 +16,7 @@
 				<%= flash[:alert] %>
 			</p>
 		<% elsif flash[:error] %>
-			<p>
+			<p class="error-msg">
 				<% flash[:error].each do |error_msg| %>
 	    		<li><%= error_msg %></li>
 	  		<% end %>
@@ -53,6 +53,6 @@
 </div>
 
 <div class="container">
-	<div class="page-header"></div>
+	<div class="page-header-bottom"></div>
 </div>
 

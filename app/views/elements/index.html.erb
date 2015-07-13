@@ -156,9 +156,7 @@
 		<% @matrix_elements.each_with_index do |period, index| %>
 			<tr class="row"> 
 				<% if index < 7 %>
-					<td class="period" id="period<%= index + 1 %>" data-period="<%= index + 1 %>"> 
-						<%= index + 1 %> 
-					</td>
+					<td class="period" id="period<%= index + 1 %>" data-period="<%= index + 1 %>"> <%= index + 1 %> </td>
 				<% else %>
 					<td> </td>
 				<% end %>

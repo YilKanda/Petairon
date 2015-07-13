@@ -11,12 +11,8 @@
 	<div class="col-md-6">
 
 	<%= form_for @user, :html => { :multipart => true } do |f| %>
-		<% if flash[:alert] %>
+		<% if flash[:error] %>
 			<p class="error-msg">
-				<%= flash[:alert] %>
-			</p>
-		<% elsif flash[:error] %>
-			<p>
 				<% flash[:error].each do |error_msg| %>
 	    		<li><%= error_msg %></li>
 	  		<% end %>
@@ -49,6 +45,6 @@
 </div>
 
 <div class="container">
-	<div class="page-header"></div>
+	<div class="page-header-bottom"></div>
 </div>
 

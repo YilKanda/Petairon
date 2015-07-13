@@ -10,7 +10,11 @@
 	<form class="col-md-4"></form>
 	<div class="col-md-4">
 	<%= form_for(:session, url: login_path) do |f| %>
-		<% if flash[:error] %>
+		<% if flash[:notice] %>
+			<p class="notice-msg">
+				<%= flash[:notice] %>
+			</p>
+		<% elsif flash[:error] %>
 			<p class="error-msg">
 				<%= flash[:error] %>
 			</p>
@@ -29,6 +33,6 @@
 	<form class="col-md-4"></form>
 </div>
 <div class="container">
-	<div class="page-header"></div>
+	<div class="page-header-bottom"></div>
 </div>
 
